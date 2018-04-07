@@ -14,7 +14,7 @@ $ npm install lxc-query --save
 ## Usage
 
 ```
-const lxc_query = require('lxc-query')
+const lxc = require('lxc-query')
 
 lxc.query('remote:/1.0', 'GET', '', response => {
     console.log(response);
