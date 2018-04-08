@@ -63,6 +63,8 @@
         
             <li><a class="toctree-l3" href="#info">Info</a></li>
         
+            <li><a class="toctree-l3" href="#remotes">Remotes</a></li>
+        
         </ul>
     
 
@@ -249,6 +251,42 @@
     },
     public: false
 }
+</code></pre>
+
+<h2 id="remotes">Remotes</h2>
+<p>Get currently defined remotes. (only works with local:)</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Note:</strong> Your need to run <code>response.trim().split(/\r?\n/)</code> to turn the response into an array.</em></p>
+<pre><code>lxc.server.remotes().then(response =&gt; {
+    console.log(response.trim().split(/\r?\n/));
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>[
+    'images',
+    'local',
+    'ubuntu',
+    'ubuntu-daily'
+]
 </code></pre>
               
             </div>
