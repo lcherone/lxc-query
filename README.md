@@ -20,16 +20,9 @@ $ npm i lxc-query
 ```
 const lxc = require('lxc-query')
 
-// with callback
-lxc.query('remote:/1.0', 'GET', '', response => {
+lxc.query('remote:/1.0', 'GET', {}).then(response => {
     console.log(response);
 })
-
-// with promise
-lxc.query('remote:/1.0', 'GET', '').then(response => {
-    console.log(response);
-})
-
 ```
 
 Need more examples? [See the docs](https://lcherone.github.io/lxc-query).

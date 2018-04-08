@@ -11,9 +11,30 @@ List containers on remote.
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local:        |
+| mutator      | function      | Mutation function |               |
 
 ```
+// apply no mutation to the response
 lxc.containers.list('local:').then(response => {
+    // [ '/1.0/containers/my-container' ]
+    console.log(response);
+})
+
+// apply stripEndpoint on response
+lxc.containers.list('local:', response => lxc.containers.stripEndpoint(response)).then(response => {
+    // [ 'my-container' ]
+    console.log(response);
+})
+
+// or you could write your own
+lxc.containers.list('local:', response => {
+    let ret = []
+    response.forEach(value => {
+      ret.push(value.replace(lxc.containers.baseEndpoint + '/', ''))
+    })
+    return ret
+}).then(response => {
+    // [ 'my-container' ]
     console.log(response);
 })
 ```

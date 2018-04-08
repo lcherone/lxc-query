@@ -144,12 +144,11 @@ Get currently defined remotes. (only works with local:)
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-
-<em>**Note:** Your need to run `response.trim().split(/\r?\n/)` to turn the response into an array.</em>
+| None         |               |               |               | 
 
 ```
 lxc.server.remotes().then(response => {
-    console.log(response.trim().split(/\r?\n/));
+    console.log(response);
 })
 ```
 

@@ -35,7 +35,7 @@ module.exports = class Server {
   /**
    *
    */
-  query (remote, action, data, callback) {
+  query (remote, action, data, mutator) {
     //
     remote = remote || 'local:'
     action = action || 'GET'
@@ -48,17 +48,19 @@ module.exports = class Server {
     )
     return exec(
       'lxc query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
-      callback
+      mutator
     )
   }
 
   /**
    *
    */
-  remotes (callback) {
+  remotes () {
     return exec(
       'lxc remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
-      callback,
+      response => {
+        return response.trim().split(/\r?\n/)
+      },
       false
     )
   }
@@ -66,7 +68,7 @@ module.exports = class Server {
   /**
    *
    */
-  info (remote, callback) {
-    return this.query((remote || 'local:') + '/1.0', 'GET', '', callback)
+  info (remote) {
+    return this.query((remote || 'local:') + '/1.0')
   }
 }

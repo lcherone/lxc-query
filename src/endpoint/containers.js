@@ -44,14 +44,14 @@ module.exports = class Containers {
   /**
    *
    */
-  list (remote, callback) {
-    return this.lxc.server.query((remote || 'local:') + this.baseEndpoint, 'GET', '', callback)
+  list (remote, mutator) {
+    return this.lxc.server.query((remote || 'local:') + this.baseEndpoint, 'GET', '', mutator)
   }
 
   /**
    *
    */
-  setState (remote, name, options, callback) {
+  setState (remote, name, options, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -63,24 +63,24 @@ module.exports = class Containers {
       )
     )
     //
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', options, callback)
+    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', options, mutator)
   }
 
   /**
    *
    */
-  getState (remote, name, callback) {
+  getState (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
     //
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'GET', '', callback)
+    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'GET', '', mutator)
   }
 
   /**
    *
    */
-  start (remote, name, callback) {
+  start (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -88,13 +88,13 @@ module.exports = class Containers {
     return this.setState(remote + this.baseEndpoint + '/' + name + '/state', {
       action: 'start',
       timeout: 30
-    }, callback)
+    }, mutator)
   }
 
   /**
    *
    */
-  stop (remote, name, callback) {
+  stop (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -102,13 +102,13 @@ module.exports = class Containers {
     return this.setState(remote + this.baseEndpoint + '/' + name + '/state', {
       action: 'stop',
       timeout: 30
-    }, callback)
+    }, mutator)
   }
 
   /**
    *
    */
-  restart (remote, name, callback) {
+  restart (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -116,13 +116,13 @@ module.exports = class Containers {
     return this.setState(remote + this.baseEndpoint + '/' + name + '/state', {
       action: 'restart',
       timeout: 30
-    }, callback)
+    }, mutator)
   }
 
   /**
    *
    */
-  freeze (remote, name, callback) {
+  freeze (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -130,13 +130,13 @@ module.exports = class Containers {
     return this.setState(remote + this.baseEndpoint + '/' + name + '/state', {
       action: 'freeze',
       timeout: 30
-    }, callback)
+    }, mutator)
   }
 
   /**
    *
    */
-  unfreeze (remote, name, callback) {
+  unfreeze (remote, name, mutator) {
     //
     remote = remote || 'local:'
     name = name || ''
@@ -144,6 +144,6 @@ module.exports = class Containers {
     return this.setState(remote + this.baseEndpoint + '/' + name + '/state', {
       action: 'unfreeze',
       timeout: 30
-    }, callback)
+    }, mutator)
   }
 }

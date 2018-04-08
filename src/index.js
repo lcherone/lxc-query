@@ -39,15 +39,15 @@ class LXC {
   /**
    *
    */
-  query (remote, action, data, callback) {
-    return this.server.query(remote, action, data, callback)
+  query (remote, action, data, mutator) {
+    return this.server.query(remote, action, data, mutator)
   }
 
   /**
    *
    */
-  info (remote, callback) {
-    return this.server.info(remote, callback)
+  info (remote, mutator) {
+    return this.server.info(remote, mutator)
   }
 }
 

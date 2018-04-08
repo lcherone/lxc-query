@@ -25,63 +25,51 @@ const exec = require('child_process').exec
  */
 class Module {
   /**
-   * Execute nodejs exec as a promise or with callback
+   * Execute nodejs exec as a promise
    *
    * Very verbose so as to know whats breaking...
    *
    * @param string cmd - should be escaped properly
-   * @param function callback - the callback after resolving
+   * @param function mutator - mutation function which can be applied to the response before resolving
    * @param bool parse - if set will not attempt to decode json
    *
    */
-  exec (cmd, callback, parse) {
+  exec (cmd, mutator, parse) {
+    //
+    if (typeof mutator !== 'function') {
+      mutator = response => response
+    }
+    //
     parse = parse === undefined
-    if (typeof callback !== 'function') {
-      return new Promise((resolve, reject) => {
-        exec(cmd, (error, stdout, stderr) => {
-          if (error !== null) {
-            console.error('cmd: ', cmd)
-            console.error('stderr: ', stderr)
-            reject(error)
-          } else {
-            if (!parse) {
-              resolve(stdout)
-            } else {
-              try {
-                stdout = JSON.parse(stdout)
-              } catch (e) {
-                console.error('cmd: ', cmd)
-                console.error('stderr: ', stderr)
-                reject(stdout)
-              }
-              resolve(stdout)
-            }
-          }
-        })
-      })
-    } else {
+    //
+    return new Promise((resolve, reject) => {
       exec(cmd, (error, stdout, stderr) => {
         if (error !== null) {
           console.error('cmd: ', cmd)
           console.error('stderr: ', stderr)
-          console.error('error: ', error)
+          reject(error)
         } else {
           if (!parse) {
-            callback(stdout)
+            if (typeof mutator === 'function') {
+              stdout = mutator(stdout)
+            }
+            resolve(stdout)
           } else {
             try {
               stdout = JSON.parse(stdout)
             } catch (e) {
               console.error('cmd: ', cmd)
               console.error('stderr: ', stderr)
-              console.error('stdout: ', stdout)
-              return false
+              reject(stdout)
             }
-            callback(stdout)
+            if (typeof mutator === 'function') {
+              stdout = mutator(stdout)
+            }
+            resolve(stdout)
           }
         }
       })
-    }
+    })
   }
 }
 
