@@ -1,6 +1,6 @@
 {
   "name": "lxc-query",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A helper utility to call lxc query.",
   "main": "src/index.js",
   "scripts": {
