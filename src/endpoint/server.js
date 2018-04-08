@@ -46,7 +46,6 @@ module.exports = class Server {
         data instanceof String && data ? data : false
       )
     )
-
     return exec(
       'lxc query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
       callback
@@ -57,12 +56,6 @@ module.exports = class Server {
    *
    */
   info (remote, callback) {
-    //
-    remote = remote || 'local:'
-
-    return exec(
-      'lxc query -X GET ' + shellescape([remote + '/1.0']),
-      callback
-    )
+    return this.query((remote || 'local:') + '/1.0', 'GET', '', callback)
   }
 }
