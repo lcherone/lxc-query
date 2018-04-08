@@ -141,9 +141,35 @@
 <td>LXD remote</td>
 <td>local:</td>
 </tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.list('local:').then(response =&gt; {
+<pre><code>// apply no mutation to the response
+lxc.containers.list('local:').then(response =&gt; {
+    // [ '/1.0/containers/my-container' ]
+    console.log(response);
+})
+
+// apply stripEndpoint on response
+lxc.containers.list('local:', response =&gt; lxc.containers.stripEndpoint(response)).then(response =&gt; {
+    // [ 'my-container' ]
+    console.log(response);
+})
+
+// or you could write your own
+lxc.containers.list('local:', response =&gt; {
+    let ret = []
+    response.forEach(value =&gt; {
+      ret.push(value.replace(lxc.containers.baseEndpoint + '/', ''))
+    })
+    return ret
+}).then(response =&gt; {
+    // [ 'my-container' ]
     console.log(response);
 })
 </code></pre>

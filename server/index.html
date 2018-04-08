@@ -267,16 +267,15 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
+<td>None</td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p><em><strong>Note:</strong> Your need to run <code>response.trim().split(/\r?\n/)</code> to turn the response into an array.</em></p>
 <pre><code>lxc.server.remotes().then(response =&gt; {
-    console.log(response.trim().split(/\r?\n/));
+    console.log(response);
 })
 </code></pre>
 
