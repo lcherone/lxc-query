@@ -18,37 +18,37 @@
  +----------------------------------------------------------------------+
  */
 
-const shellescape = require('./utils/shellescape.js')
-const exec = require('./utils/exec.js').exec
+const exec = require('child_process').exec
 
 /**
- *
+ * Abstract module so exec is not in callers scope
  */
-class LXC {
+class Module {
   /**
-   *
+   * Execute nodejs exec as a promise or with callback
    */
-  query (remote, action, data, callback) {
-    //
-    if (remote === undefined || remote === null) {
-      remote = '/'
+  exec (cmd, callback) {
+    if (typeof callback !== 'function') {
+      return new Promise((resolve, reject) => {
+        exec(cmd, (error, stdout, stderr) => {
+          if (error !== null) {
+            console.error('stderr: ', stderr)
+            reject(error)
+          } else {
+            resolve(stdout)
+          }
+        })
+      })
+    } else {
+      exec(cmd, (error, stdout, stderr) => {
+        if (error !== null) {
+          console.error('stderr: ', stderr)
+          console.error('error: ', error)
+        }
+        callback(stdout)
+      })
     }
-
-    //
-    if (action === undefined || action === null) {
-      action = 'GET'
-    }
-
-    //
-    if (data === undefined || data === null || data === '') {
-      data = false
-    }
-
-    return exec(
-      'lxc query -X ' + action + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
-      callback
-    )
   }
 }
 
-module.exports = new LXC()
+module.exports = new Module()

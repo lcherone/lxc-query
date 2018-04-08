@@ -1,10 +1,10 @@
 {
   "name": "lxc-query",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A helper utility to call lxc query.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard --fix && standard && node test.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/lcherone/lxc-query/issues"
   },
-  "homepage": "https://github.com/lcherone/lxc-query#readme"
+  "homepage": "https://github.com/lcherone/lxc-query#readme",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  }
 }

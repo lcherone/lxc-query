@@ -1,6 +1,8 @@
 **LXC Query (nodejs)**
 =========
 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
 A helper utility to call lxc query.
 
 ## Install
