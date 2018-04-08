@@ -68,9 +68,17 @@
         
             <li><a class="toctree-l3" href="#list">List</a></li>
         
+            <li><a class="toctree-l3" href="#set-state">Set State</a></li>
+        
             <li><a class="toctree-l3" href="#start">Start</a></li>
         
             <li><a class="toctree-l3" href="#stop">Stop</a></li>
+        
+            <li><a class="toctree-l3" href="#restart">Restart</a></li>
+        
+            <li><a class="toctree-l3" href="#freeze">Freeze</a></li>
+        
+            <li><a class="toctree-l3" href="#unfreeze">Unfreeze</a></li>
         
         </ul>
     
@@ -142,6 +150,70 @@
 <pre><code>[ 
     '/1.0/containers/my-container'
 ]
+</code></pre>
+
+<h2 id="set-state">Set State</h2>
+<p>Set the state of a container on remote, this allows for more flexibility then 
+calling the (start, stop, restart, freeze, unfreeze) methods below as you can set the options parameter.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>The container name</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object | json</td>
+<td>Container state options</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.setState ('local:', 'container-name',  {
+    &quot;action&quot;: &quot;stop&quot;,  # State change action (stop, start, restart, freeze or unfreeze)
+    &quot;timeout&quot;: 30,     # A timeout after which the state change is considered as failed
+    &quot;force&quot;: true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
+    &quot;stateful&quot;: true   # Whether to store or restore runtime state before stopping or startiong (only valid for stop and start, defaults to false)
+}).then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    class: 'task',
+    created_at: '2018-04-08T16:37:36.511708398Z',
+    description: '[Stopping, Starting, Restarting, Freezing, Unfreezing] container',
+    err: '',
+    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',
+    may_cancel: false,
+    metadata: null,
+    resources: {
+        containers: [
+            '/1.0/containers/my-container'
+        ]
+    },
+    status: 'Running',
+    status_code: 103,
+    updated_at: '2018-04-08T16:37:36.511708398Z'
+}
 </code></pre>
 
 <h2 id="start">Start</h2>
@@ -233,6 +305,162 @@
     class: 'task',
     created_at: '2018-04-08T16:37:36.511708398Z',
     description: 'Stopping container',
+    err: '',
+    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',
+    may_cancel: false,
+    metadata: null,
+    resources: {
+        containers: [
+            '/1.0/containers/my-container'
+        ]
+    },
+    status: 'Running',
+    status_code: 103,
+    updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="restart">Restart</h2>
+<p>Restart container on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>The container name</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.restart('local:', 'container-name').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    class: 'task',
+    created_at: '2018-04-08T16:37:36.511708398Z',
+    description: 'Restarting container',
+    err: '',
+    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',
+    may_cancel: false,
+    metadata: null,
+    resources: {
+        containers: [
+            '/1.0/containers/my-container'
+        ]
+    },
+    status: 'Running',
+    status_code: 103,
+    updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="freeze">Freeze</h2>
+<p>Freeze container on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>The container name</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.freeze('local:', 'container-name').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    class: 'task',
+    created_at: '2018-04-08T16:37:36.511708398Z',
+    description: 'Freezing container',
+    err: '',
+    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',
+    may_cancel: false,
+    metadata: null,
+    resources: {
+        containers: [
+            '/1.0/containers/my-container'
+        ]
+    },
+    status: 'Running',
+    status_code: 103,
+    updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="unfreeze">Unfreeze</h2>
+<p>Unfreeze container on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>The container name</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.unfreeze('local:', 'container-name').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    class: 'task',
+    created_at: '2018-04-08T16:37:36.511708398Z',
+    description: 'Thawing container',
     err: '',
     id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',
     may_cancel: false,
