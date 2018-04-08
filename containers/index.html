@@ -72,6 +72,8 @@
         
             <li><a class="toctree-l3" href="#set-state">Set State</a></li>
         
+            <li><a class="toctree-l3" href="#create">Create</a></li>
+        
             <li><a class="toctree-l3" href="#start">Start</a></li>
         
             <li><a class="toctree-l3" href="#stop">Stop</a></li>
@@ -348,6 +350,70 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     status: 'Running',
     status_code: 103,
     updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="create">Create</h2>
+<p>Create container on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>The container options</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Full container options can be found here: https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1</p>
+<pre><code>lxc.containers.create('local:', {
+    &quot;name&quot;: &quot;my-new-container&quot;,
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;profiles&quot;: [&quot;default&quot;],
+    &quot;ephemeral&quot;: true,
+    &quot;config&quot;: { &quot;limits.cpu&quot;: &quot;2&quot; },
+    &quot;devices&quot;: {},
+    &quot;source&quot;: {
+        &quot;type&quot;: &quot;image&quot;,
+        &quot;fingerprint&quot;: &quot;be7cec7c9489&quot;
+    },
+}).then(response =&gt; {
+    console.log(JSON.stringify(response, null, 4));
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;class&quot;: &quot;task&quot;,
+    &quot;created_at&quot;: &quot;2018-04-08T22:49:33.892947111Z&quot;,
+    &quot;description&quot;: &quot;Creating container&quot;,
+    &quot;err&quot;: &quot;&quot;,
+    &quot;id&quot;: &quot;cfd9cd81-a651-4b9b-bd89-4667cc51ad4b&quot;,
+    &quot;may_cancel&quot;: false,
+    &quot;metadata&quot;: null,
+    &quot;resources&quot;: {
+        &quot;containers&quot;: [
+            &quot;/1.0/containers/my-new-container&quot;
+        ]
+    },
+    &quot;status&quot;: &quot;Running&quot;,
+    &quot;status_code&quot;: 103,
+    &quot;updated_at&quot;: &quot;2018-04-08T22:49:33.892947111Z&quot;
 }
 </code></pre>
 
