@@ -12,7 +12,7 @@ A helper utility to call lxc query.
 Require this package with npm using the following command:
 
 ``` bash
-$ npm install lxc-query --save
+$ npm i lxc-query
 ```
 
 ## Usage
@@ -32,18 +32,18 @@ lxc.query('remote:/1.0', 'GET', '').then(response => {
 
 ```
 
-Need more examples? See [docs](./docs/index.md)
+Need more examples? [See the docs](https://lcherone.github.io/lxc-query).
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/lcherone/lxc-query/blob/master/CONTRIBUTING.md) for details.
 
 
 ## Credits
 
 - [Lawrence Cherone](https://github.com/lcherone)
-- [All Contributors](../../contributors)
+- [All Contributors](https://github.com/lcherone/lxc-query/graphs/contributors)
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/lcherone/lxc-query/blob/master/LICENSE) for more information.
