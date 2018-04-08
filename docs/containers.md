@@ -195,7 +195,7 @@ Create container on remote.
 | remote       | string        | LXD remote    | local:        |
 | options      | object        | The container options |  |
 
-Full container options can be found here: https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1
+Full container options can be found here: [https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1](https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1)
 
 ```
 lxc.containers.create('local:', {

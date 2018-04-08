@@ -1,9 +1,10 @@
-**LXC Query (nodejs)**
+**LXC Query**
 =========
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![NPM](https://nodei.co/npm/lxc-query.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/lxc-query/)
 
-A helper utility to call lxc query.
+
+A Node.js LXD client which uses a local instance of LXD and `lxc query` to manage your remote LXD servers.
 
 **You must be using >= LXD 2.17**
 
