@@ -2,13 +2,8 @@
     "docs": [
         {
             "location": "/",
-            "text": "LXC Query (nodejs)\n\n\n\n\nA helper utility to call lxc query.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nconst lxc = require('lxc-query')\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})\n\n\n\n\n\nNeed more examples? See \nread the docs\n.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.",
+            "text": "A helper utility to call lxc query.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nconst lxc = require('lxc-query')\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})\n\n\n\n\nYou can use the above to call \nany\n endpoint on LXD \nRESTapi\n. \n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.",
             "title": "Home"
-        },
-        {
-            "location": "/#lxc-query-nodejs",
-            "text": "A helper utility to call lxc query.  You must be using >= LXD 2.17",
-            "title": "LXC Query (nodejs)"
         },
         {
             "location": "/#install",
@@ -17,7 +12,7 @@
         },
         {
             "location": "/#usage",
-            "text": "const lxc = require('lxc-query')\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})  Need more examples? See  read the docs .",
+            "text": "const lxc = require('lxc-query')\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})  You can use the above to call  any  endpoint on LXD  RESTapi .",
             "title": "Usage"
         },
         {
@@ -34,6 +29,31 @@
             "location": "/#license",
             "text": "The MIT License (MIT). Please see  License File  for more information.",
             "title": "License"
+        },
+        {
+            "location": "/containers/",
+            "text": "Containers\n\n\nHelper methods for container operations.\n\n\nList\n\n\nList containers on remote.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal:\n\n\n\n\n\n\n\n\nlxc.containers.list('local:').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\n[ \n    '/1.0/containers/my-container'\n]\n\n\n\n\nStart\n\n\nStart container on remote.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal:\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nThe container name\n\n\n\n\n\n\n\n\n\n\nlxc.containers.start('local:', 'container-name').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\n{\n    class: 'task',\n    created_at: '2018-04-08T16:37:36.511708398Z',\n    description: 'Starting container',\n    err: '',\n    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',\n    may_cancel: false,\n    metadata: null,\n    resources: {\n        containers: [\n            '/1.0/containers/my-container'\n        ]\n    },\n    status: 'Running',\n    status_code: 103,\n    updated_at: '2018-04-08T16:37:36.511708398Z'\n}\n\n\n\n\nStop\n\n\nStop container on remote.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal:\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nThe container name\n\n\n\n\n\n\n\n\n\n\nlxc.containers.stop('local:', 'container-name').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\n{\n    class: 'task',\n    created_at: '2018-04-08T16:37:36.511708398Z',\n    description: 'Stopping container',\n    err: '',\n    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',\n    may_cancel: false,\n    metadata: null,\n    resources: {\n        containers: [\n            '/1.0/containers/my-container'\n        ]\n    },\n    status: 'Running',\n    status_code: 103,\n    updated_at: '2018-04-08T16:37:36.511708398Z'\n}",
+            "title": "Containers"
+        },
+        {
+            "location": "/containers/#containers",
+            "text": "Helper methods for container operations.",
+            "title": "Containers"
+        },
+        {
+            "location": "/containers/#list",
+            "text": "List containers on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local:     lxc.containers.list('local:').then(response => {\n    console.log(response);\n})  Response  [ \n    '/1.0/containers/my-container'\n]",
+            "title": "List"
+        },
+        {
+            "location": "/containers/#start",
+            "text": "Start container on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local:    container  string  The container name      lxc.containers.start('local:', 'container-name').then(response => {\n    console.log(response);\n})  Response  {\n    class: 'task',\n    created_at: '2018-04-08T16:37:36.511708398Z',\n    description: 'Starting container',\n    err: '',\n    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',\n    may_cancel: false,\n    metadata: null,\n    resources: {\n        containers: [\n            '/1.0/containers/my-container'\n        ]\n    },\n    status: 'Running',\n    status_code: 103,\n    updated_at: '2018-04-08T16:37:36.511708398Z'\n}",
+            "title": "Start"
+        },
+        {
+            "location": "/containers/#stop",
+            "text": "Stop container on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local:    container  string  The container name      lxc.containers.stop('local:', 'container-name').then(response => {\n    console.log(response);\n})  Response  {\n    class: 'task',\n    created_at: '2018-04-08T16:37:36.511708398Z',\n    description: 'Stopping container',\n    err: '',\n    id: '4850b25b-3a9a-4666-acf6-9f2b4c25a236',\n    may_cancel: false,\n    metadata: null,\n    resources: {\n        containers: [\n            '/1.0/containers/my-container'\n        ]\n    },\n    status: 'Running',\n    status_code: 103,\n    updated_at: '2018-04-08T16:37:36.511708398Z'\n}",
+            "title": "Stop"
         }
     ]
 }
