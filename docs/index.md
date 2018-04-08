@@ -32,7 +32,7 @@ lxc.query('remote:/1.0', 'GET', '').then(response => {
 
 ```
 
-Need more examples? See [read the docs](https://github.com/lcherone/lxc-query/blob/master/docs/index.md).
+Need more examples? [See the docs](https://lcherone.github.io/lxc-query).
 
 ## Contributing
 
