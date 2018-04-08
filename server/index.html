@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Server - LXC Query</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Server";
+    var mkdocs_page_input_path = "server.md";
+    var mkdocs_page_url = "/server/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LXC Query</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Server</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#server">Server</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#info">Info</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../containers/">Containers</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LXC Query</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Server</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="server">Server</h1>
+<p>Helper methods for server.</p>
+<h2 id="info">Info</h2>
+<p>Get server information.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.info('local:').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    api_extensions: [
+        'storage_zfs_remove_snapshots',
+        'container_host_shutdown_timeout',
+        'container_stop_priority',
+        'container_syscall_filtering',
+        'auth_pki',
+        'container_last_used_at',
+        'etag',
+        'patch',
+        'usb_devices',
+        'https_allowed_credentials',
+        'image_compression_algorithm',
+        'directory_manipulation',
+        'container_cpu_time',
+        'storage_zfs_use_refquota',
+        'storage_lvm_mount_options',
+        'network',
+        'profile_usedby',
+        'container_push',
+        'container_exec_recording',
+        'certificate_update',
+        'container_exec_signal_handling',
+        'gpu_devices',
+        'container_image_properties',
+        'migration_progress',
+        'id_map',
+        'network_firewall_filtering',
+        'network_routes',
+        'storage',
+        'file_delete',
+        'file_append',
+        'network_dhcp_expiry',
+        'storage_lvm_vg_rename',
+        'storage_lvm_thinpool_rename',
+        'network_vlan',
+        'image_create_aliases',
+        'container_stateless_copy',
+        'container_only_migration',
+        'storage_zfs_clone_copy',
+        'unix_device_rename',
+        'storage_lvm_use_thinpool',
+        'storage_rsync_bwlimit',
+        'network_vxlan_interface',
+        'storage_btrfs_mount_options',
+        'entity_description',
+        'image_force_refresh',
+        'storage_lvm_lv_resizing',
+        'id_map_base',
+        'file_symlinks',
+        'container_push_target',
+        'network_vlan_physical',
+        'storage_images_delete',
+        'container_edit_metadata',
+        'container_snapshot_stateful_migration',
+        'storage_driver_ceph',
+        'storage_ceph_user_name',
+        'resource_limits',
+        'storage_volatile_initial_source',
+        'storage_ceph_force_osd_reuse',
+        'storage_block_filesystem_btrfs',
+        'resources',
+        'kernel_limits',
+        'storage_api_volume_rename',
+        'macaroon_authentication',
+        'network_sriov',
+        'console',
+        'restrict_devlxd',
+        'migration_pre_copy',
+        'infiniband',
+        'maas_network',
+        'devlxd_events',
+        'proxy',
+        'network_dhcp_gateway',
+        'file_get_symlink',
+        'network_leases',
+        'unix_device_hotplug',
+        'storage_api_local_volume_handling',
+        'operation_description',
+        'clustering',
+        'event_lifecycle',
+        'storage_api_remote_volume_handling',
+        'nvidia_runtime'
+    ],
+    api_status: 'stable',
+    api_version: '1.0',
+    auth: 'trusted',
+    auth_methods: [
+        'tls'
+    ],
+    config: {},
+    environment: {
+        addresses: [],
+        architectures: [
+            'x86_64',
+            'i686'
+        ],
+        certificate: '-----BEGIN CERTIFICATE-----Snip-----END CERTIFICATE-----\n',
+        certificate_fingerprint: 'dc32c2ec49a7a234762fc4be670e7e72f8d156a1w0cf1a1d216e9abcc594f61d',
+        driver: 'lxc',
+        driver_version: '3.0.0',
+        kernel: 'Linux',
+        kernel_architecture: 'x86_64',
+        kernel_version: '4.13.0-38-generic',
+        server: 'lxd',
+        server_clustered: false,
+        server_name: 'my-lxd-server',
+        server_pid: 906,
+        server_version: '3.0.0',
+        storage: 'zfs',
+        storage_version: '1'
+    },
+    public: false
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../containers/" class="btn btn-neutral float-right" title="Containers">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../containers/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
