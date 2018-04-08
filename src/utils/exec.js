@@ -26,8 +26,16 @@ const exec = require('child_process').exec
 class Module {
   /**
    * Execute nodejs exec as a promise or with callback
+   *
+   * Very verbose so as to know whats breaking...
+   *
+   * @param string cmd - should be escaped properly
+   * @param function callback - the callback after resolving
+   * @param bool parse - if set will not attempt to decode json
+   *
    */
-  exec (cmd, callback) {
+  exec (cmd, callback, parse) {
+    parse = parse === undefined
     if (typeof callback !== 'function') {
       return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
@@ -36,14 +44,18 @@ class Module {
             console.error('stderr: ', stderr)
             reject(error)
           } else {
-            try {
-              stdout = JSON.parse(stdout)
-            } catch (e) {
-              console.error('cmd: ', cmd)
-              console.error('stderr: ', stderr)
-              reject(stdout)
+            if (!parse) {
+              resolve(stdout)
+            } else {
+              try {
+                stdout = JSON.parse(stdout)
+              } catch (e) {
+                console.error('cmd: ', cmd)
+                console.error('stderr: ', stderr)
+                reject(stdout)
+              }
+              resolve(stdout)
             }
-            resolve(stdout)
           }
         })
       })
@@ -54,15 +66,19 @@ class Module {
           console.error('stderr: ', stderr)
           console.error('error: ', error)
         } else {
-          try {
-            stdout = JSON.parse(stdout)
-          } catch (e) {
-            console.error('cmd: ', cmd)
-            console.error('stderr: ', stderr)
-            console.error('stdout: ', stdout)
-            return false
+          if (!parse) {
+            callback(stdout)
+          } else {
+            try {
+              stdout = JSON.parse(stdout)
+            } catch (e) {
+              console.error('cmd: ', cmd)
+              console.error('stderr: ', stderr)
+              console.error('stdout: ', stdout)
+              return false
+            }
+            callback(stdout)
           }
-          callback(stdout)
         }
       })
     }

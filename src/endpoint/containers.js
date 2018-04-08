@@ -58,14 +58,14 @@ module.exports = class Containers {
     options = (
       // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-      // is string, not empty, or set as false
+        // is string, not empty, or set as false
         options instanceof String && options ? options : false
       )
     )
     //
     return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', options, callback)
   }
-  
+
   /**
    *
    */

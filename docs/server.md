@@ -135,3 +135,30 @@ lxc.info('local:').then(response => {
 	public: false
 }
 ```
+
+## Remotes
+
+Get currently defined remotes. (only works with local:)
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+
+<em>**Note:** Your need to run `response.trim().split(/\r?\n/)` to turn the response into an array.</em>
+
+```
+lxc.server.remotes().then(response => {
+    console.log(response.trim().split(/\r?\n/));
+})
+```
+
+**Response**
+```
+[
+	'images',
+	'local',
+	'ubuntu',
+	'ubuntu-daily'
+]
+```

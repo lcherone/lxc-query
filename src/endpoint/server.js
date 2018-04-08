@@ -55,6 +55,17 @@ module.exports = class Server {
   /**
    *
    */
+  remotes (callback) {
+    return exec(
+      'lxc remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
+      callback,
+      false
+    )
+  }
+
+  /**
+   *
+   */
   info (remote, callback) {
     return this.query((remote || 'local:') + '/1.0', 'GET', '', callback)
   }
