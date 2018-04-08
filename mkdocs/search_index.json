@@ -1,0 +1,39 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "LXC Query (nodejs)\n\n\n\n\nA helper utility to call lxc query.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nconst lxc = require('lxc-query')\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})\n\n\n\n\n\nNeed more examples? See \nread the docs\n.\n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.",
+            "title": "Home"
+        },
+        {
+            "location": "/#lxc-query-nodejs",
+            "text": "A helper utility to call lxc query.  You must be using >= LXD 2.17",
+            "title": "LXC Query (nodejs)"
+        },
+        {
+            "location": "/#install",
+            "text": "Require this package with npm using the following command:  $ npm i lxc-query",
+            "title": "Install"
+        },
+        {
+            "location": "/#usage",
+            "text": "const lxc = require('lxc-query')\n\n// with callback\nlxc.query('remote:/1.0', 'GET', '', response => {\n    console.log(response);\n})\n\n// with promise\nlxc.query('remote:/1.0', 'GET', '').then(response => {\n    console.log(response);\n})  Need more examples? See  read the docs .",
+            "title": "Usage"
+        },
+        {
+            "location": "/#contributing",
+            "text": "Please see  CONTRIBUTING  for details.",
+            "title": "Contributing"
+        },
+        {
+            "location": "/#credits",
+            "text": "Lawrence Cherone  All Contributors",
+            "title": "Credits"
+        },
+        {
+            "location": "/#license",
+            "text": "The MIT License (MIT). Please see  License File  for more information.",
+            "title": "License"
+        }
+    ]
+}
