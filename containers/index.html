@@ -68,6 +68,8 @@
         
             <li><a class="toctree-l3" href="#list">List</a></li>
         
+            <li><a class="toctree-l3" href="#get-state">Get State</a></li>
+        
             <li><a class="toctree-l3" href="#set-state">Set State</a></li>
         
             <li><a class="toctree-l3" href="#start">Start</a></li>
@@ -150,6 +152,113 @@
 <pre><code>[ 
     '/1.0/containers/my-container'
 ]
+</code></pre>
+
+<h2 id="get-state">Get State</h2>
+<p>Get the state of a container on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>The container name</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.getState('local:', 'container-name').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;cpu&quot;: {
+        &quot;usage&quot;: 15159435138
+    },
+    &quot;disk&quot;: {},
+    &quot;memory&quot;: {
+        &quot;swap_usage&quot;: 0,
+        &quot;swap_usage_peak&quot;: 0,
+        &quot;usage&quot;: 239001600,
+        &quot;usage_peak&quot;: 314175488
+    },
+    &quot;network&quot;: {
+        &quot;eth0&quot;: {
+            &quot;addresses&quot;: [
+                {
+                    &quot;address&quot;: &quot;10.189.110.190&quot;,
+                    &quot;family&quot;: &quot;inet&quot;,
+                    &quot;netmask&quot;: &quot;24&quot;,
+                    &quot;scope&quot;: &quot;global&quot;
+                },
+                {
+                    &quot;address&quot;: &quot;fe80::216:3eff:fefb:890a&quot;,
+                    &quot;family&quot;: &quot;inet6&quot;,
+                    &quot;netmask&quot;: &quot;64&quot;,
+                    &quot;scope&quot;: &quot;link&quot;
+                }
+            ],
+            &quot;counters&quot;: {
+                &quot;bytes_received&quot;: 26351929,
+                &quot;bytes_sent&quot;: 706569,
+                &quot;packets_received&quot;: 18810,
+                &quot;packets_sent&quot;: 10095
+            },
+            &quot;host_name&quot;: &quot;vethQGS6S6&quot;,
+            &quot;hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
+            &quot;mtu&quot;: 1500,
+            &quot;state&quot;: &quot;up&quot;,
+            &quot;type&quot;: &quot;broadcast&quot;
+        },
+        &quot;lo&quot;: {
+            &quot;addresses&quot;: [
+                {
+                    &quot;address&quot;: &quot;127.0.0.1&quot;,
+                    &quot;family&quot;: &quot;inet&quot;,
+                    &quot;netmask&quot;: &quot;8&quot;,
+                    &quot;scope&quot;: &quot;local&quot;
+                },
+                {
+                    &quot;address&quot;: &quot;::1&quot;,
+                    &quot;family&quot;: &quot;inet6&quot;,
+                    &quot;netmask&quot;: &quot;128&quot;,
+                    &quot;scope&quot;: &quot;local&quot;
+                }
+            ],
+            &quot;counters&quot;: {
+                &quot;bytes_received&quot;: 0,
+                &quot;bytes_sent&quot;: 0,
+                &quot;packets_received&quot;: 0,
+                &quot;packets_sent&quot;: 0
+            },
+            &quot;host_name&quot;: &quot;&quot;,
+            &quot;hwaddr&quot;: &quot;&quot;,
+            &quot;mtu&quot;: 65536,
+            &quot;state&quot;: &quot;up&quot;,
+            &quot;type&quot;: &quot;loopback&quot;
+        }
+    },
+    &quot;pid&quot;: 7156,
+    &quot;processes&quot;: 30,
+    &quot;status&quot;: &quot;Running&quot;,
+    &quot;status_code&quot;: 103
+}
 </code></pre>
 
 <h2 id="set-state">Set State</h2>
