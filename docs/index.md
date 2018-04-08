@@ -1,6 +1,3 @@
-**LXC Query (nodejs)**
-=========
-
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 A helper utility to call lxc query.
@@ -20,19 +17,18 @@ $ npm i lxc-query
 ```
 const lxc = require('lxc-query')
 
-// with callback
-lxc.query('remote:/1.0', 'GET', '', response => {
-    console.log(response);
-})
-
 // with promise
 lxc.query('remote:/1.0', 'GET', '').then(response => {
     console.log(response);
 })
 
+// with callback
+lxc.query('remote:/1.0', 'GET', '', response => {
+    console.log(response);
+})
 ```
 
-Need more examples? [See the docs](https://lcherone.github.io/lxc-query).
+You can use the above to call **any** endpoint on LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md). 
 
 ## Contributing
 

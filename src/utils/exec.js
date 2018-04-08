@@ -35,6 +35,12 @@ class Module {
             console.error('stderr: ', stderr)
             reject(error)
           } else {
+            try {
+              stdout = JSON.parse(stdout)
+            } catch (e) {
+              console.error('stderr: ', stderr)
+              reject(stdout)
+            }
             resolve(stdout)
           }
         })
@@ -44,8 +50,16 @@ class Module {
         if (error !== null) {
           console.error('stderr: ', stderr)
           console.error('error: ', error)
+        } else {
+          try {
+            stdout = JSON.parse(stdout)
+          } catch (e) {
+            console.error('stderr: ', stderr)
+            console.error('stdout: ', stdout)
+            return false
+          }
+          callback(stdout)
         }
-        callback(stdout)
       })
     }
   }

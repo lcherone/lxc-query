@@ -2,3 +2,4 @@ site_name: LXC Query
 theme: readthedocs
 pages:
     - Home: index.md
+    - Containers: containers.md

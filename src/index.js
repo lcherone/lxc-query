@@ -22,9 +22,21 @@ const shellescape = require('./utils/shellescape.js')
 const exec = require('./utils/exec.js').exec
 
 /**
+ * Endpoints
+ */
+const Containers = require('./endpoint/containers.js')
+
+/**
  *
  */
 class LXC {
+  /**
+   *
+   */
+  constructor () {
+    this.containers = new Containers(this)
+  }
+
   /**
    *
    */
