@@ -184,6 +184,56 @@ lxc.containers.setState ('local:', 'container-name',  {
 }
 ```
 
+## Create
+
+Create container on remote.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| options      | object        | The container options |  |
+
+Full container options can be found here: https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1
+
+```
+lxc.containers.create('local:', {
+    "name": "my-new-container",
+    "architecture": "x86_64",
+    "profiles": ["default"],
+    "ephemeral": true,
+    "config": { "limits.cpu": "2" },
+    "devices": {},
+    "source": {
+        "type": "image",
+        "fingerprint": "be7cec7c9489"
+    },
+}).then(response => {
+    console.log(JSON.stringify(response, null, 4));
+})
+```
+
+**Response**
+```
+{
+    "class": "task",
+    "created_at": "2018-04-08T22:49:33.892947111Z",
+    "description": "Creating container",
+    "err": "",
+    "id": "cfd9cd81-a651-4b9b-bd89-4667cc51ad4b",
+    "may_cancel": false,
+    "metadata": null,
+    "resources": {
+        "containers": [
+            "/1.0/containers/my-new-container"
+        ]
+    },
+    "status": "Running",
+    "status_code": 103,
+    "updated_at": "2018-04-08T22:49:33.892947111Z"
+}
+```
 ## Start
 
 Start container on remote.

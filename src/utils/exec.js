@@ -27,11 +27,11 @@ class Module {
   /**
    * Execute nodejs exec as a promise
    *
-   * Very verbose so as to know whats breaking...
+   * Verbose so as to know whats breaking...
    *
-   * @param string cmd - should be escaped properly
+   * @param string   cmd     - command to run, should be escaped properly
    * @param function mutator - mutation function which can be applied to the response before resolving
-   * @param bool parse - if set will not attempt to decode json
+   * @param bool     parse   - if set will *not* attempt to decode json
    *
    */
   exec (cmd, mutator, parse) {

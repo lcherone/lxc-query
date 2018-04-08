@@ -42,8 +42,8 @@ module.exports = class Server {
     data = (
       // is object, stringify-it
       data instanceof Object ? JSON.stringify(data) : (
-      // is string, not empty, or set as false
-        data instanceof String && data ? data : false
+        // is string, not empty, or set as false
+        (typeof data === 'string' || data instanceof String) && data ? data : false
       )
     )
     return exec(
