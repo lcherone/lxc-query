@@ -25,6 +25,99 @@ lxc.containers.list('local:').then(response => {
 ]
 ```
 
+## Get State
+
+Get the state of a container on remote.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| container    | string        | The container name |  |
+
+```
+lxc.containers.getState('local:', 'container-name').then(response => {
+    console.log(response);
+})
+```
+
+**Response**
+```
+{
+	"cpu": {
+		"usage": 15159435138
+	},
+	"disk": {},
+	"memory": {
+		"swap_usage": 0,
+		"swap_usage_peak": 0,
+		"usage": 239001600,
+		"usage_peak": 314175488
+	},
+	"network": {
+		"eth0": {
+			"addresses": [
+			    {
+					"address": "10.189.110.190",
+					"family": "inet",
+					"netmask": "24",
+					"scope": "global"
+				},
+				{
+					"address": "fe80::216:3eff:fefb:890a",
+					"family": "inet6",
+					"netmask": "64",
+					"scope": "link"
+				}
+			],
+			"counters": {
+				"bytes_received": 26351929,
+				"bytes_sent": 706569,
+				"packets_received": 18810,
+				"packets_sent": 10095
+			},
+			"host_name": "vethQGS6S6",
+			"hwaddr": "00:16:3e:fb:89:0a",
+			"mtu": 1500,
+			"state": "up",
+			"type": "broadcast"
+		},
+		"lo": {
+			"addresses": [
+			    {
+					"address": "127.0.0.1",
+					"family": "inet",
+					"netmask": "8",
+					"scope": "local"
+				},
+				{
+					"address": "::1",
+					"family": "inet6",
+					"netmask": "128",
+					"scope": "local"
+				}
+			],
+			"counters": {
+				"bytes_received": 0,
+				"bytes_sent": 0,
+				"packets_received": 0,
+				"packets_sent": 0
+			},
+			"host_name": "",
+			"hwaddr": "",
+			"mtu": 65536,
+			"state": "up",
+			"type": "loopback"
+		}
+	},
+	"pid": 7156,
+	"processes": 30,
+	"status": "Running",
+	"status_code": 103
+}
+```
+
 ## Set State
 
 Set the state of a container on remote, this allows for more flexibility then 

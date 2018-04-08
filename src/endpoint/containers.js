@@ -65,6 +65,17 @@ module.exports = class Containers {
     //
     return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', options, callback)
   }
+  
+  /**
+   *
+   */
+  getState (remote, name, callback) {
+    //
+    remote = remote || 'local:'
+    name = name || ''
+    //
+    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'GET', '', callback)
+  }
 
   /**
    *
@@ -93,7 +104,7 @@ module.exports = class Containers {
       timeout: 30
     }, callback)
   }
-  
+
   /**
    *
    */
@@ -107,7 +118,7 @@ module.exports = class Containers {
       timeout: 30
     }, callback)
   }
-    
+
   /**
    *
    */
@@ -120,8 +131,8 @@ module.exports = class Containers {
       action: 'freeze',
       timeout: 30
     }, callback)
-  }    
-  
+  }
+
   /**
    *
    */
