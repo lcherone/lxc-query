@@ -18,9 +18,6 @@
  +----------------------------------------------------------------------+
  */
 
-const shellescape = require('../utils/shellescape.js')
-const exec = require('../utils/exec.js').exec
-
 /**
  *
  */
@@ -52,7 +49,7 @@ module.exports = class Containers {
     if (remote === undefined || remote === null) {
       remote = 'local:'
     }
-    return exec('lxc query -X GET ' + shellescape([remote + this.baseEndpoint]), callback)
+    return this.lxc.server.query(remote + this.baseEndpoint, 'GET', '', callback)
   }
 
   /**
@@ -67,7 +64,7 @@ module.exports = class Containers {
     if (name === undefined || name === null) {
       name = ''
     }
-    return this.lxc.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', JSON.stringify({
+    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', JSON.stringify({
       action: 'start',
       timeout: 30// ,
       // force: true,
@@ -87,7 +84,7 @@ module.exports = class Containers {
     if (name === undefined || name === null) {
       name = ''
     }
-    return this.lxc.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', JSON.stringify({
+    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name + '/state', 'PUT', JSON.stringify({
       action: 'stop',
       timeout: 30// ,
       // force: true,

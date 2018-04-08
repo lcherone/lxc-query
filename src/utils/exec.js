@@ -32,12 +32,14 @@ class Module {
       return new Promise((resolve, reject) => {
         exec(cmd, (error, stdout, stderr) => {
           if (error !== null) {
+            console.error('cmd: ', cmd)
             console.error('stderr: ', stderr)
             reject(error)
           } else {
             try {
               stdout = JSON.parse(stdout)
             } catch (e) {
+              console.error('cmd: ', cmd)
               console.error('stderr: ', stderr)
               reject(stdout)
             }
@@ -48,12 +50,14 @@ class Module {
     } else {
       exec(cmd, (error, stdout, stderr) => {
         if (error !== null) {
+          console.error('cmd: ', cmd)
           console.error('stderr: ', stderr)
           console.error('error: ', error)
         } else {
           try {
             stdout = JSON.parse(stdout)
           } catch (e) {
+            console.error('cmd: ', cmd)
             console.error('stderr: ', stderr)
             console.error('stdout: ', stdout)
             return false

@@ -2,4 +2,5 @@ site_name: LXC Query
 theme: readthedocs
 pages:
     - Home: index.md
+    - Server: server.md
     - Containers: containers.md

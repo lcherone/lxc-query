@@ -18,37 +18,51 @@
  +----------------------------------------------------------------------+
  */
 
-/**
- * Endpoints
- */
-const Server = require('./endpoint/server.js')
-const Containers = require('./endpoint/containers.js')
+const shellescape = require('../utils/shellescape.js')
+const exec = require('../utils/exec.js').exec
 
 /**
  *
  */
-class LXC {
+module.exports = class Server {
   /**
    *
    */
-  constructor () {
-    this.server = new Server(this)
-    this.containers = new Containers(this)
+  constructor (lxc) {
+    this.baseEndpoint = '/'
   }
 
   /**
    *
    */
   query (remote, action, data, callback) {
-    return this.server.query(remote, action, data, callback)
+    //
+    remote = remote || 'local:'
+    action = action || 'GET'
+    data = (
+      // is object, stringify-it
+      data instanceof Object ? JSON.stringify(data) : (
+      // is string, not empty, or set as false
+        data instanceof String && data ? data : false
+      )
+    )
+
+    return exec(
+      'lxc query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
+      callback
+    )
   }
 
   /**
    *
    */
   info (remote, callback) {
-    return this.server.info(remote, callback)
+    //
+    remote = remote || 'local:'
+
+    return exec(
+      'lxc query -X GET ' + shellescape([remote + '/1.0']),
+      callback
+    )
   }
 }
-
-module.exports = new LXC()
