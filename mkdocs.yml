@@ -4,3 +4,4 @@ pages:
     - Home: index.md
     - Server: server.md
     - Containers: containers.md
+    - Snapshots: snapshots.md

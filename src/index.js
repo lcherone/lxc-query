@@ -19,21 +19,21 @@
  */
 
 /**
- * Endpoints
- */
-const Server = require('./endpoint/server.js')
-const Containers = require('./endpoint/containers.js')
-
-/**
  *
  */
 class LXC {
   /**
-   *
+   * Server endpoint getter
    */
-  constructor () {
-    this.server = new Server(this)
-    this.containers = new Containers(this)
+  get server () {
+    return new (require('./endpoint/server.js'))(this)
+  }
+
+  /**
+   * Containers endpoint getter
+   */
+  get containers () {
+    return new (require('./endpoint/containers.js'))(this)
   }
 
   /**

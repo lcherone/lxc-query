@@ -17,13 +17,13 @@ List containers on remote.
 // apply no mutation to the response
 lxc.containers.list('local:').then(response => {
     // [ '/1.0/containers/my-container' ]
-    console.log(response);
+    console.log(response)
 })
 
 // apply stripEndpoint on response
 lxc.containers.list('local:', response => lxc.containers.stripEndpoint(response)).then(response => {
     // [ 'my-container' ]
-    console.log(response);
+    console.log(response)
 })
 
 // or you could write your own
@@ -35,7 +35,7 @@ lxc.containers.list('local:', response => {
     return ret
 }).then(response => {
     // [ 'my-container' ]
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -159,7 +159,7 @@ lxc.containers.setState ('local:', 'container-name',  {
     "force": true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
     "stateful": true   # Whether to store or restore runtime state before stopping or startiong (only valid for stop and start, defaults to false)
 }).then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -208,9 +208,9 @@ lxc.containers.create('local:', {
     "source": {
         "type": "image",
         "fingerprint": "be7cec7c9489"
-    },
+    }
 }).then(response => {
-    console.log(JSON.stringify(response, null, 4));
+    console.log(JSON.stringify(response, null, 4))
 })
 ```
 
@@ -247,7 +247,7 @@ Start container on remote.
 
 ```
 lxc.containers.start('local:', 'container-name').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -285,7 +285,7 @@ Stop container on remote.
 
 ```
 lxc.containers.stop('local:', 'container-name').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -323,7 +323,7 @@ Restart container on remote.
 
 ```
 lxc.containers.restart('local:', 'container-name').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -361,7 +361,7 @@ Freeze container on remote.
 
 ```
 lxc.containers.freeze('local:', 'container-name').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -399,7 +399,7 @@ Unfreeze container on remote.
 
 ```
 lxc.containers.unfreeze('local:', 'container-name').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -423,4 +423,3 @@ lxc.containers.unfreeze('local:', 'container-name').then(response => {
 	updated_at: '2018-04-08T16:37:36.511708398Z'
 }
 ```
-

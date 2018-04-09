@@ -31,6 +31,13 @@ module.exports = class Containers {
   }
 
   /**
+   * Snapshots endpoint getter
+   */
+  get snapshots () {
+    return new (require('./containers/snapshots.js'))(this.lxc)
+  }
+
+  /**
    *
    */
   stripEndpoint (containers) {

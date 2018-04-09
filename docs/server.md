@@ -14,7 +14,7 @@ Get server information.
 
 ```
 lxc.info('local:').then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
@@ -148,7 +148,7 @@ Get currently defined remotes. (only works with local:)
 
 ```
 lxc.server.remotes().then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
 
