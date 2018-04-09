@@ -71,6 +71,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#list">List</a></li>
+        
             <li><a class="toctree-l3" href="#create">Create</a></li>
         
         </ul>
@@ -113,6 +115,50 @@
               
                 <h1 id="snapshots">Snapshots</h1>
 <p>Helper methods for snapshots.</p>
+<h2 id="list">List</h2>
+<p>List container snapshots.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.snapshots.list('local:', 'my-container').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>[
+    &quot;/1.0/containers/my-container/snapshots/my-snapshot&quot;
+]
+</code></pre>
+
 <h2 id="create">Create</h2>
 <p>Create container snapshot.</p>
 <p><strong>Parameters &amp; Call</strong></p>
@@ -152,12 +198,12 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.snapshots.create('local:', 'my-new-container', {
+<pre><code>lxc.containers.snapshots.create('local:', 'my-container', {
     &quot;name&quot;: &quot;my-snapshot&quot;,
     &quot;stateful&quot;: true
 }).then(response =&gt; {
-    console.log(response);
-});
+    console.log(response)
+})
 </code></pre>
 
 <p><strong>Response</strong></p>

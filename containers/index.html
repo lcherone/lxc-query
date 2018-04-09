@@ -159,13 +159,13 @@
 <pre><code>// apply no mutation to the response
 lxc.containers.list('local:').then(response =&gt; {
     // [ '/1.0/containers/my-container' ]
-    console.log(response);
+    console.log(response)
 })
 
 // apply stripEndpoint on response
 lxc.containers.list('local:', response =&gt; lxc.containers.stripEndpoint(response)).then(response =&gt; {
     // [ 'my-container' ]
-    console.log(response);
+    console.log(response)
 })
 
 // or you could write your own
@@ -177,7 +177,7 @@ lxc.containers.list('local:', response =&gt; {
     return ret
 }).then(response =&gt; {
     // [ 'my-container' ]
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -334,7 +334,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     &quot;force&quot;: true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
     &quot;stateful&quot;: true   # Whether to store or restore runtime state before stopping or startiong (only valid for stop and start, defaults to false)
 }).then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -396,9 +396,9 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     &quot;source&quot;: {
         &quot;type&quot;: &quot;image&quot;,
         &quot;fingerprint&quot;: &quot;be7cec7c9489&quot;
-    },
+    }
 }).then(response =&gt; {
-    console.log(JSON.stringify(response, null, 4));
+    console.log(JSON.stringify(response, null, 4))
 })
 </code></pre>
 
@@ -450,7 +450,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <pre><code>lxc.containers.start('local:', 'container-name').then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -502,7 +502,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <pre><code>lxc.containers.stop('local:', 'container-name').then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -554,7 +554,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <pre><code>lxc.containers.restart('local:', 'container-name').then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -606,7 +606,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <pre><code>lxc.containers.freeze('local:', 'container-name').then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
@@ -658,7 +658,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <pre><code>lxc.containers.unfreeze('local:', 'container-name').then(response =&gt; {
-    console.log(response);
+    console.log(response)
 })
 </code></pre>
 
