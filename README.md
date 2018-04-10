@@ -16,16 +16,16 @@ $ npm i lxc-query
 
 ## Usage
 
-Essentially you can do any LXD operation with the single `lxc.query` method, or you can use the [helper functions](https://lcherone.github.io/lxc-query).
+Essentially you can do any LXD operation with the single `lxc.query` method, or you can use the [helper methods](https://lcherone.github.io/lxc-query/server/).
 
 **Parameters & Call**
 
-| Parameter    | Type          | Description   | Default       |
-| ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| rest method  | string        | e.g GET, POST, DELETE, PUT, PATCH | GET
-| payload      | object \| json string | Rest json payload     |    |
-| mutator      | function      | Pre-resolve mutation function |           |
+| Parameter    | Type          | Description   | Default                     |
+| ----------   | ------------- | ------------- | -------------               | 
+| remote       | string        | LXD remote    |                      local: |
+| rest method  | string        | e.g GET, POST, DELETE, PUT, PATCH  | GET    |
+| payload      | object \| json string | Rest json payload          |        |
+| mutator      | function      | Pre-resolve mutation function      |        |
 
 ```
 const lxc = require('lxc-query')
