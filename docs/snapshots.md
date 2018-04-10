@@ -207,3 +207,40 @@ lxc.containers.snapshots.rename('local:', 'my-container', 'my-snapshot-name', 'n
     "updated_at": "2018-04-10T19:17:15.517952676+01:00"
 }
 ```
+
+## Delete
+
+Delete container snapshot.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| container    | string        | Container name    |           |
+| snapshot     | string        | Snapshot name     |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.snapshots.delete('local:', 'my-container', 'my-snapshot-name').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+	class: 'task',
+	created_at: '2018-04-10T20:23:56.80835635+01:00',
+	err: '',
+	id: 'd1a9df55-5748-40ff-a0e3-09e0096f278b',
+	may_cancel: false,
+	metadata: null,
+	resources: {
+		containers: ['/1.0/containers/my-container/my-snapshot']
+	},
+	status: 'Running',
+	status_code: 103,
+	updated_at: '2018-04-10T20:23:56.80835635+01:00'
+}
+```
