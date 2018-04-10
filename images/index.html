@@ -153,8 +153,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>// apply no mutation to the response
-lxc.images.list('local:').then(response =&gt; {
+<pre><code>lxc.images.list('local:').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -198,8 +197,7 @@ lxc.images.list('local:').then(response =&gt; {
 </tr>
 </tbody>
 </table>
-<pre><code>// apply no mutation to the response
-lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -275,8 +273,7 @@ lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6
 </tr>
 </tbody>
 </table>
-<pre><code>// apply no mutation to the response
-lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+<pre><code>lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     &quot;auto_update&quot;: true,
     &quot;properties&quot;: {
         &quot;architecture&quot;: &quot;x86_64&quot;,
@@ -335,8 +332,7 @@ lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc
 </tr>
 </tbody>
 </table>
-<pre><code>// apply no mutation to the response
-lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+<pre><code>lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     &quot;auto_update&quot;: true,
     &quot;properties&quot;: {
         &quot;architecture&quot;: &quot;x86_64&quot;,
@@ -389,8 +385,7 @@ lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2
 </tr>
 </tbody>
 </table>
-<pre><code>// apply no mutation to the response
-lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
