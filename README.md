@@ -1,3 +1,4 @@
+# LXC Query
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard) [![NPM](https://nodei.co/npm/lxc-query.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/lxc-query/)
 
@@ -33,6 +34,7 @@ lxc.query('remote:/1.0', 'GET', {}).then(response => {
     console.log(response)
 })
 ```
+
 Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more information. 
 
 ## Contributing
