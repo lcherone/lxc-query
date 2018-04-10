@@ -4,7 +4,7 @@ Helper methods for snapshots.
 
 ## List
 
-List container snapshots.
+List container snapshots on remote.
 
 **Parameters & Call**
 
@@ -35,7 +35,7 @@ lxc.containers.snapshots.list('local:', 'my-container', response => lxc.containe
 
 ## Info
 
-Get container snapshot information.
+Get container snapshot information on remote.
 
 **Parameters & Call**
 
@@ -127,7 +127,7 @@ lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10,
 
 ## Create
 
-Create container snapshot.
+Create container snapshot on remote.
 
 **Parameters & Call**
 
@@ -170,7 +170,7 @@ lxc.containers.snapshots.create('local:', 'my-container', {
 
 ## Rename
 
-Rename container snapshot.
+Rename container snapshot on remote.
 
 **Parameters & Call**
 
@@ -210,7 +210,7 @@ lxc.containers.snapshots.rename('local:', 'my-container', 'my-snapshot-name', 'n
 
 ## Delete
 
-Delete container snapshot.
+Delete container snapshot on remote.
 
 **Parameters & Call**
 

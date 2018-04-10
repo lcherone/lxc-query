@@ -37,6 +37,13 @@ class LXC {
   }
 
   /**
+   * Images endpoint getter
+   */
+  get images () {
+    return new (require('./endpoint/images.js'))(this)
+  }
+
+  /**
    *
    */
   query (remote, action, data, mutator) {

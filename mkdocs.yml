@@ -5,3 +5,4 @@ pages:
     - Server: server.md
     - Containers: containers.md
     - Snapshots: snapshots.md
+    - Images: images.md
