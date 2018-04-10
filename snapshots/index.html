@@ -79,6 +79,8 @@
         
             <li><a class="toctree-l3" href="#rename">Rename</a></li>
         
+            <li><a class="toctree-l3" href="#delete">Delete</a></li>
+        
         </ul>
     
 
@@ -418,6 +420,67 @@ lxc.containers.snapshots.list('local:', 'my-container', response =&gt; lxc.conta
     &quot;status&quot;: &quot;Running&quot;,
     &quot;status_code&quot;: 103,
     &quot;updated_at&quot;: &quot;2018-04-10T19:17:15.517952676+01:00&quot;
+}
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<p>Delete container snapshot.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>snapshot</td>
+<td>string</td>
+<td>Snapshot name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.snapshots.delete('local:', 'my-container', 'my-snapshot-name').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    class: 'task',
+    created_at: '2018-04-10T20:23:56.80835635+01:00',
+    err: '',
+    id: 'd1a9df55-5748-40ff-a0e3-09e0096f278b',
+    may_cancel: false,
+    metadata: null,
+    resources: {
+        containers: ['/1.0/containers/my-container/my-snapshot']
+    },
+    status: 'Running',
+    status_code: 103,
+    updated_at: '2018-04-10T20:23:56.80835635+01:00'
 }
 </code></pre>
               
