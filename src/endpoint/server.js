@@ -29,7 +29,7 @@ module.exports = class Server {
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/'
+    this.baseEndpoint = '/1.0'
   }
 
   /**
@@ -70,5 +70,39 @@ module.exports = class Server {
    */
   info (remote) {
     return this.query((remote || 'local:') + '/1.0')
+  }
+
+  /**
+   *
+   */
+  update (remote, options, mutator) {
+    //
+    remote = remote || 'local:'
+    options = (
+      // is object, stringify-it
+      options instanceof Object ? JSON.stringify(options) : (
+        // is string, not empty, or set as false
+        (typeof options === 'string' || options instanceof String) && options ? options : false
+      )
+    )
+    //
+    return this.query(remote + this.baseEndpoint, 'PATCH', options, mutator)
+  }
+
+  /**
+   *
+   */
+  replace (remote, options, mutator) {
+    //
+    remote = remote || 'local:'
+    options = (
+      // is object, stringify-it
+      options instanceof Object ? JSON.stringify(options) : (
+        // is string, not empty, or set as false
+        (typeof options === 'string' || options instanceof String) && options ? options : false
+      )
+    )
+    //
+    return this.query(remote + this.baseEndpoint, 'PUT', options, mutator)
   }
 }

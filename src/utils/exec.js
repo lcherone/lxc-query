@@ -55,6 +55,9 @@ class Module {
             }
             resolve(stdout)
           } else {
+            if (!stdout) {
+              stdout = '{}'
+            }
             try {
               stdout = JSON.parse(stdout)
             } catch (e) {

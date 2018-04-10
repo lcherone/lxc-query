@@ -136,6 +136,68 @@ lxc.info('local:').then(response => {
 }
 ```
 
+## Replace
+
+Replaces the server configuration or other properties.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| options      | object        | The server options |  |
+
+<em>Replaces any existing config with the provided one.</em>
+
+```
+lxc.replace('remote:', {
+    "config": {
+        "core.trust_password": "my-new-password",
+        "core.https_address": "[::]:8443"
+    }
+}).then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+	
+}
+```
+
+## Update
+
+Updates the server configuration or other properties.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| options      | object        | The server options |  |
+
+<em>Updates only the listed keys, rest remain intact.</em>
+
+```
+lxc.update('remote:', {
+    "config": {
+        "core.trust_password": "my-new-password",
+        "core.https_address": "[::]:8443"
+    }
+}).then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+	
+}
+```
+
 ## Remotes
 
 Get currently defined remotes. (only works with local:)

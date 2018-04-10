@@ -49,6 +49,20 @@ class LXC {
   info (remote, mutator) {
     return this.server.info(remote, mutator)
   }
+
+  /**
+   *
+   */
+  replace (remote, options, mutator) {
+    return this.server.replace(remote, options, mutator)
+  }
+
+  /**
+   *
+   */
+  update (remote, options, mutator) {
+    return this.server.update(remote, options, mutator)
+  }
 }
 
 module.exports = new LXC()
