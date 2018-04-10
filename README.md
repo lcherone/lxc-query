@@ -1,10 +1,7 @@
-**LXC Query**
-=========
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard) [![NPM](https://nodei.co/npm/lxc-query.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/lxc-query/)
 
-
-A Node.js LXD client which uses a local instance of LXD and `lxc query` to manage your remote LXD servers.
+A Node.js LXD client which uses your local instance of LXD and `lxc query` to manage your local or remote LXD servers.
 
 **You must be using >= LXD 2.17**
 
@@ -18,15 +15,25 @@ $ npm i lxc-query
 
 ## Usage
 
+Essentially you can do any LXD operation with the single `lxc.query` method, or you can use the [helper functions](https://lcherone.github.io/lxc-query).
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| rest method  | string        | e.g GET, POST, DELETE, PUT, PATCH | GET
+| payload      | object \| json string | Rest json payload.     |    |
+| mutator      | function      | Mutation function, allows you to mutate the result before the promise resolves. |           |
+
 ```
 const lxc = require('lxc-query')
 
 lxc.query('remote:/1.0', 'GET', {}).then(response => {
-    console.log(response);
+    console.log(response)
 })
 ```
-
-Need more examples? [See the docs](https://lcherone.github.io/lxc-query).
+Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more infomation. 
 
 ## Contributing
 
