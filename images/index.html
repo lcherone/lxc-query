@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Images - LXC Query</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Images";
+    var mkdocs_page_input_path = "images.md";
+    var mkdocs_page_url = "/images/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LXC Query</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../server/">Server</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../containers/">Containers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snapshots/">Snapshots</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Images</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#images">Images</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#list">List</a></li>
+        
+            <li><a class="toctree-l3" href="#info">Info</a></li>
+        
+            <li><a class="toctree-l3" href="#replace">Replace</a></li>
+        
+            <li><a class="toctree-l3" href="#update">Update</a></li>
+        
+            <li><a class="toctree-l3" href="#delete">Delete</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LXC Query</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Images</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="images">Images</h1>
+<p>Helper methods for image operations.</p>
+<h2 id="list">List</h2>
+<p>List images on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>// apply no mutation to the response
+lxc.images.list('local:').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>[
+    &quot;/1.0/images/be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;
+]
+</code></pre>
+
+<h2 id="info">Info</h2>
+<p>Get image information.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>string</td>
+<td>Image fingerprint</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>// apply no mutation to the response
+lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;aliases&quot;: [],
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;auto_update&quot;: true,
+    &quot;cached&quot;: true,
+    &quot;created_at&quot;: &quot;2018-04-05T00:00:00Z&quot;,
+    &quot;expires_at&quot;: &quot;2021-04-21T00:00:00Z&quot;,
+    &quot;filename&quot;: &quot;ubuntu-16.04-server-cloudimg-amd64-lxd.tar.xz&quot;,
+    &quot;fingerprint&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
+    &quot;last_used_at&quot;: &quot;2018-04-08T22:49:34Z&quot;,
+    &quot;properties&quot;: {
+        &quot;architecture&quot;: &quot;amd64&quot;,
+        &quot;description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
+        &quot;label&quot;: &quot;release&quot;,
+        &quot;os&quot;: &quot;ubuntu&quot;,
+        &quot;release&quot;: &quot;xenial&quot;,
+        &quot;serial&quot;: &quot;20180405&quot;,
+        &quot;version&quot;: &quot;16.04&quot;
+    },
+    &quot;public&quot;: false,
+    &quot;size&quot;: 163857160,
+    &quot;update_source&quot;: {
+        &quot;alias&quot;: &quot;16.04&quot;,
+        &quot;certificate&quot;: &quot;&quot;,
+        &quot;protocol&quot;: &quot;simplestreams&quot;,
+        &quot;server&quot;: &quot;https://cloud-images.ubuntu.com/releases&quot;
+    },
+    &quot;uploaded_at&quot;: &quot;2018-04-08T15:41:08Z&quot;
+}
+</code></pre>
+
+<h2 id="replace">Replace</h2>
+<p>Replace image properties, update information and visibility.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>string</td>
+<td>Image fingerprint</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>Images options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>// apply no mutation to the response
+lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+    &quot;auto_update&quot;: true,
+    &quot;properties&quot;: {
+        &quot;architecture&quot;: &quot;x86_64&quot;,
+        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
+        &quot;os&quot;: &quot;ubuntu&quot;,
+        &quot;release&quot;: &quot;trusty&quot;
+    },
+    &quot;public&quot;: true,
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="update">Update</h2>
+<p>Update image properties, update information and visibility.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>string</td>
+<td>Image fingerprint</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>Images options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>// apply no mutation to the response
+lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+    &quot;auto_update&quot;: true,
+    &quot;properties&quot;: {
+        &quot;architecture&quot;: &quot;x86_64&quot;,
+        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
+        &quot;os&quot;: &quot;ubuntu&quot;,
+        &quot;release&quot;: &quot;trusty&quot;
+    },
+    &quot;public&quot;: true,
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<p>Delete an image on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>fingerprint</td>
+<td>string</td>
+<td>Image fingerprint</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>// apply no mutation to the response
+lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../snapshots/" class="btn btn-neutral" title="Snapshots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../snapshots/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
