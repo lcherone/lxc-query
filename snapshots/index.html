@@ -73,6 +73,8 @@
         
             <li><a class="toctree-l3" href="#list">List</a></li>
         
+            <li><a class="toctree-l3" href="#info">Info</a></li>
+        
             <li><a class="toctree-l3" href="#create">Create</a></li>
         
         </ul>
@@ -151,12 +153,134 @@
 <pre><code>lxc.containers.snapshots.list('local:', 'my-container').then(response =&gt; {
     console.log(response)
 })
+
+// or apply stripEndpoint on response
+lxc.containers.snapshots.list('local:', response =&gt; lxc.containers.snapshots.stripEndpoint(response)).then(response =&gt; {
+    // [ 'my-snapshot' ]
+    console.log(response)
+})
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>[
     &quot;/1.0/containers/my-container/snapshots/my-snapshot&quot;
 ]
+</code></pre>
+
+<h2 id="info">Info</h2>
+<p>Get container snapshot information.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>snapshot</td>
+<td>string</td>
+<td>Snapshot name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10, 2018 6:53 PM)').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;config&quot;: {
+        &quot;image.architecture&quot;: &quot;amd64&quot;,
+        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;,
+        &quot;image.label&quot;: &quot;release&quot;,
+        &quot;image.os&quot;: &quot;ubuntu&quot;,
+        &quot;image.release&quot;: &quot;xenial&quot;,
+        &quot;image.serial&quot;: &quot;20180306&quot;,
+        &quot;image.version&quot;: &quot;16.04&quot;,
+        &quot;volatile.base_image&quot;: &quot;c5bbef7f4e1c19f0104fd4ub862b2e54x095d894765c75c6d72775f1d98135ec&quot;,
+        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:24:39:ee&quot;,
+        &quot;volatile.eth0.name&quot;: &quot;eth0&quot;,
+        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
+        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.power&quot;: &quot;STOPPED&quot;
+    },
+    &quot;created_at&quot;: &quot;2018-04-10T17:53:44Z&quot;,
+    &quot;devices&quot;: {},
+    &quot;ephemeral&quot;: false,
+    &quot;expanded_config&quot;: {
+        &quot;boot.autostart&quot;: &quot;0&quot;,
+        &quot;image.architecture&quot;: &quot;amd64&quot;,
+        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;,
+        &quot;image.label&quot;: &quot;release&quot;,
+        &quot;image.os&quot;: &quot;ubuntu&quot;,
+        &quot;image.release&quot;: &quot;xenial&quot;,
+        &quot;image.serial&quot;: &quot;20180306&quot;,
+        &quot;image.version&quot;: &quot;16.04&quot;,
+        &quot;limits.cpu&quot;: &quot;1&quot;,
+        &quot;limits.cpu.allowance&quot;: &quot;90%&quot;,
+        &quot;limits.cpu.priority&quot;: &quot;9&quot;,
+        &quot;limits.disk.priority&quot;: &quot;9&quot;,
+        &quot;limits.memory&quot;: &quot;1056MB&quot;,
+        &quot;limits.memory.enforce&quot;: &quot;hard&quot;,
+        &quot;limits.memory.swap&quot;: &quot;1&quot;,
+        &quot;limits.memory.swap.priority&quot;: &quot;5&quot;,
+        &quot;limits.network.priority&quot;: &quot;9&quot;,
+        &quot;limits.processes&quot;: &quot;14100&quot;,
+        &quot;security.nesting&quot;: &quot;0&quot;,
+        &quot;security.privileged&quot;: &quot;0&quot;,
+        &quot;volatile.base_image&quot;: &quot;c5bbef7f4e1c19f0104fd49b862b2e549095d894765c75c6d72775f1d98185ec&quot;,
+        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:24:39:ee&quot;,
+        &quot;volatile.eth0.name&quot;: &quot;eth0&quot;,
+        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
+        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.power&quot;: &quot;STOPPED&quot;
+    },
+    &quot;expanded_devices&quot;: {
+        &quot;eth0&quot;: {
+            &quot;nictype&quot;: &quot;bridged&quot;,
+            &quot;parent&quot;: &quot;lxdbr0&quot;,
+            &quot;type&quot;: &quot;nic&quot;
+        },
+        &quot;root&quot;: {
+            &quot;path&quot;: &quot;/&quot;,
+            &quot;pool&quot;: &quot;default&quot;,
+            &quot;type&quot;: &quot;disk&quot;
+        }
+    },
+    &quot;last_used_at&quot;: &quot;1970-01-01T00:00:00Z&quot;,
+    &quot;name&quot;: &quot;my-container/my-container (April 10, 2018 6:53 PM)&quot;,
+    &quot;profiles&quot;: [
+        &quot;default&quot;
+    ],
+    &quot;stateful&quot;: false
+}
 </code></pre>
 
 <h2 id="create">Create</h2>
