@@ -157,7 +157,7 @@
 })
 
 // or apply stripEndpoint on response
-lxc.containers.snapshots.list('local:', response =&gt; lxc.containers.snapshots.stripEndpoint(response)).then(response =&gt; {
+lxc.containers.snapshots.list('local:', 'my-container', response =&gt; lxc.containers.snapshots.stripEndpoint(response)).then(response =&gt; {
     // [ 'my-snapshot' ]
     console.log(response)
 })
