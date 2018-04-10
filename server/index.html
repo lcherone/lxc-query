@@ -63,6 +63,10 @@
         
             <li><a class="toctree-l3" href="#info">Info</a></li>
         
+            <li><a class="toctree-l3" href="#replace">Replace</a></li>
+        
+            <li><a class="toctree-l3" href="#update">Update</a></li>
+        
             <li><a class="toctree-l3" href="#remotes">Remotes</a></li>
         
         </ul>
@@ -255,6 +259,94 @@
         storage_version: '1'
     },
     public: false
+}
+</code></pre>
+
+<h2 id="replace">Replace</h2>
+<p>Replaces the server configuration or other properties.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>The server options</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Replaces any existing config with the provided one.</em></p>
+<pre><code>lxc.replace('remote:', {
+    &quot;config&quot;: {
+        &quot;core.trust_password&quot;: &quot;my-new-password&quot;,
+        &quot;core.https_address&quot;: &quot;[::]:8443&quot;
+    }
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="update">Update</h2>
+<p>Updates the server configuration or other properties.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local:</td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>The server options</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>Updates only the listed keys, rest remain intact.</em></p>
+<pre><code>lxc.update('remote:', {
+    &quot;config&quot;: {
+        &quot;core.trust_password&quot;: &quot;my-new-password&quot;,
+        &quot;core.https_address&quot;: &quot;[::]:8443&quot;
+    }
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
 }
 </code></pre>
 
