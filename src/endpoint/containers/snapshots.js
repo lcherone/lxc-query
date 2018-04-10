@@ -69,6 +69,21 @@ module.exports = class Snapshots {
   /**
    *
    */
+  rename (remote, container, snapshot, newname, mutator) {
+    //
+    remote = remote || 'local:'
+    container = container || ''
+    snapshot = snapshot || ''
+    newname = newname || ''
+    //
+    return this.lxc.server.query(sprintf(remote + this.baseEndpoint + '/{1}', container, snapshot), 'POST', {
+      'name': newname
+    }, mutator)
+  }
+
+  /**
+   *
+   */
   create (remote, container, options, mutator) {
     //
     remote = remote || 'local:'

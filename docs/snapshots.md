@@ -167,3 +167,43 @@ lxc.containers.snapshots.create('local:', 'my-container', {
     "updated_at": "2018-04-09T17:57:48.19705024Z"
 }
 ```
+
+## Rename
+
+Rename container snapshot.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local:        |
+| container    | string        | Container name    |           |
+| snapshot     | string        | Snapshot name     |           |
+| newname      | string        | New snapshot name |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.snapshots.rename('local:', 'my-container', 'my-snapshot-name', 'new-snapshot-name').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+    "class": "task",
+    "created_at": "2018-04-10T19:17:15.517952676+01:00",
+    "err": "",
+    "id": "1863b8ce-b3d5-4a35-87bc-959eafbb106d",
+    "may_cancel": false,
+    "metadata": null,
+    "resources": {
+        "containers": [
+            "/1.0/containers/my-container"
+        ]
+    },
+    "status": "Running",
+    "status_code": 103,
+    "updated_at": "2018-04-10T19:17:15.517952676+01:00"
+}
+```
