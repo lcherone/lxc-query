@@ -210,7 +210,7 @@ lxc.containers.create('local:', {
         "fingerprint": "be7cec7c9489"
     }
 }).then(response => {
-    console.log(JSON.stringify(response, null, 4))
+    console.log(response)
 })
 ```
 
