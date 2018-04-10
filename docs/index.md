@@ -23,8 +23,8 @@ Essentially you can do any LXD operation with the single `lxc.query` method, or 
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local:        |
 | rest method  | string        | e.g GET, POST, DELETE, PUT, PATCH | GET
-| payload      | object \| json string | Rest json payload.     |    |
-| mutator      | function      | Mutation function, allows you to mutate the result before the promise resolves. |           |
+| payload      | object \| json string | Rest json payload     |    |
+| mutator      | function      | Pre-resolve mutation function |           |
 
 ```
 const lxc = require('lxc-query')
@@ -33,7 +33,7 @@ lxc.query('remote:/1.0', 'GET', {}).then(response => {
     console.log(response)
 })
 ```
-Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more infomation. 
+Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more information. 
 
 ## Contributing
 
