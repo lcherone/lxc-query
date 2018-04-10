@@ -1,59 +1,7 @@
-# Snapshots
 
-Helper methods for snapshots.
+> lxc-query@0.0.4 test /var/www/html
+> standard --fix && standard && node test.js
 
-## List
-
-List container snapshots.
-
-**Parameters & Call**
-
-| Parameter    | Type          | Description   | Default       |
-| ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | Container name    |           |
-| mutator      | function      | Mutation function |           |
-
-```
-lxc.containers.snapshots.list('local:', 'my-container').then(response => {
-    console.log(response)
-})
-
-// or apply stripEndpoint on response
-lxc.containers.snapshots.list('local:', response => lxc.containers.snapshots.stripEndpoint(response)).then(response => {
-    // [ 'my-snapshot' ]
-    console.log(response)
-})
-```
-
-**Response**
-```
-[
-    "/1.0/containers/my-container/snapshots/my-snapshot"
-]
-```
-
-## Info
-
-Get container snapshot information.
-
-**Parameters & Call**
-
-| Parameter    | Type          | Description   | Default       |
-| ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | Container name    |           |
-| snapshot     | string        | Snapshot name     |           |
-| mutator      | function      | Mutation function |           |
-
-```
-lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10, 2018 6:53 PM)').then(response => {
-    console.log(response)
-})
-```
-
-**Response**
-```
 {
     "architecture": "x86_64",
     "config": {
@@ -64,7 +12,7 @@ lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10,
         "image.release": "xenial",
         "image.serial": "20180306",
         "image.version": "16.04",
-        "volatile.base_image": "c5bbef7f4e1c19f0104fd4ub862b2e54x095d894765c75c6d72775f1d98135ec",
+        "volatile.base_image": "c5bbef7f4e1c19f0104fd49b862b2e549095d894765c75c6d72775f1d98185ec",
         "volatile.eth0.hwaddr": "00:16:3e:24:39:ee",
         "volatile.eth0.name": "eth0",
         "volatile.idmap.base": "0",
@@ -117,53 +65,9 @@ lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10,
         }
     },
     "last_used_at": "1970-01-01T00:00:00Z",
-    "name": "my-container/my-container (April 10, 2018 6:53 PM)",
+    "name": "proxy/proxy (April 10, 2018 6:53 PM)",
     "profiles": [
         "default"
     ],
     "stateful": false
 }
-```
-
-## Create
-
-Create container snapshot.
-
-**Parameters & Call**
-
-| Parameter    | Type          | Description   | Default       |
-| ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | Container name    |           |
-| options      | object        | Snapshot options  |           |
-| mutator      | function      | Mutation function |           |
-
-```
-lxc.containers.snapshots.create('local:', 'my-container', {
-    "name": "my-snapshot",
-    "stateful": true
-}).then(response => {
-    console.log(response)
-})
-```
-
-**Response**
-```
-{
-    "class": "task",
-    "created_at": "2018-04-09T17:57:48.19705024Z",
-    "description": "Snapshotting container",
-    "err": "",
-    "id": "5db401c7-8d31-4110-aa15-0c6398a36cdb",
-    "may_cancel": false,
-    "metadata": null,
-    "resources": {
-        "containers": [
-            "/1.0/containers/my-container"
-        ]
-    },
-    "status": "Running",
-    "status_code": 103,
-    "updated_at": "2018-04-09T17:57:48.19705024Z"
-}
-```

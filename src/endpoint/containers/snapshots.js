@@ -35,10 +35,10 @@ module.exports = class Snapshots {
   /**
    *
    */
-  stripEndpoint (containers) {
+  stripEndpoint (snapshots) {
     let ret = []
-    containers.forEach(value => {
-      ret.push(value.replace(this.baseEndpoint + '/', ''))
+    snapshots.forEach(value => {
+      ret.push(value.substr(value.lastIndexOf('/') + 1))
     })
     return ret
   }
@@ -52,6 +52,18 @@ module.exports = class Snapshots {
     container = container || ''
     //
     return this.lxc.server.query(sprintf(remote + this.baseEndpoint, container), 'GET', {}, mutator)
+  }
+
+  /**
+   *
+   */
+  info (remote, container, snapshot, mutator) {
+    //
+    remote = remote || 'local:'
+    container = container || ''
+    snapshot = snapshot || ''
+    //
+    return this.lxc.server.query(sprintf(remote + this.baseEndpoint + '/{1}', container, snapshot), 'GET', {}, mutator)
   }
 
   /**
