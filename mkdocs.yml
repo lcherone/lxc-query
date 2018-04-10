@@ -6,3 +6,4 @@ pages:
     - Containers: containers.md
     - Snapshots: snapshots.md
     - Images: images.md
+    - Aliases: aliases.md

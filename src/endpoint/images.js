@@ -68,7 +68,7 @@ module.exports = class Images {
     //
     return this.lxc.server.query(remote + this.baseEndpoint + '/' + fingerprint, 'GET', {}, mutator)
   }
-  
+
   /**
    *
    */

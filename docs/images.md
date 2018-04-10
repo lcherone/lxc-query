@@ -14,7 +14,6 @@ List images on remote.
 | mutator      | function      | Mutation function |           |
 
 ```
-// apply no mutation to the response
 lxc.images.list('local:').then(response => {
     console.log(response)
 })
@@ -40,7 +39,6 @@ Get image information.
 | mutator      | function      | Mutation function |           |
 
 ```
-// apply no mutation to the response
 lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
@@ -94,7 +92,6 @@ Replace image properties, update information and visibility.
 | mutator      | function      | Mutation function |           |
 
 ```
-// apply no mutation to the response
 lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
@@ -131,7 +128,6 @@ Update image properties, update information and visibility.
 | mutator      | function      | Mutation function |           |
 
 ```
-// apply no mutation to the response
 lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
@@ -167,7 +163,6 @@ Delete an image on remote.
 | mutator      | function      | Mutation function |           |
 
 ```
-// apply no mutation to the response
 lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
