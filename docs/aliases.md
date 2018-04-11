@@ -8,11 +8,11 @@ List aliases on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.list('local:').then(response => {
+lxc.images.aliases.list('local').then(response => {
     console.log(response)
 })
 ```
@@ -32,12 +32,12 @@ Get image alias information.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | name         | string        | Alias name    |               |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.info('local:', 'alias-name').then(response => {
+lxc.images.aliases.info('local', 'alias-name').then(response => {
     console.log(response)
 })
 ```
@@ -60,12 +60,12 @@ Get image alias information.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | options      | object        | Alias options     |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.create('local:', {
+lxc.images.aliases.create('local', {
     "description": "The alias description",
     "target": "<image fingerprint>",
     "name": "alias-name"
@@ -90,13 +90,13 @@ Replace alias target or description.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | name         | string        | Alias name        |           |
 | options      | object        | Alias options     |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.replace('local:', 'alias-name', {
+lxc.images.aliases.replace('local', 'alias-name', {
     "description": "New description",
     "target": "<image fingerprint>"
 }).then(response => {
@@ -120,13 +120,13 @@ Update alias target or description.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | name         | string        | Alias name        |           |
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.update('local:', 'alias-name', {
+lxc.images.aliases.update('local', 'alias-name', {
     "description": "New description",
     "target": "<image fingerprint>"
 }).then(response => {
@@ -150,13 +150,13 @@ Rename an alias on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | name         | string        | Alias name        |           |
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.rename('local:', 'alias-name', {
+lxc.images.aliases.rename('local', 'alias-name', {
     "name": "new-name"
 }).then(response => {
     console.log(response)
@@ -179,12 +179,12 @@ Delete an alias on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | name         | name          | Alias name    |               |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.aliases.delete('local:', 'alias-name').then(response => {
+lxc.images.aliases.delete('local', 'alias-name').then(response => {
     console.log(response)
 })
 ```

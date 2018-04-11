@@ -68,7 +68,7 @@ module.exports = class Server {
    */
   query (remote, action, data, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     action = action || 'GET'
     data = (
       // is object, stringify-it
@@ -90,11 +90,7 @@ module.exports = class Server {
     return exec(
       'lxc remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
       response => {
-        let ret = []
-        response.trim().split(/\r?\n/).forEach(function (value) {
-          ret.push(value + ':')
-        })
-        return ret
+        return response.trim().split(/\r?\n/)
       },
       false
     )
@@ -104,7 +100,7 @@ module.exports = class Server {
    *
    */
   info (remote) {
-    return this.query((remote || 'local:') + '/1.0')
+    return this.query((remote || 'local') + ':/1.0')
   }
 
   /**
@@ -112,7 +108,7 @@ module.exports = class Server {
    */
   update (remote, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     options = (
       // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
@@ -121,7 +117,7 @@ module.exports = class Server {
       )
     )
     //
-    return this.query(remote + this.baseEndpoint, 'PATCH', options, mutator)
+    return this.query(remote + ':' + this.baseEndpoint, 'PATCH', options, mutator)
   }
 
   /**
@@ -129,7 +125,7 @@ module.exports = class Server {
    */
   replace (remote, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     options = (
       // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
@@ -138,6 +134,6 @@ module.exports = class Server {
       )
     )
     //
-    return this.query(remote + this.baseEndpoint, 'PUT', options, mutator)
+    return this.query(remote + ':' + this.baseEndpoint, 'PUT', options, mutator)
   }
 }

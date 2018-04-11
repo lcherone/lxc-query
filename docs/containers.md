@@ -8,24 +8,24 @@ List containers on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| mutator      | function      | Mutation function |               |
+| remote       | string        | LXD remote    | local         |
+| mutator      | function      | Mutation function |           |
 
 ```
 // apply no mutation to the response
-lxc.containers.list('local:').then(response => {
+lxc.containers.list('local').then(response => {
     // [ '/1.0/containers/my-container' ]
     console.log(response)
 })
 
 // apply stripEndpoint on response
-lxc.containers.list('local:', response => lxc.containers.stripEndpoint(response)).then(response => {
+lxc.containers.list('local', response => lxc.containers.stripEndpoint(response)).then(response => {
     // [ 'my-container' ]
     console.log(response)
 })
 
 // or you could write your own
-lxc.containers.list('local:', response => {
+lxc.containers.list('local', response => {
     let ret = []
     response.forEach(value => {
       ret.push(value.replace(lxc.containers.baseEndpoint + '/', ''))
@@ -52,11 +52,11 @@ Get the state of a container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.getState('local:', 'container-name').then(response => {
+lxc.containers.getState('local', 'container-name').then(response => {
     console.log(response);
 })
 ```
@@ -146,12 +146,12 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 | options      | object \| json   | Container state options |  |
 
 ```
-lxc.containers.setState ('local:', 'container-name',  {
+lxc.containers.setState ('local', 'container-name',  {
     "action": "stop",  # State change action (stop, start, restart, freeze or unfreeze)
     "timeout": 30,     # A timeout after which the state change is considered as failed
     "force": true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
@@ -190,13 +190,13 @@ Create container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| options      | object        | The container options |  |
+| remote       | string        | LXD remote    | local         |
+| options      | object        | The container options |       |
 
 Full container options can be found here: [https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1](https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1)
 
 ```
-lxc.containers.create('local:', {
+lxc.containers.create('local', {
     "name": "my-new-container",
     "architecture": "x86_64",
     "profiles": ["default"],
@@ -240,11 +240,11 @@ Start container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.start('local:', 'container-name').then(response => {
+lxc.containers.start('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
@@ -278,11 +278,11 @@ Stop container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.stop('local:', 'container-name').then(response => {
+lxc.containers.stop('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
@@ -316,11 +316,11 @@ Restart container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.restart('local:', 'container-name').then(response => {
+lxc.containers.restart('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
@@ -354,11 +354,11 @@ Freeze container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.freeze('local:', 'container-name').then(response => {
+lxc.containers.freeze('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
@@ -392,11 +392,11 @@ Unfreeze container on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| container    | string        | The container name |  |
+| remote       | string        | LXD remote    | local         |
+| container    | string        | The container name |          |
 
 ```
-lxc.containers.unfreeze('local:', 'container-name').then(response => {
+lxc.containers.unfreeze('local', 'container-name').then(response => {
     console.log(response)
 })
 ```

@@ -8,10 +8,10 @@ Get server information.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 
 ```
-lxc.info('local:').then(response => {
+lxc.info('local').then(response => {
     console.log(response)
 })
 ```
@@ -142,13 +142,13 @@ Replaces the server configuration or other properties.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| options      | object        | The server options |  |
+| remote       | string        | LXD remote    | local         |
+| options      | object        | The server options |          |
 
 <em>Replaces any existing config with the provided one.</em>
 
 ```
-lxc.replace('remote:', {
+lxc.replace('local', {
     "config": {
         "core.trust_password": "my-new-password",
         "core.https_address": "[::]:8443"
@@ -173,13 +173,13 @@ Updates the server configuration or other properties.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
-| options      | object        | The server options |  |
+| remote       | string        | LXD remote    | local         |
+| options      | object        | The server options |          |
 
 <em>Updates only the listed keys, rest remain intact.</em>
 
 ```
-lxc.update('remote:', {
+lxc.update('local', {
     "config": {
         "core.trust_password": "my-new-password",
         "core.https_address": "[::]:8443"
@@ -198,7 +198,7 @@ lxc.update('remote:', {
 
 ## Remotes
 
-Get currently defined remotes. (only works with local:)
+Get currently defined remotes. (only works with local)
 
 **Parameters & Call**
 
@@ -215,10 +215,10 @@ lxc.server.remotes().then(response => {
 **Response**
 ```
 [
-	'images:',
-	'local:',
-	'ubuntu:',
-	'ubuntu-daily:'
+	'images',
+	'local',
+	'ubuntu',
+	'ubuntu-daily'
 ]
 ```
 
@@ -230,7 +230,7 @@ Allows you to execute local exec commands.
 
 | Parameter    | Type          | Description    | Default       |
 | ----------   | ------------- | -------------  | ------------- | 
-| command      | string        | Shell command to run |               |
+| command      | string        | Shell command to run |         |
 
 ```
 lxc.local('lxc list').then(response => {

@@ -8,17 +8,17 @@ List container snapshots on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.containers.snapshots.list('local:', 'my-container').then(response => {
+lxc.containers.snapshots.list('local', 'my-container').then(response => {
     console.log(response)
 })
 
 // or apply stripEndpoint on response
-lxc.containers.snapshots.list('local:', 'my-container', response => lxc.containers.snapshots.stripEndpoint(response)).then(response => {
+lxc.containers.snapshots.list('local', 'my-container', response => lxc.containers.snapshots.stripEndpoint(response)).then(response => {
     // [ 'my-snapshot' ]
     console.log(response)
 })
@@ -39,13 +39,13 @@ Get container snapshot information on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
 | snapshot     | string        | Snapshot name     |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.containers.snapshots.info('local:', 'my-container', 'my-container (April 10, 2018 6:53 PM)').then(response => {
+lxc.containers.snapshots.info('local', 'my-container', 'my-container (April 10, 2018 6:53 PM)').then(response => {
     console.log(response)
 })
 ```
@@ -131,13 +131,13 @@ Create container snapshot on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
 | options      | object        | Snapshot options  |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.containers.snapshots.create('local:', 'my-container', {
+lxc.containers.snapshots.create('local', 'my-container', {
     "name": "my-snapshot",
     "stateful": true
 }).then(response => {
@@ -174,14 +174,14 @@ Rename container snapshot on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
 | snapshot     | string        | Snapshot name     |           |
 | newname      | string        | New snapshot name |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.containers.snapshots.rename('local:', 'my-container', 'my-snapshot-name', 'new-snapshot-name').then(response => {
+lxc.containers.snapshots.rename('local', 'my-container', 'my-snapshot-name', 'new-snapshot-name').then(response => {
     console.log(response)
 })
 ```
@@ -214,13 +214,13 @@ Delete container snapshot on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
 | snapshot     | string        | Snapshot name     |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.containers.snapshots.delete('local:', 'my-container', 'my-snapshot-name').then(response => {
+lxc.containers.snapshots.delete('local', 'my-container', 'my-snapshot-name').then(response => {
     console.log(response)
 })
 ```

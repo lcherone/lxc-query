@@ -46,9 +46,9 @@ module.exports = class Aliases {
    */
   list (remote, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     //
-    return this.lxc.server.query(remote + this.baseEndpoint, 'GET', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'GET', {}, mutator)
   }
 
   /**
@@ -56,10 +56,10 @@ module.exports = class Aliases {
    */
   info (remote, name, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     name = name || ''
     //
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name, 'GET', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'GET', {}, mutator)
   }
 
   /**
@@ -67,7 +67,7 @@ module.exports = class Aliases {
    */
   create (remote, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     options = (
       // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
@@ -76,7 +76,7 @@ module.exports = class Aliases {
       )
     )
     //
-    return this.lxc.server.query(remote + this.baseEndpoint, 'POST', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'POST', options, mutator)
   }
 
   /**
@@ -84,7 +84,7 @@ module.exports = class Aliases {
    */
   replace (remote, name, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     name = name || ''
     options = (
       // is object, stringify-it
@@ -93,7 +93,7 @@ module.exports = class Aliases {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name, 'PUT', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PUT', options, mutator)
   }
 
   /**
@@ -101,7 +101,7 @@ module.exports = class Aliases {
    */
   update (remote, name, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     name = name || ''
     options = (
       // is object, stringify-it
@@ -110,7 +110,7 @@ module.exports = class Aliases {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name, 'PATCH', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PATCH', options, mutator)
   }
 
   /**
@@ -118,7 +118,7 @@ module.exports = class Aliases {
    */
   rename (remote, name, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     name = name || ''
     options = (
       // is object, stringify-it
@@ -127,7 +127,7 @@ module.exports = class Aliases {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name, 'POST', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'POST', options, mutator)
   }
 
   /**
@@ -135,9 +135,9 @@ module.exports = class Aliases {
    */
   delete (remote, name, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     name = name || ''
 
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + name, 'DELETE', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'DELETE', {}, mutator)
   }
 }

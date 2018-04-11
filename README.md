@@ -22,7 +22,7 @@ Essentially you can do any LXD operation with the single `lxc.query` method, or 
 
 | Parameter    | Type          | Description   | Default                     |
 | ----------   | ------------- | ------------- | -------------               | 
-| remote       | string        | LXD remote    |                      local: |
+| remote       | string        | LXD remote    |                      local |
 | rest method  | string        | e.g GET, POST, DELETE, PUT, PATCH  | GET    |
 | payload      | object \| json string | Rest json payload          |        |
 | mutator      | function      | Pre-resolve mutation function      |        |

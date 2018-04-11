@@ -48,10 +48,10 @@ module.exports = class Snapshots {
    */
   list (remote, container, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     container = container || ''
     //
-    return this.lxc.server.query(sprintf(remote + this.baseEndpoint, container), 'GET', {}, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'GET', {}, mutator)
   }
 
   /**
@@ -59,11 +59,11 @@ module.exports = class Snapshots {
    */
   info (remote, container, snapshot, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     container = container || ''
     snapshot = snapshot || ''
     //
-    return this.lxc.server.query(sprintf(remote + this.baseEndpoint + '/{1}', container, snapshot), 'GET', {}, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'GET', {}, mutator)
   }
 
   /**
@@ -71,12 +71,12 @@ module.exports = class Snapshots {
    */
   rename (remote, container, snapshot, newname, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     container = container || ''
     snapshot = snapshot || ''
     newname = newname || ''
     //
-    return this.lxc.server.query(sprintf(remote + this.baseEndpoint + '/{1}', container, snapshot), 'POST', {
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'POST', {
       'name': newname
     }, mutator)
   }
@@ -86,7 +86,7 @@ module.exports = class Snapshots {
    */
   create (remote, container, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     container = container || ''
     options = (
       // is object, stringify-it
@@ -96,7 +96,7 @@ module.exports = class Snapshots {
       )
     )
     //
-    return this.lxc.server.query(sprintf(remote + this.baseEndpoint, container), 'POST', options, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'POST', options, mutator)
   }
 
   /**
@@ -104,10 +104,10 @@ module.exports = class Snapshots {
    */
   delete (remote, container, snapshot, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     container = container || ''
     snapshot = snapshot || ''
     //
-    return this.lxc.server.query(sprintf(remote + this.baseEndpoint + '/{1}', container, snapshot), 'DELETE', {}, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'DELETE', {}, mutator)
   }
 }

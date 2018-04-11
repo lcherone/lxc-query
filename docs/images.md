@@ -8,11 +8,11 @@ List images on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.list('local:').then(response => {
+lxc.images.list('local').then(response => {
     console.log(response)
 })
 ```
@@ -32,12 +32,12 @@ Get image information.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Image fingerprint |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
+lxc.images.info('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
 ```
@@ -84,13 +84,13 @@ Replace image properties, update information and visibility.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Image fingerprint |           |
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+lxc.images.replace('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
         "architecture": "x86_64",
@@ -120,13 +120,13 @@ Update image properties, update information and visibility.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Image fingerprint |           |
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
         "architecture": "x86_64",
@@ -156,12 +156,12 @@ Delete an image on remote.
 
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
-| remote       | string        | LXD remote    | local:        |
+| remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Image fingerprint |           |
 | mutator      | function      | Mutation function |           |
 
 ```
-lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
+lxc.images.delete('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
 ```

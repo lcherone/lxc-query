@@ -53,9 +53,9 @@ module.exports = class Images {
    */
   list (remote, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     //
-    return this.lxc.server.query(remote + this.baseEndpoint, 'GET', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'GET', {}, mutator)
   }
 
   /**
@@ -63,10 +63,10 @@ module.exports = class Images {
    */
   info (remote, fingerprint, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     fingerprint = fingerprint || ''
     //
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + fingerprint, 'GET', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + fingerprint, 'GET', {}, mutator)
   }
 
   /**
@@ -74,7 +74,7 @@ module.exports = class Images {
    */
   replace (remote, fingerprint, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     fingerprint = fingerprint || ''
     options = (
       // is object, stringify-it
@@ -83,7 +83,7 @@ module.exports = class Images {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + fingerprint, 'PUT', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + fingerprint, 'PUT', options, mutator)
   }
 
   /**
@@ -91,7 +91,7 @@ module.exports = class Images {
    */
   update (remote, fingerprint, options, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     fingerprint = fingerprint || ''
     options = (
       // is object, stringify-it
@@ -100,7 +100,7 @@ module.exports = class Images {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + fingerprint, 'PATCH', options, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + fingerprint, 'PATCH', options, mutator)
   }
 
   /**
@@ -108,9 +108,9 @@ module.exports = class Images {
    */
   delete (remote, fingerprint, mutator) {
     //
-    remote = remote || 'local:'
+    remote = remote || 'local'
     fingerprint = fingerprint || ''
 
-    return this.lxc.server.query(remote + this.baseEndpoint + '/' + fingerprint, 'DELETE', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + fingerprint, 'DELETE', {}, mutator)
   }
 }
