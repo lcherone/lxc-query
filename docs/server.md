@@ -221,3 +221,29 @@ lxc.server.remotes().then(response => {
 	'ubuntu-daily'
 ]
 ```
+
+## Local
+
+Allows you to execute local exec commands.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description    | Default       |
+| ----------   | ------------- | -------------  | ------------- | 
+| command      | string        | Shell command to run |               |
+
+```
+lxc.local('lxc list').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
++------------------+---------+-----------------------+------+------------+-----------+
+|       NAME       |  STATE  |         IPV4          | IPV6 |    TYPE    | SNAPSHOTS |
++------------------+---------+-----------------------+------+------------+-----------+
+| my-container     | STOPPED |                       |      | EPHEMERAL  | 0         |
++------------------+---------+-----------------------+------+------------+-----------+
+```
+

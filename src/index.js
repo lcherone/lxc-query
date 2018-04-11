@@ -46,6 +46,13 @@ class LXC {
   /**
    *
    */
+  local (cmd) {
+    return this.server.exec(cmd)
+  }
+
+  /**
+   *
+   */
   query (remote, action, data, mutator) {
     return this.server.query(remote, action, data, mutator)
   }

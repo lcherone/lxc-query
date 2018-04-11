@@ -35,6 +35,15 @@ module.exports = class Server {
   /**
    *
    */
+  exec (cmd) {
+    //
+    cmd = cmd || ''
+    return exec(cmd, {}, false)
+  }
+
+  /**
+   *
+   */
   query (remote, action, data, mutator) {
     //
     remote = remote || 'local:'
