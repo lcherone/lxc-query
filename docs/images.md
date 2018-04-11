@@ -1,5 +1,3 @@
-# Images
-
 Helper methods for image operations.
 
 ## List

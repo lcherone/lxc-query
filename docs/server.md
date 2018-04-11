@@ -1,5 +1,3 @@
-# Server
-
 Helper methods for server.
 
 ## Info

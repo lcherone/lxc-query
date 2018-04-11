@@ -1,5 +1,3 @@
-# Snapshots
-
 Helper methods for snapshots.
 
 ## List

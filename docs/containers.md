@@ -1,5 +1,3 @@
-# Containers
-
 Helper methods for container operations.
 
 ## List
