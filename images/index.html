@@ -145,7 +145,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>mutator</td>
@@ -155,7 +155,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.list('local:').then(response =&gt; {
+<pre><code>lxc.images.list('local').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -183,7 +183,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>fingerprint</td>
@@ -199,7 +199,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.info('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.images.info('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -253,7 +253,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>fingerprint</td>
@@ -275,7 +275,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.replace('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+<pre><code>lxc.images.replace('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     &quot;auto_update&quot;: true,
     &quot;properties&quot;: {
         &quot;architecture&quot;: &quot;x86_64&quot;,
@@ -312,7 +312,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>fingerprint</td>
@@ -334,7 +334,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.update('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
+<pre><code>lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     &quot;auto_update&quot;: true,
     &quot;properties&quot;: {
         &quot;architecture&quot;: &quot;x86_64&quot;,
@@ -371,7 +371,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>fingerprint</td>
@@ -387,7 +387,7 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.delete('local:', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.images.delete('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
     console.log(response)
 })
 </code></pre>

@@ -157,7 +157,7 @@
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>mutator</td>
@@ -168,19 +168,19 @@
 </tbody>
 </table>
 <pre><code>// apply no mutation to the response
-lxc.containers.list('local:').then(response =&gt; {
+lxc.containers.list('local').then(response =&gt; {
     // [ '/1.0/containers/my-container' ]
     console.log(response)
 })
 
 // apply stripEndpoint on response
-lxc.containers.list('local:', response =&gt; lxc.containers.stripEndpoint(response)).then(response =&gt; {
+lxc.containers.list('local', response =&gt; lxc.containers.stripEndpoint(response)).then(response =&gt; {
     // [ 'my-container' ]
     console.log(response)
 })
 
 // or you could write your own
-lxc.containers.list('local:', response =&gt; {
+lxc.containers.list('local', response =&gt; {
     let ret = []
     response.forEach(value =&gt; {
       ret.push(value.replace(lxc.containers.baseEndpoint + '/', ''))
@@ -215,7 +215,7 @@ lxc.containers.list('local:', response =&gt; {
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -225,7 +225,7 @@ lxc.containers.list('local:', response =&gt; {
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.getState('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.getState('local', 'container-name').then(response =&gt; {
     console.log(response);
 })
 </code></pre>
@@ -323,7 +323,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -339,7 +339,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.setState ('local:', 'container-name',  {
+<pre><code>lxc.containers.setState ('local', 'container-name',  {
     &quot;action&quot;: &quot;stop&quot;,  # State change action (stop, start, restart, freeze or unfreeze)
     &quot;timeout&quot;: 30,     # A timeout after which the state change is considered as failed
     &quot;force&quot;: true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
@@ -386,7 +386,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>options</td>
@@ -397,7 +397,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <p>Full container options can be found here: <a href="https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1">https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1</a></p>
-<pre><code>lxc.containers.create('local:', {
+<pre><code>lxc.containers.create('local', {
     &quot;name&quot;: &quot;my-new-container&quot;,
     &quot;architecture&quot;: &quot;x86_64&quot;,
     &quot;profiles&quot;: [&quot;default&quot;],
@@ -450,7 +450,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -460,7 +460,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.start('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.start('local', 'container-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -502,7 +502,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -512,7 +512,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.stop('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.stop('local', 'container-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -554,7 +554,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -564,7 +564,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.restart('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.restart('local', 'container-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -606,7 +606,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -616,7 +616,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.freeze('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.freeze('local', 'container-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -658,7 +658,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 <td>remote</td>
 <td>string</td>
 <td>LXD remote</td>
-<td>local:</td>
+<td>local</td>
 </tr>
 <tr>
 <td>container</td>
@@ -668,7 +668,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.unfreeze('local:', 'container-name').then(response =&gt; {
+<pre><code>lxc.containers.unfreeze('local', 'container-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
