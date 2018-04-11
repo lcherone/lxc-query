@@ -69,6 +69,9 @@
     <li class="toctree-l2"><a href="#remotes">Remotes</a></li>
     
 
+    <li class="toctree-l2"><a href="#local">Local</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -389,6 +392,40 @@
     'ubuntu',
     'ubuntu-daily'
 ]
+</code></pre>
+
+<h2 id="local">Local</h2>
+<p>Allows you to execute local exec commands.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td>string</td>
+<td>Shell command to run</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.local('lxc list').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>+------------------+---------+-----------------------+------+------------+-----------+
+|       NAME       |  STATE  |         IPV4          | IPV6 |    TYPE    | SNAPSHOTS |
++------------------+---------+-----------------------+------+------------+-----------+
+| my-container     | STOPPED |                       |      | EPHEMERAL  | 0         |
++------------------+---------+-----------------------+------+------------+-----------+
 </code></pre>
               
             </div>
