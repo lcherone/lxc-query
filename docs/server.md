@@ -215,10 +215,10 @@ lxc.server.remotes().then(response => {
 **Response**
 ```
 [
-	'images',
-	'local',
-	'ubuntu',
-	'ubuntu-daily'
+	'images:',
+	'local:',
+	'ubuntu:',
+	'ubuntu-daily:'
 ]
 ```
 

@@ -20,6 +20,7 @@
 
 const shellescape = require('../utils/shellescape.js')
 const exec = require('../utils/exec.js').exec
+// const { spawn } = require('child_process')
 
 /**
  *
@@ -38,6 +39,27 @@ module.exports = class Server {
   exec (cmd) {
     //
     cmd = cmd || ''
+    /*
+    let process = spawn(cmd, [], {
+      shell: true
+    })
+
+    process.stdout.on('data', (data) => {
+      let line = data.toString().trim()
+      if (line !== '') {
+        console.log(line)
+      }
+    })
+
+    process.stderr.on('data', (data) => {
+      let line = data.toString().trim()
+      if (line !== '') {
+        console.log(line)
+      }
+    })
+
+    process.on('close', (code) => {})
+    */
     return exec(cmd, {}, false)
   }
 
@@ -68,7 +90,11 @@ module.exports = class Server {
     return exec(
       'lxc remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
       response => {
-        return response.trim().split(/\r?\n/)
+        let ret = []
+        response.trim().split(/\r?\n/).forEach(function (value) {
+          ret.push(value + ':')
+        })
+        return ret
       },
       false
     )
