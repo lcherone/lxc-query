@@ -50,3 +50,7 @@ Please see [CONTRIBUTING](https://github.com/lcherone/lxc-query/blob/master/CONT
 ## License
 
 The MIT License (MIT). Please see [License File](https://github.com/lcherone/lxc-query/blob/master/LICENSE) for more information.
+
+## Links
+
+Check out [LXD-UI](https://github.com/lcherone/lxd-ui) - A simple easy to use GUI for your local LXD server.
