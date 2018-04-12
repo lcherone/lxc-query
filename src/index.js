@@ -44,6 +44,13 @@ class LXC {
   }
 
   /**
+   * Profiles endpoint getter
+   */
+  get profiles () {
+    return new (require('./endpoint/profiles.js'))(this)
+  }
+
+  /**
    *
    */
   local (cmd) {

@@ -68,7 +68,7 @@ module.exports = class Server {
    */
   query (remote, action, data, mutator) {
     //
-    remote = remote || 'local'
+    remote = remote || 'local:/'
     action = action || 'GET'
     data = (
       // is object, stringify-it

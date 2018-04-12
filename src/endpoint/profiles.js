@@ -21,20 +21,13 @@
 /**
  *
  */
-module.exports = class Containers {
+module.exports = class Profiles {
   /**
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/1.0/containers'
+    this.baseEndpoint = '/1.0/profiles'
     this.lxc = lxc
-  }
-
-  /**
-   * Snapshots endpoint getter
-   */
-  get snapshots () {
-    return new (require('./containers/snapshots.js'))(this.lxc)
   }
 
   /**
@@ -52,36 +45,21 @@ module.exports = class Containers {
    *
    */
   list (remote, mutator) {
-    return this.lxc.server.query((remote || 'local') + ':' + this.baseEndpoint, 'GET', {}, mutator)
+    //
+    remote = remote || 'local'
+    //
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'GET', {}, mutator)
   }
 
   /**
    *
    */
-  setState (remote, name, options, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    options = (
-      // is object, stringify-it
-      options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
-    )
-    //
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name + '/state', 'PUT', options, mutator)
-  }
-
-  /**
-   *
-   */
-  getState (remote, name, mutator) {
+  info (remote, name, mutator) {
     //
     remote = remote || 'local'
     name = name || ''
     //
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name + '/state', 'GET', {}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'GET', {}, mutator)
   }
 
   /**
@@ -97,62 +75,64 @@ module.exports = class Containers {
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
-    //
     return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'POST', options, mutator)
   }
 
   /**
    *
    */
-  start (remote, name, mutator) {
+  replace (remote, name, options, mutator) {
     //
     remote = remote || 'local'
     name = name || ''
-    //
-    return this.setState(remote, name, {action: 'start', timeout: 30}, mutator)
+    options = (
+      // is object, stringify-it
+      options instanceof Object ? JSON.stringify(options) : (
+        // is string, not empty, or set as false
+        (typeof options === 'string' || options instanceof String) && options ? options : false
+      )
+    )
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PUT', options, mutator)
   }
 
   /**
    *
    */
-  stop (remote, name, mutator) {
+  update (remote, name, options, mutator) {
     //
     remote = remote || 'local'
     name = name || ''
-    //
-    return this.setState(remote, name, {action: 'stop', timeout: 30}, mutator)
+    options = (
+      // is object, stringify-it
+      options instanceof Object ? JSON.stringify(options) : (
+        // is string, not empty, or set as false
+        (typeof options === 'string' || options instanceof String) && options ? options : false
+      )
+    )
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PATCH', options, mutator)
   }
 
   /**
    *
    */
-  restart (remote, name, mutator) {
+  rename (remote, name, newName, mutator) {
     //
     remote = remote || 'local'
     name = name || ''
-    //
-    return this.setState(remote, name, {action: 'restart', timeout: 30}, mutator)
+    newName = newName || ''
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'POST', {
+      'name': newName
+    }, mutator)
   }
 
   /**
    *
    */
-  freeze (remote, name, mutator) {
+  delete (remote, name, mutator) {
     //
     remote = remote || 'local'
     name = name || ''
-    //
-    return this.setState(remote, name, {action: 'freeze', timeout: 30}, mutator)
-  }
 
-  /**
-   *
-   */
-  unfreeze (remote, name, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    //
-    return this.setState(remote, name, {action: 'unfreeze', timeout: 30}, mutator)
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'DELETE', {}, mutator)
   }
 }
