@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Images - LXC Query</title>
+  <title>Profiles - LXC Query</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Images";
-    var mkdocs_page_input_path = "images.md";
-    var mkdocs_page_url = "/images/";
+    var mkdocs_page_name = "Profiles";
+    var mkdocs_page_input_path = "profiles.md";
+    var mkdocs_page_url = "/profiles/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -67,9 +67,19 @@
     <a class="" href="../snapshots/">Snapshots</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../images/">Images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Aliases</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Images</a>
+    <a class="current" href="./">Profiles</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#list">List</a></li>
@@ -78,26 +88,22 @@
     <li class="toctree-l2"><a href="#info">Info</a></li>
     
 
+    <li class="toctree-l2"><a href="#create">Create</a></li>
+    
+
     <li class="toctree-l2"><a href="#replace">Replace</a></li>
     
 
     <li class="toctree-l2"><a href="#update">Update</a></li>
     
 
+    <li class="toctree-l2"><a href="#rename">Rename</a></li>
+    
+
     <li class="toctree-l2"><a href="#delete">Delete</a></li>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../aliases/">Aliases</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../profiles/">Profiles</a>
 	    </li>
           
         </ul>
@@ -122,7 +128,7 @@
     
       
     
-    <li>Images</li>
+    <li>Profiles</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -132,9 +138,9 @@
           <div role="main">
             <div class="section">
               
-                <p>Helper methods for image operations.</p>
+                <p>Helper methods for profile operations.</p>
 <h2 id="list">List</h2>
-<p>List images on remote.</p>
+<p>List profiles on remote.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -160,19 +166,19 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.list('local').then(response =&gt; {
+<pre><code>lxc.profiles.list('local').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>[
-    &quot;/1.0/images/be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;
+    &quot;/1.0/profiles/default&quot;
 ]
 </code></pre>
 
 <h2 id="info">Info</h2>
-<p>Get image information.</p>
+<p>Get profile information.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -191,9 +197,9 @@
 <td>local</td>
 </tr>
 <tr>
-<td>fingerprint</td>
+<td>name</td>
 <td>string</td>
-<td>Image fingerprint</td>
+<td>Profile name</td>
 <td></td>
 </tr>
 <tr>
@@ -204,45 +210,37 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.info('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.profiles.info('local', 'default').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>{
-    &quot;aliases&quot;: [],
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;auto_update&quot;: true,
-    &quot;cached&quot;: true,
-    &quot;created_at&quot;: &quot;2018-04-05T00:00:00Z&quot;,
-    &quot;expires_at&quot;: &quot;2021-04-21T00:00:00Z&quot;,
-    &quot;filename&quot;: &quot;ubuntu-16.04-server-cloudimg-amd64-lxd.tar.xz&quot;,
-    &quot;fingerprint&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
-    &quot;last_used_at&quot;: &quot;2018-04-08T22:49:34Z&quot;,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;amd64&quot;,
-        &quot;description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
-        &quot;label&quot;: &quot;release&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;xenial&quot;,
-        &quot;serial&quot;: &quot;20180405&quot;,
-        &quot;version&quot;: &quot;16.04&quot;
+    &quot;config&quot;: {},
+    &quot;description&quot;: &quot;Default LXD profile&quot;,
+    &quot;devices&quot;: {
+        &quot;eth0&quot;: {
+            &quot;name&quot;: &quot;eth0&quot;,
+            &quot;nictype&quot;: &quot;bridged&quot;,
+            &quot;parent&quot;: &quot;lxdbr0&quot;,
+            &quot;type&quot;: &quot;nic&quot;
+        },
+        &quot;root&quot;: {
+            &quot;path&quot;: &quot;/&quot;,
+            &quot;pool&quot;: &quot;default&quot;,
+            &quot;type&quot;: &quot;disk&quot;
+        }
     },
-    &quot;public&quot;: false,
-    &quot;size&quot;: 163857160,
-    &quot;update_source&quot;: {
-        &quot;alias&quot;: &quot;16.04&quot;,
-        &quot;certificate&quot;: &quot;&quot;,
-        &quot;protocol&quot;: &quot;simplestreams&quot;,
-        &quot;server&quot;: &quot;https://cloud-images.ubuntu.com/releases&quot;
-    },
-    &quot;uploaded_at&quot;: &quot;2018-04-08T15:41:08Z&quot;
+    &quot;name&quot;: &quot;default&quot;,
+    &quot;used_by&quot;: [
+        &quot;/1.0/containers/my-container&quot;
+    ]
 }
 </code></pre>
 
-<h2 id="replace">Replace</h2>
-<p>Replace image properties, update information and visibility.</p>
+<h2 id="create">Create</h2>
+<p>Create profile.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -261,15 +259,9 @@
 <td>local</td>
 </tr>
 <tr>
-<td>fingerprint</td>
-<td>string</td>
-<td>Image fingerprint</td>
-<td></td>
-</tr>
-<tr>
 <td>options</td>
 <td>object</td>
-<td>Images options</td>
+<td>Profile options</td>
 <td></td>
 </tr>
 <tr>
@@ -280,15 +272,74 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.replace('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
-    &quot;auto_update&quot;: true,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;x86_64&quot;,
-        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;trusty&quot;
+<pre><code>lxc.profiles.create('local', {
+    &quot;name&quot;: &quot;my-new-profile&quot;,
+    &quot;description&quot;: &quot;Some informative description string&quot;,
+    &quot;config&quot;: {
+        &quot;limits.memory&quot;: &quot;2GB&quot;
     },
-    &quot;public&quot;: true,
+    &quot;devices&quot;: {
+        &quot;kvm&quot;: {
+            &quot;type&quot;: &quot;unix-char&quot;,
+            &quot;path&quot;: &quot;/dev/kvm&quot;
+        }
+    }
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="replace">Replace</h2>
+<p>Replace profile properties, update information and visibility.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Profile name</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>Profile options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.profiles.replace('local', 'my-new-profile', {
+    &quot;config&quot;: {
+        &quot;limits.memory&quot;: &quot;4GB&quot;
+    },
+    &quot;description&quot;: &quot;Some description string&quot;,
+    &quot;devices&quot;: {}
 }).then(response =&gt; {
     console.log(response)
 })
@@ -301,7 +352,7 @@
 </code></pre>
 
 <h2 id="update">Update</h2>
-<p>Update image properties, update information and visibility.</p>
+<p>Update profile properties, update information and visibility.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -320,15 +371,15 @@
 <td>local</td>
 </tr>
 <tr>
-<td>fingerprint</td>
+<td>name</td>
 <td>string</td>
-<td>Image fingerprint</td>
+<td>Profile name</td>
 <td></td>
 </tr>
 <tr>
 <td>options</td>
 <td>object</td>
-<td>Images options</td>
+<td>Profile options</td>
 <td></td>
 </tr>
 <tr>
@@ -339,15 +390,12 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
-    &quot;auto_update&quot;: true,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;x86_64&quot;,
-        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;trusty&quot;
+<pre><code>lxc.profiles.replace('local', 'my-new-profile', {
+    &quot;config&quot;: {
+        &quot;limits.memory&quot;: &quot;4GB&quot;
     },
-    &quot;public&quot;: true,
+    &quot;description&quot;: &quot;Some description string&quot;,
+    &quot;devices&quot;: {}
 }).then(response =&gt; {
     console.log(response)
 })
@@ -359,8 +407,8 @@
 }
 </code></pre>
 
-<h2 id="delete">Delete</h2>
-<p>Delete an image on remote.</p>
+<h2 id="rename">Rename</h2>
+<p>Rename a profile.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -379,9 +427,15 @@
 <td>local</td>
 </tr>
 <tr>
-<td>fingerprint</td>
+<td>name</td>
 <td>string</td>
-<td>Image fingerprint</td>
+<td>Profile name</td>
+<td></td>
+</tr>
+<tr>
+<td>newName</td>
+<td>string</td>
+<td>New profile name</td>
 <td></td>
 </tr>
 <tr>
@@ -392,7 +446,51 @@
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.delete('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response =&gt; {
+<pre><code>lxc.profiles.rename('local', 'old-name', 'new-name').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<p>Delete a profile on remote.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Profile name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.profiles.delete('local', 'profile-name').then(response =&gt; {
     console.log(response)
 })
 </code></pre>
@@ -409,10 +507,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../aliases/" class="btn btn-neutral float-right" title="Aliases">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../snapshots/" class="btn btn-neutral" title="Snapshots"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../aliases/" class="btn btn-neutral" title="Aliases"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -438,10 +534,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../snapshots/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../aliases/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../aliases/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
