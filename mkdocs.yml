@@ -3,8 +3,10 @@ theme: readthedocs
 pages:
     - Home: index.md
     - Server: server.md
+    - Certificates: certificates.md
     - Containers: containers.md
     - Snapshots: snapshots.md
     - Images: images.md
     - Aliases: aliases.md
     - Profiles: profiles.md
+    
