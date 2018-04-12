@@ -67,36 +67,36 @@ class LXC {
   /**
    *
    */
-  local (cmd) {
-    return this.server.exec(cmd)
+  local () {
+    return this.server.exec(...arguments)
   }
 
   /**
    *
    */
-  query (remote, action, data, mutator) {
-    return this.server.query(remote, action, data, mutator)
+  query () {
+    return this.server.query(...arguments)
   }
 
   /**
    *
    */
-  info (remote, mutator) {
-    return this.server.info(remote, mutator)
+  info () {
+    return this.server.info(...arguments)
   }
 
   /**
    *
    */
-  replace (remote, options, mutator) {
-    return this.server.replace(remote, options, mutator)
+  replace () {
+    return this.server.replace(...arguments)
   }
 
   /**
    *
    */
-  update (remote, options, mutator) {
-    return this.server.update(remote, options, mutator)
+  update () {
+    return this.server.update(...arguments)
   }
 }
 
