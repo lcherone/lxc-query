@@ -44,6 +44,13 @@ class LXC {
   }
 
   /**
+   * Certificates endpoint getter
+   */
+  get certificates () {
+    return new (require('./endpoint/certificates.js'))(this)
+  }
+
+  /**
    * Profiles endpoint getter
    */
   get profiles () {

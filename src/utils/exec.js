@@ -25,9 +25,7 @@ const exec = require('child_process').exec
  */
 class Module {
   /**
-   * Execute nodejs exec as a promise
-   *
-   * Verbose so as to know whats breaking...
+   * Execute exec as a promise, handle json or not, parse or not.
    *
    * @param string   cmd     - command to run, should be escaped properly
    * @param function mutator - mutation function which can be applied to the response before resolving
@@ -44,32 +42,32 @@ class Module {
     //
     return new Promise((resolve, reject) => {
       exec(cmd, (error, stdout, stderr) => {
-        if (error !== null) {
-          console.error('cmd: ', cmd)
-          console.error('stderr: ', stderr)
-          reject(error)
-        } else {
-          if (!parse) {
-            if (typeof mutator === 'function') {
-              stdout = mutator(stdout)
-            }
-            resolve(stdout)
+        try {
+          if (error !== null) {
+            reject(error)
           } else {
-            if (!stdout) {
-              stdout = '{}'
+            if (!parse) {
+              if (typeof mutator === 'function') {
+                stdout = mutator(stdout)
+              }
+              resolve(stdout)
+            } else {
+              if (!stdout) {
+                stdout = '{}'
+              }
+              try {
+                stdout = JSON.parse(stdout)
+              } catch (e) {
+                reject(stdout)
+              }
+              if (typeof mutator === 'function') {
+                stdout = mutator(stdout)
+              }
+              resolve(stdout)
             }
-            try {
-              stdout = JSON.parse(stdout)
-            } catch (e) {
-              console.error('cmd: ', cmd)
-              console.error('stderr: ', stderr)
-              reject(stdout)
-            }
-            if (typeof mutator === 'function') {
-              stdout = mutator(stdout)
-            }
-            resolve(stdout)
           }
+        } catch (e) {
+          reject(e.message)
         }
       })
     })
