@@ -18,121 +18,72 @@
  +----------------------------------------------------------------------+
  */
 
+const BaseEndpoint = require('../endpoint/base.js')
+
 /**
  *
  */
-module.exports = class Profiles {
+module.exports = class Profiles extends BaseEndpoint {
   /**
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/1.0/profiles'
-    this.lxc = lxc
+    super(lxc, '/1.0/profiles')
   }
 
   /**
    *
    */
-  stripEndpoint (containers) {
-    let ret = []
-    containers.forEach(value => {
-      ret.push(value.replace(this.baseEndpoint + '/', ''))
-    })
-    return ret
+  stripEndpoint () {
+    return super.stripEndpoint(...arguments)
   }
 
   /**
    *
    */
-  list (remote, mutator) {
-    //
-    remote = remote || 'local'
-    //
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'GET', {}, mutator)
+  list () {
+    return super.list(...arguments)
   }
 
   /**
    *
    */
-  info (remote, name, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    //
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'GET', {}, mutator)
+  info () {
+    return super.info(...arguments)
   }
 
   /**
    *
    */
-  create (remote, options, mutator) {
-    //
-    remote = remote || 'local'
-    options = (
-      // is object, stringify-it
-      options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
-    )
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'POST', options, mutator)
+  create () {
+    return super.create(...arguments)
   }
 
   /**
    *
    */
-  replace (remote, name, options, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    options = (
-      // is object, stringify-it
-      options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
-    )
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PUT', options, mutator)
+  replace () {
+    return super.replace(...arguments)
   }
 
   /**
    *
    */
-  update (remote, name, options, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    options = (
-      // is object, stringify-it
-      options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
-    )
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'PATCH', options, mutator)
+  update () {
+    return super.update(...arguments)
   }
 
   /**
    *
    */
-  rename (remote, name, newName, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-    newName = newName || ''
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'POST', {
-      'name': newName
-    }, mutator)
+  rename () {
+    return super.rename(...arguments)
   }
 
   /**
    *
    */
-  delete (remote, name, mutator) {
-    //
-    remote = remote || 'local'
-    name = name || ''
-
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name, 'DELETE', {}, mutator)
+  delete () {
+    return super.delete(...arguments)
   }
 }
