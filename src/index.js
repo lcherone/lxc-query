@@ -58,6 +58,13 @@ class LXC {
   }
 
   /**
+   * Networks endpoint getter
+   */
+  get networks () {
+    return new (require('./endpoint/networks.js'))(this)
+  }
+
+  /**
    *
    */
   local (cmd) {
