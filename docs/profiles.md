@@ -108,7 +108,7 @@ lxc.profiles.create('local', {
 
 ## Replace
 
-Replace profile properties, update information and visibility.
+Replace profile properties, update description, devices and limits.
 
 **Parameters & Call**
 
@@ -141,7 +141,7 @@ lxc.profiles.replace('local', 'my-new-profile', {
 
 ## Update
 
-Update profile properties, update information and visibility.
+Update profile properties, update description, devices and limits.
 
 **Parameters & Call**
 
