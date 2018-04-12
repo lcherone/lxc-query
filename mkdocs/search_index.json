@@ -289,6 +289,46 @@
             "location": "/profiles/#delete",
             "text": "Delete a profile on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Profile name     mutator  function  Mutation function      lxc.profiles.delete('local', 'profile-name').then(response => {\n    console.log(response)\n})  Response  {\n\n}",
             "title": "Delete"
+        },
+        {
+            "location": "/networks/",
+            "text": "Helper methods for network operations.\n\n\nList\n\n\nList networks on remote.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.list('local').then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n[\n    \"/1.0/networks/lxdbr0\",\n    \"/1.0/networks/lo\"\n]\n\n\n\n\nInfo\n\n\nGet network information.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nname\n\n\nstring\n\n\nNetwork name\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.info('local', 'lxdbr0').then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n    \"config\": {\n        \"ipv4.address\": \"10.158.250.1/24\",\n        \"ipv4.nat\": \"true\",\n        \"ipv6.address\": \"fd42:a224:5bde:20c0::1/64\",\n        \"ipv6.nat\": \"true\"\n    },\n    \"description\": \"\",\n    \"managed\": true,\n    \"name\": \"lxdbr0\",\n    \"type\": \"bridge\",\n    \"used_by\": [\n        \"/1.0/containers/my-container\"\n    ]\n}\n\n\n\n\nCreate\n\n\nCreate network.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\noptions\n\n\nobject\n\n\nNetwork options\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.create('local', {\n    \"name\": \"my-network\",\n    \"description\": \"My network\",\n    \"config\": {\n        \"ipv4.address\": \"none\",\n        \"ipv6.address\": \"2001:470:b368:4242::1/64\",\n        \"ipv6.nat\": \"true\"\n    }\n}).then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n\n}\n\n\n\n\nReplace\n\n\nReplace the network information.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nname\n\n\nstring\n\n\nNetwork name\n\n\n\n\n\n\n\n\noptions\n\n\nobject\n\n\nNetwork options\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.replace('local', 'my-new-network', {\n    \"config\": {\n        \"bridge.driver\": \"openvswitch\",\n        \"ipv4.address\": \"10.0.3.1/24\",\n        \"ipv6.address\": \"fd1:6997:4939:495d::1/64\"\n    }\n}).then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n\n}\n\n\n\n\nUpdate\n\n\nUpdate the network information.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nname\n\n\nstring\n\n\nNetwork name\n\n\n\n\n\n\n\n\noptions\n\n\nobject\n\n\nNetwork options\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.replace('local', 'my-new-network', {\n    \"config\": {\n        \"dns.mode\": \"dynamic\"\n    }\n}).then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n\n}\n\n\n\n\nRename\n\n\nRename a network.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nname\n\n\nstring\n\n\nNetwork name\n\n\n\n\n\n\n\n\nnewName\n\n\nstring\n\n\nNew network name\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.rename('local', 'old-name', 'new-name').then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n\n}\n\n\n\n\nDelete\n\n\nDelete a network on remote.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nname\n\n\nstring\n\n\nNetwork name\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.networks.delete('local', 'network-name').then(response => {\n    console.log(response)\n})\n\n\n\n\nResponse\n\n\n{\n\n}",
+            "title": "Networks"
+        },
+        {
+            "location": "/networks/#list",
+            "text": "List networks on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    mutator  function  Mutation function      lxc.networks.list('local').then(response => {\n    console.log(response)\n})  Response  [\n    \"/1.0/networks/lxdbr0\",\n    \"/1.0/networks/lo\"\n]",
+            "title": "List"
+        },
+        {
+            "location": "/networks/#info",
+            "text": "Get network information.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     mutator  function  Mutation function      lxc.networks.info('local', 'lxdbr0').then(response => {\n    console.log(response)\n})  Response  {\n    \"config\": {\n        \"ipv4.address\": \"10.158.250.1/24\",\n        \"ipv4.nat\": \"true\",\n        \"ipv6.address\": \"fd42:a224:5bde:20c0::1/64\",\n        \"ipv6.nat\": \"true\"\n    },\n    \"description\": \"\",\n    \"managed\": true,\n    \"name\": \"lxdbr0\",\n    \"type\": \"bridge\",\n    \"used_by\": [\n        \"/1.0/containers/my-container\"\n    ]\n}",
+            "title": "Info"
+        },
+        {
+            "location": "/networks/#create",
+            "text": "Create network.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    options  object  Network options     mutator  function  Mutation function      lxc.networks.create('local', {\n    \"name\": \"my-network\",\n    \"description\": \"My network\",\n    \"config\": {\n        \"ipv4.address\": \"none\",\n        \"ipv6.address\": \"2001:470:b368:4242::1/64\",\n        \"ipv6.nat\": \"true\"\n    }\n}).then(response => {\n    console.log(response)\n})  Response  {\n\n}",
+            "title": "Create"
+        },
+        {
+            "location": "/networks/#replace",
+            "text": "Replace the network information.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     options  object  Network options     mutator  function  Mutation function      lxc.networks.replace('local', 'my-new-network', {\n    \"config\": {\n        \"bridge.driver\": \"openvswitch\",\n        \"ipv4.address\": \"10.0.3.1/24\",\n        \"ipv6.address\": \"fd1:6997:4939:495d::1/64\"\n    }\n}).then(response => {\n    console.log(response)\n})  Response  {\n\n}",
+            "title": "Replace"
+        },
+        {
+            "location": "/networks/#update",
+            "text": "Update the network information.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     options  object  Network options     mutator  function  Mutation function      lxc.networks.replace('local', 'my-new-network', {\n    \"config\": {\n        \"dns.mode\": \"dynamic\"\n    }\n}).then(response => {\n    console.log(response)\n})  Response  {\n\n}",
+            "title": "Update"
+        },
+        {
+            "location": "/networks/#rename",
+            "text": "Rename a network.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     newName  string  New network name     mutator  function  Mutation function      lxc.networks.rename('local', 'old-name', 'new-name').then(response => {\n    console.log(response)\n})  Response  {\n\n}",
+            "title": "Rename"
+        },
+        {
+            "location": "/networks/#delete",
+            "text": "Delete a network on remote.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     mutator  function  Mutation function      lxc.networks.delete('local', 'network-name').then(response => {\n    console.log(response)\n})  Response  {\n\n}",
+            "title": "Delete"
         }
     ]
 }
