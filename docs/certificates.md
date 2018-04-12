@@ -33,7 +33,7 @@ Add certificate.
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
-| options      | object        | Profile options   |           |
+| options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
 
 ```
@@ -94,7 +94,7 @@ Replace certificate properties.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Certificate fingerprint |     |
-| options      | object        | Profile options   |           |
+| options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
 
 ```
@@ -124,7 +124,7 @@ Update certificate properties.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 | fingerprint  | string        | Certificate fingerprint |     |
-| options      | object        | Profile options   |           |
+| options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
 
 ```
