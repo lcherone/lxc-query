@@ -2,7 +2,7 @@ Helper methods for certificate operations.
 
 ## List
 
-List certificates on remote.
+List client certificates.
 
 **Parameters & Call**
 
@@ -26,7 +26,7 @@ lxc.certificates.list('local').then(response => {
 
 ## Add
 
-Add certificate.
+Add client certificate.
 
 **Parameters & Call**
 
@@ -145,7 +145,7 @@ lxc.certificates.replace('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706
 
 ## Delete
 
-Delete a certificate on remote.
+Delete a client certificate.
 
 **Parameters & Call**
 

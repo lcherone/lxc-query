@@ -150,7 +150,7 @@ lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b
 
 ## Delete
 
-Delete an image on remote.
+Delete an image.
 
 **Parameters & Call**
 

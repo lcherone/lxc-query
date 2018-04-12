@@ -46,7 +46,7 @@ lxc.containers.list('local', response => {
 
 ## Get State
 
-Get the state of a container on remote.
+Get the state of a container.
 
 **Parameters & Call**
 
@@ -184,7 +184,7 @@ lxc.containers.setState ('local', 'container-name',  {
 
 ## Create
 
-Create container on remote.
+Create a container.
 
 **Parameters & Call**
 
@@ -234,7 +234,7 @@ lxc.containers.create('local', {
 ```
 ## Start
 
-Start container on remote.
+Start a container.
 
 **Parameters & Call**
 
@@ -272,7 +272,7 @@ lxc.containers.start('local', 'container-name').then(response => {
 
 ## Stop
 
-Stop container on remote.
+Stop a container.
 
 **Parameters & Call**
 
@@ -310,7 +310,7 @@ lxc.containers.stop('local', 'container-name').then(response => {
 
 ## Restart
 
-Restart container on remote.
+Restart a container.
 
 **Parameters & Call**
 
@@ -348,7 +348,7 @@ lxc.containers.restart('local', 'container-name').then(response => {
 
 ## Freeze
 
-Freeze container on remote.
+Freeze a container.
 
 **Parameters & Call**
 
@@ -386,7 +386,7 @@ lxc.containers.freeze('local', 'container-name').then(response => {
 
 ## Unfreeze
 
-Unfreeze container on remote.
+Unfreeze a container.
 
 **Parameters & Call**
 

@@ -2,7 +2,7 @@ Helper methods for alias operations.
 
 ## List
 
-List aliases on remote.
+List image aliases
 
 **Parameters & Call**
 
@@ -144,7 +144,7 @@ lxc.images.aliases.update('local', 'alias-name', {
 
 ## Rename
 
-Rename an alias on remote.
+Rename an image alias.
 
 **Parameters & Call**
 
@@ -173,7 +173,7 @@ lxc.images.aliases.rename('local', 'alias-name', {
 
 ## Delete
 
-Delete an alias on remote.
+Delete an image alias.
 
 **Parameters & Call**
 

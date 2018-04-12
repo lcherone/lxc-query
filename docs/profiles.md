@@ -2,7 +2,7 @@ Helper methods for profile operations.
 
 ## List
 
-List profiles on remote.
+List profiles.
 
 **Parameters & Call**
 
@@ -201,7 +201,7 @@ lxc.profiles.rename('local', 'old-name', 'new-name').then(response => {
 
 ## Delete
 
-Delete a profile on remote.
+Delete a profile.
 
 **Parameters & Call**
 

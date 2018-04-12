@@ -2,7 +2,7 @@ Helper methods for network operations.
 
 ## List
 
-List networks on remote.
+List networks.
 
 **Parameters & Call**
 
@@ -190,7 +190,7 @@ lxc.networks.rename('local', 'old-name', 'new-name').then(response => {
 
 ## Delete
 
-Delete a network on remote.
+Delete a network.
 
 **Parameters & Call**
 
