@@ -20,7 +20,6 @@
 
 const shellescape = require('../utils/shellescape.js')
 const exec = require('../utils/exec.js').exec
-// const { spawn } = require('child_process')
 
 /**
  *
@@ -39,27 +38,6 @@ module.exports = class Server {
   exec (cmd) {
     //
     cmd = cmd || ''
-    /*
-    let process = spawn(cmd, [], {
-      shell: true
-    })
-
-    process.stdout.on('data', (data) => {
-      let line = data.toString().trim()
-      if (line !== '') {
-        console.log(line)
-      }
-    })
-
-    process.stderr.on('data', (data) => {
-      let line = data.toString().trim()
-      if (line !== '') {
-        console.log(line)
-      }
-    })
-
-    process.on('close', (code) => {})
-    */
     return exec(cmd, {}, false)
   }
 
