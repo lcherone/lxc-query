@@ -19,6 +19,14 @@
 
     
     <url>
+     <loc>/certificates/</loc>
+     <lastmod>2018-04-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/containers/</loc>
      <lastmod>2018-04-12</lastmod>
      <changefreq>daily</changefreq>
