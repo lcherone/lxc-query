@@ -66,6 +66,9 @@
     <li class="toctree-l2"><a href="#update">Update</a></li>
     
 
+    <li class="toctree-l2"><a href="#resources">Resources</a></li>
+    
+
     <li class="toctree-l2"><a href="#remotes">Remotes</a></li>
     
 
@@ -371,6 +374,63 @@
 <p><strong>Response</strong></p>
 <pre><code>{
 
+}
+</code></pre>
+
+<h2 id="resources">Resources</h2>
+<p>Get information about the resources available to the LXD server.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.server.resources('local').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;cpu&quot;: {
+        &quot;sockets&quot;: [
+            {
+                &quot;cores&quot;: 6,
+                &quot;frequency&quot;: 3700,
+                &quot;frequency_turbo&quot;: 4700,
+                &quot;name&quot;: &quot;Intel&quot;,
+                &quot;threads&quot;: 12,
+                &quot;vendor&quot;: &quot;Intel Core i7-8700K&quot;
+            }
+        ],
+        &quot;total&quot;: 6
+    },
+    &quot;memory&quot;: {
+        &quot;total&quot;: 126590324224,
+        &quot;used&quot;: 1426169856
+    },
+    &quot;pool&quot;: {
+        &quot;inodes&quot;: {
+            &quot;total&quot;: 0,
+            &quot;used&quot;: 0
+        },
+        &quot;space&quot;: {
+            &quot;total&quot;: 0
+        }
+    }
 }
 </code></pre>
 
