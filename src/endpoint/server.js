@@ -78,14 +78,14 @@ module.exports = class Server {
    *
    */
   info (remote) {
-    return this.query((remote || 'local') + ':/1.0')
+    return this.query((remote || 'local') + ':' + this.baseEndpoint)
   }
 
   /**
    *
    */
   resources (remote) {
-    return this.query((remote || 'local') + ':/1.0/resources')
+    return this.query((remote || 'local') + ':' + this.baseEndpoint + '/resources')
   }
 
   /**
