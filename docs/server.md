@@ -196,6 +196,54 @@ lxc.update('local', {
 }
 ```
 
+## Resources
+
+Get information about the resources available to the LXD server.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+
+```
+lxc.server.resources('local').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+    "cpu": {
+        "sockets": [
+            {
+                "cores": 6,
+                "frequency": 3700,
+                "frequency_turbo": 4700,
+                "name": "Intel",
+                "threads": 12,
+                "vendor": "Intel Core i7-8700K"
+            }
+        ],
+        "total": 6
+    },
+    "memory": {
+        "total": 126590324224,
+        "used": 1426169856
+    },
+    "pool": {
+        "inodes": {
+            "total": 0,
+            "used": 0
+        },
+        "space": {
+            "total": 0
+        }
+    }
+}
+```
+
 ## Remotes
 
 Get currently defined remotes. (only works with local)

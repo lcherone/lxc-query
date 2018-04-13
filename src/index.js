@@ -81,6 +81,13 @@ class LXC {
   /**
    *
    */
+  resources () {
+    return this.server.resources(...arguments)
+  }
+
+  /**
+   *
+   */
   info () {
     return this.server.info(...arguments)
   }

@@ -84,6 +84,13 @@ module.exports = class Server {
   /**
    *
    */
+  resources (remote) {
+    return this.query((remote || 'local') + ':/1.0/resources')
+  }
+
+  /**
+   *
+   */
   update (remote, options, mutator) {
     //
     remote = remote || 'local'
