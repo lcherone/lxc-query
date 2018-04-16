@@ -44,6 +44,87 @@ lxc.containers.list('local', response => {
 ]
 ```
 
+## Info
+
+Get container information.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name    |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.info('local', 'my-container').then(response => {
+    console.log(response);
+})
+```
+
+**Response**
+```
+{
+    "architecture": "x86_64",
+    "config": {
+        "image.architecture": "amd64",
+        "image.description": "ubuntu 16.04 LTS amd64 (release) (20180405)",
+        "image.label": "release",
+        "image.os": "ubuntu",
+        "image.release": "xenial",
+        "image.serial": "20180405",
+        "image.version": "16.04",
+        "volatile.base_image": "be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a",
+        "volatile.eth0.hwaddr": "00:16:3e:fb:89:0a",
+        "volatile.idmap.base": "0",
+        "volatile.idmap.next": "[{\"Isuid\":true,\"Isgid\":false,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536},{\"Isuid\":false,\"Isgid\":true,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536}]",
+        "volatile.last_state.idmap": "[{\"Isuid\":true,\"Isgid\":false,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536},{\"Isuid\":false,\"Isgid\":true,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536}]",
+        "volatile.last_state.power": "RUNNING"
+    },
+    "created_at": "2018-04-08T15:41:08Z",
+    "description": "",
+    "devices": {},
+    "ephemeral": false,
+    "expanded_config": {
+        "image.architecture": "amd64",
+        "image.description": "ubuntu 16.04 LTS amd64 (release) (20180405)",
+        "image.label": "release",
+        "image.os": "ubuntu",
+        "image.release": "xenial",
+        "image.serial": "20180405",
+        "image.version": "16.04",
+        "volatile.base_image": "be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a",
+        "volatile.eth0.hwaddr": "00:16:3e:fb:89:0a",
+        "volatile.idmap.base": "0",
+        "volatile.idmap.next": "[{\"Isuid\":true,\"Isgid\":false,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536},{\"Isuid\":false,\"Isgid\":true,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536}]",
+        "volatile.last_state.idmap": "[{\"Isuid\":true,\"Isgid\":false,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536},{\"Isuid\":false,\"Isgid\":true,\"Hostid\":100000,\"Nsid\":0,\"Maprange\":65536}]",
+        "volatile.last_state.power": "RUNNING"
+    },
+    "expanded_devices": {
+        "eth0": {
+            "name": "eth0",
+            "nictype": "bridged",
+            "parent": "lxdbr0",
+            "type": "nic"
+        },
+        "root": {
+            "path": "/",
+            "pool": "default",
+            "type": "disk"
+        }
+    },
+    "last_used_at": "2018-04-08T20:09:53Z",
+    "location": "",
+    "name": "my-container",
+    "profiles": [
+        "default"
+    ],
+    "stateful": false,
+    "status": "Running",
+    "status_code": 103
+}
+```
+
 ## Get State
 
 Get the state of a container.
@@ -151,7 +232,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 | options      | object \| json   | Container state options |  |
 
 ```
-lxc.containers.setState ('local', 'container-name',  {
+lxc.containers.setState('local', 'container-name',  {
     "action": "stop",  # State change action (stop, start, restart, freeze or unfreeze)
     "timeout": 30,     # A timeout after which the state change is considered as failed
     "force": true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
@@ -179,6 +260,114 @@ lxc.containers.setState ('local', 'container-name',  {
 	status: 'Running',
 	status_code: 103,
 	updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+```
+
+## Replace
+
+Replaces container configuration or restore snapshot.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name  |             |
+| options      | object        | Container options |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.replace('local', 'my-container', {
+    "architecture": "x86_64",
+    "config": {
+        "limits.cpu": "4",
+        "volatile.base_image": "97d97a3d1d053840ca19c86cdd0596cf1be060c5157d31407f2a4f9f350c78cc",
+        "volatile.eth0.hwaddr": "00:16:3e:1c:94:38"
+    },
+    "devices": {
+        "rootfs": {
+            "path": "/",
+            "type": "disk"
+        }
+    },
+    "ephemeral": true,
+    "profiles": [
+        "default"
+    ]
+}).then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+
+```
+{
+	
+}
+```
+
+## Update
+
+Update container configuration.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name    |           |
+| options      | object        | Container options |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.replace('local', 'my-container', {
+    "config": {
+        "limits.cpu": "4"
+    },
+    "devices": {
+        "rootfs": {
+            "size": "5GB"
+        }
+    },
+    "ephemeral": true
+}).then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+
+```
+{
+	
+}
+```
+
+## Rename
+
+Rename a container.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name    |           |
+| newName      | string        | New container name|           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.rename('local', 'old-name', 'new-name').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+
+```
+{
+	
 }
 ```
 
@@ -419,5 +608,31 @@ lxc.containers.unfreeze('local', 'container-name').then(response => {
 	status: 'Running',
 	status_code: 103,
 	updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+```
+
+## Delete
+
+Delete a container.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name    |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.delete('local', 'container-name').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+
+```
+{
+	
 }
 ```

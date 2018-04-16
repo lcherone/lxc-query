@@ -242,3 +242,29 @@ lxc.containers.snapshots.delete('local', 'my-container', 'my-snapshot-name').the
 	updated_at: '2018-04-10T20:23:56.80835635+01:00'
 }
 ```
+
+## Restore
+
+Restore container snapshot.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| container    | string        | Container name    |           |
+| snapshot     | string        | Snapshot name     |           |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.snapshots.restore('local', 'my-container', 'my-snapshot-name').then(response => {
+    console.log(response)
+})
+```
+
+**Response**
+```
+{
+
+}
+```

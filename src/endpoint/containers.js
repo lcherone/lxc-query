@@ -18,16 +18,17 @@
  +----------------------------------------------------------------------+
  */
 
+const BaseEndpoint = require('../endpoint/base.js')
+
 /**
  *
  */
-module.exports = class Containers {
+module.exports = class Containers extends BaseEndpoint {
   /**
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/1.0/containers'
-    this.lxc = lxc
+    super(lxc, '/1.0/containers')
   }
 
   /**
@@ -35,24 +36,6 @@ module.exports = class Containers {
    */
   get snapshots () {
     return new (require('./containers/snapshots.js'))(this.lxc)
-  }
-
-  /**
-   *
-   */
-  stripEndpoint (containers) {
-    let ret = []
-    containers.forEach(value => {
-      ret.push(value.replace(this.baseEndpoint + '/', ''))
-    })
-    return ret
-  }
-
-  /**
-   *
-   */
-  list (remote, mutator) {
-    return this.lxc.server.query((remote || 'local') + ':' + this.baseEndpoint, 'GET', {}, mutator)
   }
 
   /**
@@ -82,23 +65,6 @@ module.exports = class Containers {
     name = name || ''
     //
     return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name + '/state', 'GET', {}, mutator)
-  }
-
-  /**
-   *
-   */
-  create (remote, options, mutator) {
-    //
-    remote = remote || 'local'
-    options = (
-      // is object, stringify-it
-      options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
-    )
-    //
-    return this.lxc.server.query(remote + ':' + this.baseEndpoint, 'POST', options, mutator)
   }
 
   /**

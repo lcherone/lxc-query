@@ -102,6 +102,20 @@ module.exports = class Snapshots {
   /**
    *
    */
+  restore (remote, container, snapshot, mutator) {
+    //
+    remote = remote || 'local'
+    container = container || ''
+    snapshot = snapshot || ''
+    //
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container), 'PUT', {
+      'restore': snapshot
+    }, mutator)
+  }
+
+  /**
+   *
+   */
   delete (remote, container, snapshot, mutator) {
     //
     remote = remote || 'local'
