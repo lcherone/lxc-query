@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "A Node.js LXD client which uses your local instance of LXD and \nlxc query\n to manage your local or remote LXD servers.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nEssentially you can do any LXD operation with the single \nlxc.query\n method, or you can use the helper methods (see side menu).\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\nconst lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})\n\n\n\n\nCheck out the LXD \nRESTapi\n, for more information. \n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nLinks\n\n\nCheck out \nLXD-UI\n - A simple easy to use GUI for your local LXD server.",
+            "text": "A Node.js LXD client which uses your local instance of LXD and \nlxc query\n to manage your local or remote LXD servers.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nEssentially you can do any LXD operation with the single \nlxc.query\n method, or you can use the helper methods (see side menu).\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote and endpoint\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\nconst lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})\n\n\n\n\nCheck out the LXD \nRESTapi\n, for more information. \n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nLinks\n\n\nCheck out \nLXD-UI\n - A simple easy to use GUI for your local LXD server.",
             "title": "Home"
         },
         {
@@ -12,7 +12,7 @@
         },
         {
             "location": "/#usage",
-            "text": "Essentially you can do any LXD operation with the single  lxc.query  method, or you can use the helper methods (see side menu).  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    rest method  string  e.g GET, POST, DELETE, PUT, PATCH  GET    payload  object | json string  Rest json payload     mutator  function  Pre-resolve mutation function      const lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})  Check out the LXD  RESTapi , for more information.",
+            "text": "Essentially you can do any LXD operation with the single  lxc.query  method, or you can use the helper methods (see side menu).  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote and endpoint  local    rest method  string  e.g GET, POST, DELETE, PUT, PATCH  GET    payload  object | json string  Rest json payload     mutator  function  Pre-resolve mutation function      const lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})  Check out the LXD  RESTapi , for more information.",
             "title": "Usage"
         },
         {
@@ -369,6 +369,21 @@
             "location": "/networks/#delete",
             "text": "Delete a network.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    name  string  Network name     mutator  function  Mutation function      lxc.networks.delete('local', 'network-name').then(response => {\n    console.log(response)\n})  Response  {\n\n}",
             "title": "Delete"
+        },
+        {
+            "location": "/files/",
+            "text": "Helper methods for files.\n\n\nList\n\n\nDownload a file or directory listing from the container.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nContainer name\n\n\n\n\n\n\n\n\npath\n\n\nstring\n\n\nContainer directory or file path\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.containers.files.list('local', 'my-container', '/').then(response => {\n    console.log(JSON.stringify(response, null, 4));\n})\n\n\n\n\nResponse\n\n\n[\n    \"proc\",\n    \"usr\",\n    \"run\",\n    \"etc\",\n    \"home\",\n    \"sbin\",\n    \"snap\",\n    \"opt\",\n    \"lib64\",\n    \"boot\",\n    \"root\",\n    \"media\",\n    \"lib\",\n    \"sys\",\n    \"bin\",\n    \"mnt\",\n    \"var\",\n    \"tmp\",\n    \"srv\",\n    \"dev\"\n]\n\n\n\n\nGet\n\n\nDownload a file or directory listing from the container.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nContainer name\n\n\n\n\n\n\n\n\npath\n\n\nstring\n\n\nContainer directory or file path\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.containers.files.get('local', 'my-container', '/path/to/file').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\nFile contents",
+            "title": "Files"
+        },
+        {
+            "location": "/files/#list",
+            "text": "Download a file or directory listing from the container.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     path  string  Container directory or file path     mutator  function  Mutation function      lxc.containers.files.list('local', 'my-container', '/').then(response => {\n    console.log(JSON.stringify(response, null, 4));\n})  Response  [\n    \"proc\",\n    \"usr\",\n    \"run\",\n    \"etc\",\n    \"home\",\n    \"sbin\",\n    \"snap\",\n    \"opt\",\n    \"lib64\",\n    \"boot\",\n    \"root\",\n    \"media\",\n    \"lib\",\n    \"sys\",\n    \"bin\",\n    \"mnt\",\n    \"var\",\n    \"tmp\",\n    \"srv\",\n    \"dev\"\n]",
+            "title": "List"
+        },
+        {
+            "location": "/files/#get",
+            "text": "Download a file or directory listing from the container.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     path  string  Container directory or file path     mutator  function  Mutation function      lxc.containers.files.get('local', 'my-container', '/path/to/file').then(response => {\n    console.log(response);\n})  Response  File contents",
+            "title": "Get"
         }
     ]
 }
