@@ -87,6 +87,9 @@
     <li class="toctree-l2"><a href="#delete">Delete</a></li>
     
 
+    <li class="toctree-l2"><a href="#restore">Restore</a></li>
+    
+
     </ul>
 	    </li>
           
@@ -503,6 +506,56 @@ lxc.containers.snapshots.list('local', 'my-container', response =&gt; lxc.contai
     status: 'Running',
     status_code: 103,
     updated_at: '2018-04-10T20:23:56.80835635+01:00'
+}
+</code></pre>
+
+<h2 id="restore">Restore</h2>
+<p>Restore container snapshot.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>snapshot</td>
+<td>string</td>
+<td>Snapshot name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.snapshots.restore('local', 'my-container', 'my-snapshot-name').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
 }
 </code></pre>
               

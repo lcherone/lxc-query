@@ -70,10 +70,22 @@
     <li class="toctree-l2"><a href="#list">List</a></li>
     
 
+    <li class="toctree-l2"><a href="#info">Info</a></li>
+    
+
     <li class="toctree-l2"><a href="#get-state">Get State</a></li>
     
 
     <li class="toctree-l2"><a href="#set-state">Set State</a></li>
+    
+
+    <li class="toctree-l2"><a href="#replace">Replace</a></li>
+    
+
+    <li class="toctree-l2"><a href="#update">Update</a></li>
+    
+
+    <li class="toctree-l2"><a href="#rename">Rename</a></li>
     
 
     <li class="toctree-l2"><a href="#create">Create</a></li>
@@ -92,6 +104,12 @@
     
 
     <li class="toctree-l2"><a href="#unfreeze">Unfreeze</a></li>
+    
+
+    <li class="toctree-l2"><a href="#delete">Delete</a></li>
+    
+
+    <li class="toctree-l2"><a href="#exec">Exec</a></li>
     
 
     </ul>
@@ -211,6 +229,106 @@ lxc.containers.list('local', response =&gt; {
 <pre><code>[ 
     '/1.0/containers/my-container'
 ]
+</code></pre>
+
+<h2 id="info">Info</h2>
+<p>Get container information.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.info('local', 'my-container').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;config&quot;: {
+        &quot;image.architecture&quot;: &quot;amd64&quot;,
+        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
+        &quot;image.label&quot;: &quot;release&quot;,
+        &quot;image.os&quot;: &quot;ubuntu&quot;,
+        &quot;image.release&quot;: &quot;xenial&quot;,
+        &quot;image.serial&quot;: &quot;20180405&quot;,
+        &quot;image.version&quot;: &quot;16.04&quot;,
+        &quot;volatile.base_image&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
+        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
+        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
+        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.power&quot;: &quot;RUNNING&quot;
+    },
+    &quot;created_at&quot;: &quot;2018-04-08T15:41:08Z&quot;,
+    &quot;description&quot;: &quot;&quot;,
+    &quot;devices&quot;: {},
+    &quot;ephemeral&quot;: false,
+    &quot;expanded_config&quot;: {
+        &quot;image.architecture&quot;: &quot;amd64&quot;,
+        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
+        &quot;image.label&quot;: &quot;release&quot;,
+        &quot;image.os&quot;: &quot;ubuntu&quot;,
+        &quot;image.release&quot;: &quot;xenial&quot;,
+        &quot;image.serial&quot;: &quot;20180405&quot;,
+        &quot;image.version&quot;: &quot;16.04&quot;,
+        &quot;volatile.base_image&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
+        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
+        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
+        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
+        &quot;volatile.last_state.power&quot;: &quot;RUNNING&quot;
+    },
+    &quot;expanded_devices&quot;: {
+        &quot;eth0&quot;: {
+            &quot;name&quot;: &quot;eth0&quot;,
+            &quot;nictype&quot;: &quot;bridged&quot;,
+            &quot;parent&quot;: &quot;lxdbr0&quot;,
+            &quot;type&quot;: &quot;nic&quot;
+        },
+        &quot;root&quot;: {
+            &quot;path&quot;: &quot;/&quot;,
+            &quot;pool&quot;: &quot;default&quot;,
+            &quot;type&quot;: &quot;disk&quot;
+        }
+    },
+    &quot;last_used_at&quot;: &quot;2018-04-08T20:09:53Z&quot;,
+    &quot;location&quot;: &quot;&quot;,
+    &quot;name&quot;: &quot;my-container&quot;,
+    &quot;profiles&quot;: [
+        &quot;default&quot;
+    ],
+    &quot;stateful&quot;: false,
+    &quot;status&quot;: &quot;Running&quot;,
+    &quot;status_code&quot;: 103
+}
 </code></pre>
 
 <h2 id="get-state">Get State</h2>
@@ -354,7 +472,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.setState ('local', 'container-name',  {
+<pre><code>lxc.containers.setState('local', 'container-name',  {
     &quot;action&quot;: &quot;stop&quot;,  # State change action (stop, start, restart, freeze or unfreeze)
     &quot;timeout&quot;: 30,     # A timeout after which the state change is considered as failed
     &quot;force&quot;: true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
@@ -381,6 +499,183 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     status: 'Running',
     status_code: 103,
     updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="replace">Replace</h2>
+<p>Replaces container configuration or restore snapshot.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>Container options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.replace('local', 'my-container', {
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;config&quot;: {
+        &quot;limits.cpu&quot;: &quot;4&quot;,
+        &quot;volatile.base_image&quot;: &quot;97d97a3d1d053840ca19c86cdd0596cf1be060c5157d31407f2a4f9f350c78cc&quot;,
+        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:1c:94:38&quot;
+    },
+    &quot;devices&quot;: {
+        &quot;rootfs&quot;: {
+            &quot;path&quot;: &quot;/&quot;,
+            &quot;type&quot;: &quot;disk&quot;
+        }
+    },
+    &quot;ephemeral&quot;: true,
+    &quot;profiles&quot;: [
+        &quot;default&quot;
+    ]
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="update">Update</h2>
+<p>Update container configuration.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>Container options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.replace('local', 'my-container', {
+    &quot;config&quot;: {
+        &quot;limits.cpu&quot;: &quot;4&quot;
+    },
+    &quot;devices&quot;: {
+        &quot;rootfs&quot;: {
+            &quot;size&quot;: &quot;5GB&quot;
+        }
+    },
+    &quot;ephemeral&quot;: true
+}).then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="rename">Rename</h2>
+<p>Rename a container.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>newName</td>
+<td>string</td>
+<td>New container name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.rename('local', 'old-name', 'new-name').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
 }
 </code></pre>
 
@@ -705,6 +1000,122 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     status: 'Running',
     status_code: 103,
     updated_at: '2018-04-08T16:37:36.511708398Z'
+}
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<p>Delete a container.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.delete('local', 'container-name').then(response =&gt; {
+    console.log(response)
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+
+<h2 id="exec">Exec</h2>
+<p>Run a command in container.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>object</td>
+<td>The container options</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.exec('local', 'my-container', {
+    &quot;command&quot;: [&quot;/bin/bash&quot;],
+    &quot;environment&quot;: {},
+    &quot;wait-for-websocket&quot;: false,
+    &quot;record-output&quot;: false,
+    &quot;interactive&quot;: false,
+    &quot;width&quot;: 80,
+    &quot;height&quot;: 25
+}).then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;class&quot;: &quot;task&quot;,
+    &quot;created_at&quot;: &quot;2018-04-16T01:58:34.642661556Z&quot;,
+    &quot;description&quot;: &quot;Executing command&quot;,
+    &quot;err&quot;: &quot;&quot;,
+    &quot;id&quot;: &quot;bff27d5c-f54c-4fb4-8956-60bcea56d074&quot;,
+    &quot;may_cancel&quot;: false,
+    &quot;metadata&quot;: null,
+    &quot;resources&quot;: {
+        &quot;containers&quot;: [
+            &quot;/1.0/containers/my-container&quot;
+        ]
+    },
+    &quot;status&quot;: &quot;Running&quot;,
+    &quot;status_code&quot;: 103,
+    &quot;updated_at&quot;: &quot;2018-04-16T01:58:34.642661556Z&quot;
 }
 </code></pre>
               
