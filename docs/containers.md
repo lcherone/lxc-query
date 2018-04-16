@@ -636,3 +636,52 @@ lxc.containers.delete('local', 'container-name').then(response => {
 	
 }
 ```
+
+## Exec
+
+Run a command in container.
+
+**Parameters & Call**
+
+| Parameter    | Type          | Description   | Default       |
+| ----------   | ------------- | ------------- | ------------- | 
+| remote       | string        | LXD remote    | local         |
+| name         | string        | Container name    |           |
+| options      | object        | The container options |       |
+| mutator      | function      | Mutation function |           |
+
+```
+lxc.containers.exec('local', 'my-container', {
+    "command": ["/bin/bash"],
+    "environment": {},
+    "wait-for-websocket": false,
+    "record-output": false,
+    "interactive": false,
+    "width": 80,
+    "height": 25
+}).then(response => {
+    console.log(response);
+})
+```
+
+**Response**
+
+```
+{
+    "class": "task",
+    "created_at": "2018-04-16T01:58:34.642661556Z",
+    "description": "Executing command",
+    "err": "",
+    "id": "bff27d5c-f54c-4fb4-8956-60bcea56d074",
+    "may_cancel": false,
+    "metadata": null,
+    "resources": {
+        "containers": [
+            "/1.0/containers/my-container"
+        ]
+    },
+    "status": "Running",
+    "status_code": 103,
+    "updated_at": "2018-04-16T01:58:34.642661556Z"
+}
+```

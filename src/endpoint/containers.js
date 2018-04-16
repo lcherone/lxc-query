@@ -121,4 +121,22 @@ module.exports = class Containers extends BaseEndpoint {
     //
     return this.setState(remote, name, {action: 'unfreeze', timeout: 30}, mutator)
   }
+
+  /**
+   *
+   */
+  exec (remote, name, options, mutator) {
+    //
+    remote = remote || 'local'
+    name = name || ''
+    options = (
+      // is object, stringify-it
+      options instanceof Object ? JSON.stringify(options) : (
+        // is string, not empty, or set as false
+        (typeof options === 'string' || options instanceof String) && options ? options : false
+      )
+    )
+    //
+    return this.lxc.server.query(remote + ':' + this.baseEndpoint + '/' + name + '/exec', 'POST', options, mutator)
+  }
 }
