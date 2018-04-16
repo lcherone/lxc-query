@@ -23,21 +23,21 @@ const sprintf = require('../../utils/sprintf.js')
 /**
  *
  */
-module.exports = class Snapshots {
+module.exports = class Files {
   /**
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/1.0/containers/{0}/snapshots'
+    this.baseEndpoint = '/1.0/containers/{0}/files'
     this.lxc = lxc
   }
 
   /**
    *
    */
-  stripEndpoint (snapshots) {
+  stripEndpoint (items) {
     let ret = []
-    snapshots.forEach(value => {
+    items.forEach(value => {
       ret.push(value.substr(value.lastIndexOf('/') + 1))
     })
     return ret
@@ -46,12 +46,20 @@ module.exports = class Snapshots {
   /**
    *
    */
-  list (remote, container, mutator) {
+  get () {
+    return this.list(...arguments)
+  }
+
+  /**
+   *
+   */
+  list (remote, container, path, mutator) {
     //
     remote = remote || 'local'
     container = container || ''
+    path = path || ''
     //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'GET', {}, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container) + '?path=' + path, 'GET', {}, mutator)
   }
 
   /**

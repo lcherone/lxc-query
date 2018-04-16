@@ -10,4 +10,5 @@ pages:
     - Aliases: aliases.md
     - Profiles: profiles.md
     - Networks: networks.md
+    - Files: files.md
     

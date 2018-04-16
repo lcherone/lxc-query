@@ -39,6 +39,13 @@ module.exports = class Containers extends BaseEndpoint {
   }
 
   /**
+   * Files endpoint getter
+   */
+  get files () {
+    return new (require('./containers/files.js'))(this.lxc)
+  }
+
+  /**
    *
    */
   setState (remote, name, options, mutator) {
@@ -46,9 +53,7 @@ module.exports = class Containers extends BaseEndpoint {
     remote = remote || 'local'
     name = name || ''
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
@@ -130,9 +135,7 @@ module.exports = class Containers extends BaseEndpoint {
     remote = remote || 'local'
     name = name || ''
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )

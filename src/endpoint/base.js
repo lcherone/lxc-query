@@ -33,9 +33,9 @@ module.exports = class BaseEndpoint {
   /**
    *
    */
-  stripEndpoint (containers) {
+  stripEndpoint (items) {
     let ret = []
-    containers.forEach(value => {
+    items.forEach(value => {
       ret.push(value.replace(this.baseEndpoint + '/', ''))
     })
     return ret
@@ -69,9 +69,7 @@ module.exports = class BaseEndpoint {
     //
     remote = remote || 'local'
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
@@ -86,9 +84,7 @@ module.exports = class BaseEndpoint {
     remote = remote || 'local'
     name = name || ''
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
@@ -103,9 +99,7 @@ module.exports = class BaseEndpoint {
     remote = remote || 'local'
     name = name || ''
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )

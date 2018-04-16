@@ -49,9 +49,7 @@ module.exports = class Server {
     remote = remote || 'local:/'
     action = action || 'GET'
     data = (
-      // is object, stringify-it
       data instanceof Object ? JSON.stringify(data) : (
-        // is string, not empty, or set as false
         (typeof data === 'string' || data instanceof String) && data ? data : false
       )
     )
@@ -95,9 +93,7 @@ module.exports = class Server {
     //
     remote = remote || 'local'
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
@@ -112,9 +108,7 @@ module.exports = class Server {
     //
     remote = remote || 'local'
     options = (
-      // is object, stringify-it
       options instanceof Object ? JSON.stringify(options) : (
-        // is string, not empty, or set as false
         (typeof options === 'string' || options instanceof String) && options ? options : false
       )
     )
