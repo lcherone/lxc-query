@@ -65,6 +65,7 @@ module.exports = class Files {
   /**
    *
    */
+  /*
   info (remote, container, snapshot, mutator) {
     //
     remote = remote || 'local'
@@ -73,10 +74,11 @@ module.exports = class Files {
     //
     return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'GET', {}, mutator)
   }
-
+  */
   /**
    *
    */
+  /*
   rename (remote, container, snapshot, newname, mutator) {
     //
     remote = remote || 'local'
@@ -88,10 +90,11 @@ module.exports = class Files {
       'name': newname
     }, mutator)
   }
-
+  */
   /**
    *
    */
+  /*
   create (remote, container, options, mutator) {
     //
     remote = remote || 'local'
@@ -104,10 +107,11 @@ module.exports = class Files {
     //
     return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'POST', options, mutator)
   }
-
+  */
   /**
    *
    */
+  /*
   restore (remote, container, snapshot, mutator) {
     //
     remote = remote || 'local'
@@ -118,10 +122,11 @@ module.exports = class Files {
       'restore': snapshot
     }, mutator)
   }
-
+  */
   /**
    *
    */
+  /*
   delete (remote, container, snapshot, mutator) {
     //
     remote = remote || 'local'
@@ -130,4 +135,5 @@ module.exports = class Files {
     //
     return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'DELETE', {}, mutator)
   }
+  */
 }
