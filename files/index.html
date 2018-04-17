@@ -100,7 +100,7 @@
     <li class="toctree-l2"><a href="#list">List</a></li>
     
 
-    <li class="toctree-l2"><a href="#get">Get</a></li>
+    <li class="toctree-l2"><a href="#pull">Pull</a></li>
     
 
     </ul>
@@ -140,7 +140,10 @@
               
                 <p>Helper methods for files.</p>
 <h2 id="list">List</h2>
-<p>Download a file or directory listing from the container.</p>
+<p>List files or directorys in a container.</p>
+<p><strong>Note:</strong> Does not work for listing <em>file contents</em> unless your using LXD &gt; 3.0.0, 
+so should be used only to list directorys, see pull method below on how to 
+fetch them.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -208,8 +211,11 @@
 ]
 </code></pre>
 
-<h2 id="get">Get</h2>
-<p>Download a file or directory listing from the container.</p>
+<h2 id="pull">Pull</h2>
+<p>Download a file from the container.</p>
+<p>Note: We use <code>lxc pull</code> as there is a bug which prevents accessing the file with 
+files endpoint thought <code>lxc query</code>. Its fixed in LXD &gt; 3.0.0, so will be converted 
+to use that in future.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -239,12 +245,6 @@
 <td>Container directory or file path</td>
 <td></td>
 </tr>
-<tr>
-<td>mutator</td>
-<td>function</td>
-<td>Mutation function</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <pre><code>lxc.containers.files.get('local', 'my-container', '/path/to/file').then(response =&gt; {
@@ -252,8 +252,13 @@
 })
 </code></pre>
 
+<p><em>
+    Because with <code>file pull</code> you cant output to stdout, we need to pull the file then <code>cat</code> it,
+    so a folder structure is created based upon the path. 
+    Example above would create: <code>./.files/local/my-container/path/to/file</code>
+</em></p>
 <p><strong>Response</strong></p>
-<pre><code>File contents
+<pre><code>The file contents
 </code></pre>
               
             </div>
