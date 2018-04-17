@@ -14,7 +14,7 @@ $ npm i lxc-query
 
 ## Usage
 
-Essentially you can do any LXD operation with the single `lxc.query` method, or you can use the helper methods (see side menu).
+Essentially you can do any LXD operation with the single `lxc.query` method, or you can use the helper methods which cover all the LXD endpoints (see side menu).
 
 **Parameters & Call**
 

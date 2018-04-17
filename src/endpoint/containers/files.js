@@ -17,8 +17,38 @@
  |   Lawrence Cherone <lawrence@cherone.co.uk>
  +----------------------------------------------------------------------+
  */
-
+const fs = require('fs')
+const fspath = require('path')
 const sprintf = require('../../utils/sprintf.js')
+const shellescape = require('../../utils/shellescape.js')
+
+/**
+ * Create directory structure from path
+ */
+function mkdirSyncRecursive (directory) {
+  var path = directory.replace(/\/$/, '').split('/')
+
+  for (let i = 1; i <= path.length; i++) {
+    let segment = path.slice(0, i).join('/')
+    if (!fs.existsSync(segment)) {
+      fs.mkdirSync(segment)
+    }
+  }
+}
+
+/**
+ * Check directory path exists for container files
+ */
+function storagePath (remote, container, path) {
+  // get dirname from path
+  var tmp = './.files/' + remote + '/' + container + '/' + fspath.dirname(path)
+  // check exists or create
+  if (!fs.existsSync(tmp)) {
+    mkdirSyncRecursive(tmp)
+  }
+  // append filename to path and return
+  return tmp + '/' + fspath.basename(path)
+}
 
 /**
  *
@@ -46,8 +76,12 @@ module.exports = class Files {
   /**
    *
    */
-  get () {
-    return this.list(...arguments)
+  pull (remote, container, path, mutator) {
+    let tmp = storagePath(remote, container, path)
+
+    return this.lxc.server.exec(
+      'lxc file pull ' + shellescape([remote + ':' + container + path]) + ' ' + shellescape([tmp]) + ' && cat ' + shellescape([tmp])
+    )
   }
 
   /**
