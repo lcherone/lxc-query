@@ -20,7 +20,7 @@ fetch them.
 
 ```
 lxc.containers.files.list('local', 'my-container', '/').then(response => {
-    console.log(JSON.stringify(response, null, 4));
+    console.log(response);
 })
 ```
 
@@ -55,7 +55,7 @@ lxc.containers.files.list('local', 'my-container', '/').then(response => {
 Download a file from the container.
 
 **Note:** We use `lxc pull` as there is a bug which prevents accessing the file with 
-files endpoint thought `lxc query`. Its fixed in LXD > 3.0.0, so will be converted 
+files endpoint though `lxc query`. Its fixed in LXD > 3.0.0, so will be converted 
 to use that in future.
 
 **Parameters & Call**
@@ -74,9 +74,10 @@ lxc.containers.files.get('local', 'my-container', '/path/to/file').then(response
 
 <em>
     Because with `file pull` you cant output to stdout, we need to pull the file then `cat` it,
-    so a folder structure is created based upon the path. 
-    Example above would create: `./.files/local/my-container/path/to/file`
+    so a folder structure is created based upon the path.
 </em>
+
+<em>Example above would create: `./.files/local/my-container/path/to/file`</em>
 
 **Response**
 ```
