@@ -54,7 +54,7 @@ lxc.containers.files.list('local', 'my-container', '/').then(response => {
 
 Download a file from the container.
 
-Note: We use `lxc pull` as there is a bug which prevents accessing the file with 
+**Note:** We use `lxc pull` as there is a bug which prevents accessing the file with 
 files endpoint thought `lxc query`. Its fixed in LXD > 3.0.0, so will be converted 
 to use that in future.
 
