@@ -2,10 +2,10 @@ Helper methods for files.
 
 ## List
 
-List files or directorys in a container.
+List files and directories in a container.
 
 **Note:** Does not work for listing *file contents* unless your using LXD > 3.0.0, 
-so should be used only to list directorys, see pull method below on how to 
+so should be used only to list directories, see pull method below on how to 
 fetch them.
 
 
@@ -15,7 +15,7 @@ fetch them.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
-| path         | string        | Container directory or file path | |
+| path         | string        | Container directory path | |
 | mutator      | function      | Mutation function |           |
 
 ```
@@ -64,7 +64,7 @@ to use that in future.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 | container    | string        | Container name    |           |
-| path         | string        | Container directory or file path |
+| path         | string        | Container file path |
 
 ```
 lxc.containers.files.get('local', 'my-container', '/path/to/file').then(response => {
