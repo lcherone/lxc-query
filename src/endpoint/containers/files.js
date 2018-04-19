@@ -76,17 +76,6 @@ module.exports = class Files {
   /**
    *
    */
-  pull (remote, container, path, mutator) {
-    let tmp = storagePath(remote, container, path)
-
-    return this.lxc.server.exec(
-      'lxc file pull ' + shellescape([remote + ':' + container + path]) + ' ' + shellescape([tmp]) + ' && cat ' + shellescape([tmp])
-    )
-  }
-
-  /**
-   *
-   */
   list (remote, container, path, mutator) {
     //
     remote = remote || 'local'
@@ -99,75 +88,25 @@ module.exports = class Files {
   /**
    *
    */
-  /*
-  info (remote, container, snapshot, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    snapshot = snapshot || ''
-    //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'GET', {}, mutator)
-  }
-  */
-  /**
-   *
-   */
-  /*
-  rename (remote, container, snapshot, newname, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    snapshot = snapshot || ''
-    newname = newname || ''
-    //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'POST', {
-      'name': newname
-    }, mutator)
-  }
-  */
-  /**
-   *
-   */
-  /*
-  create (remote, container, options, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    options = (
-      options instanceof Object ? JSON.stringify(options) : (
-        (typeof options === 'string' || options instanceof String) && options ? options : false
-      )
+  pull (remote, container, path, mutator) {
+    let tmp = storagePath(remote, container, path)
+
+    return this.lxc.server.exec(
+      'lxc file pull ' + shellescape([remote + ':' + container + path]) + ' ' + shellescape([tmp]) + ' && cat ' + shellescape([tmp])
     )
-    //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'POST', options, mutator)
   }
-  */
+
   /**
    *
    */
-  /*
-  restore (remote, container, snapshot, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    snapshot = snapshot || ''
-    //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container), 'PUT', {
-      'restore': snapshot
-    }, mutator)
+  push (remote, container, source, path, mutator) {
+    let stat = fs.statSync(source)
+    let mode = stat.isFile() ? 644 : 755
+    // recursive - source is a folder, dest is a folder
+    let flags = (mode === 755 && (fspath.parse(path).ext === '' && fspath.parse(source).ext === '')) ? '-p -r' : '-p --mode=' + mode + ' --uid=0 --gid=0'
+
+    return this.lxc.server.exec(
+      'lxc file push ' + flags + ' ' + shellescape([source]) + ' ' + shellescape([remote + ':' + container + path])
+    )
   }
-  */
-  /**
-   *
-   */
-  /*
-  delete (remote, container, snapshot, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    snapshot = snapshot || ''
-    //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, snapshot), 'DELETE', {}, mutator)
-  }
-  */
 }
