@@ -4,8 +4,6 @@ Contributions and/or additional features are very welcome.
 
 When contributing to this repository, please first discuss the change you wish to make via an issue before submitting your pull request.
 
- - If you would like to simply add addtional adverbs, adjectives or animal names just open an issue with your proposed additions.
- 
 Please use https://standardjs.com/ coding style.
 
 ## Pull Request Process
