@@ -100,6 +100,9 @@
     <li class="toctree-l2"><a href="#list">List</a></li>
     
 
+    <li class="toctree-l2"><a href="#push">Push</a></li>
+    
+
     <li class="toctree-l2"><a href="#pull">Pull</a></li>
     
 
@@ -211,9 +214,68 @@ fetch them.</p>
 ]
 </code></pre>
 
+<h2 id="push">Push</h2>
+<p>Upload files or folders into the container.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>source</td>
+<td>string</td>
+<td>Local file/folder path</td>
+<td></td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>Container file path</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>
+    Note: If both the source and the path parameters are folders, the method will
+    recursively upload, othe wise it will set 755 if folder or 644 for file.
+    All files are uploaded as uid/gid root user.
+</em></p>
+<pre><code>// single file
+lxc.containers.files.push('local', 'my-container', '/local/path/to/file.ext', '/path/to/file.ext').then(response =&gt; {
+    console.log(response);
+})
+
+// entire directory
+lxc.containers.files.push('local', 'my-container', '/local/path/to/folder', '/path/to/folder').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>&quot;&quot;
+</code></pre>
+
 <h2 id="pull">Pull</h2>
 <p>Download a file from the container.</p>
-<p><strong>Note:</strong> We use <code>lxc pull</code> as there is a bug which prevents accessing the file with 
+<p><strong>Note:</strong> We use <code>lxc file pull</code> as there is a bug which prevents accessing the file with 
 files endpoint though <code>lxc query</code>. Its fixed in LXD &gt; 3.0.0, so will be converted 
 to use that in future.</p>
 <p><strong>Parameters &amp; Call</strong></p>
@@ -247,7 +309,7 @@ to use that in future.</p>
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.files.get('local', 'my-container', '/path/to/file').then(response =&gt; {
+<pre><code>lxc.containers.files.pull('local', 'my-container', '/path/to/file').then(response =&gt; {
     console.log(response);
 })
 </code></pre>
