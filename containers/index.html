@@ -722,7 +722,8 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <p>Full container options can be found here: <a href="https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1">https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1</a></p>
-<pre><code>lxc.containers.create('local', {
+<pre><code>// example from local
+lxc.containers.create('local', {
     &quot;name&quot;: &quot;my-new-container&quot;,
     &quot;architecture&quot;: &quot;x86_64&quot;,
     &quot;profiles&quot;: [&quot;default&quot;],
@@ -736,6 +737,27 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 }).then(response =&gt; {
     console.log(response)
 })
+
+// example from https://images.linuxcontainers.org
+lxc.containers.create('local', {
+  'name': 'my-new-container',
+  'architecture': 'x86_64',
+  'profiles': ['default'],
+  'ephemeral': true,
+  'config': { 'limits.cpu': '2' },
+  'devices': {},
+  'source': {
+    'type': 'image',
+    'mode': 'pull',
+    'server': 'https://images.linuxcontainers.org:8443',
+    'protocol': 'simplestreams',
+    'alias': 'ubuntu/16.04'
+
+  }
+}).then(response =&gt; {
+  console.log(response)
+})
+
 </code></pre>
 
 <p><strong>Response</strong></p>
@@ -756,6 +778,20 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
     &quot;status_code&quot;: 103,
     &quot;updated_at&quot;: &quot;2018-04-08T22:49:33.892947111Z&quot;
 }
+</code></pre>
+
+<p>*additionally you could simply call <code>lxc.local()</code> to run what you would normally run on cmd line for example:</p>
+<pre><code>// same as above
+lxc.local('lxc launch ubuntu:16.04 my-new-container')
+
+// launch on a remote
+lxc.local('lxc launch ubuntu:16.04 production:my-container')
+
+// launch local image on a remote
+lxc.local('lxc launch local:&lt;fingerprint&gt; production:my-container')
+
+// launch remote image on a remote
+lxc.local('lxc launch staging:&lt;fingerprint&gt; production:my-container')
 </code></pre>
 
 <h2 id="start">Start</h2>
