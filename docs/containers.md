@@ -385,6 +385,7 @@ Create a container.
 Full container options can be found here: [https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1](https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1)
 
 ```
+// example from local
 lxc.containers.create('local', {
     "name": "my-new-container",
     "architecture": "x86_64",
@@ -399,6 +400,27 @@ lxc.containers.create('local', {
 }).then(response => {
     console.log(response)
 })
+
+// example from https://images.linuxcontainers.org
+lxc.containers.create('local', {
+  'name': 'my-new-container',
+  'architecture': 'x86_64',
+  'profiles': ['default'],
+  'ephemeral': true,
+  'config': { 'limits.cpu': '2' },
+  'devices': {},
+  'source': {
+    'type': 'image',
+    'mode': 'pull',
+    'server': 'https://images.linuxcontainers.org:8443',
+    'protocol': 'simplestreams',
+    'alias': 'ubuntu/16.04'
+
+  }
+}).then(response => {
+  console.log(response)
+})
+
 ```
 
 **Response**
@@ -421,6 +443,23 @@ lxc.containers.create('local', {
     "updated_at": "2018-04-08T22:49:33.892947111Z"
 }
 ```
+
+*additionally you could simply call `lxc.local()` to run what you would normally run on cmd line for example:
+
+```
+// same as above
+lxc.local('lxc launch ubuntu:16.04 my-new-container')
+
+// launch on a remote
+lxc.local('lxc launch ubuntu:16.04 production:my-container')
+
+// launch local image on a remote
+lxc.local('lxc launch local:<fingerprint> production:my-container')
+
+// launch remote image on a remote
+lxc.local('lxc launch staging:<fingerprint> production:my-container')
+```
+
 ## Start
 
 Start a container.

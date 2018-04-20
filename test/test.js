@@ -15,6 +15,25 @@ describe('LXC', function () {
   })
 })
 
+lxc.containers.create('local', {
+  'name': 'my-new-containerx',
+  'architecture': 'x86_64',
+  'profiles': ['default'],
+  'ephemeral': true,
+  'config': { 'limits.cpu': '2' },
+  'devices': {},
+  'source': {
+    'type': 'image',
+    'mode': 'pull',
+    'server': 'https://images.linuxcontainers.org:8443',
+    'protocol': 'simplestreams',
+    'alias': 'ubuntu/16.04'
+
+  }
+}).then(response => {
+  console.log(response)
+})
+
 /*
 lxc.images.list('images', 'architecture="' + ['x86_64', 'i686', 'amd64'].join('|') + '"').then(response => {
   console.log(JSON.stringify(response, null, 4))
