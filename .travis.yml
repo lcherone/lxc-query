@@ -1,8 +1,6 @@
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      sudo: required
+os:
+  - linux
+sudo: required
 language: node_js
 node_js:
   - "node"
@@ -11,6 +9,7 @@ cache:
     - "node_modules"
 before_install:
   - sudo apt -t trusty-backports install lxd
+  - sudo apt -y install lxd
   - lxc list
   - npm i -g standard
   - npm i -g mocha
