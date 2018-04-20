@@ -5,8 +5,8 @@ cache:
   directories:
     - "node_modules"
 before_install:
-  - sudo apt -t trusty-backports install lxd
-  - sudo apt -y install lxd
+  - apt -t trusty-backports install lxd
+  - apt -y install lxd
   - lxc list
   - npm i -g standard
   - npm i -g mocha
