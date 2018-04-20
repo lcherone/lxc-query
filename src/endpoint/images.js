@@ -18,6 +18,7 @@
  +----------------------------------------------------------------------+
  */
 
+const shellescape = require('../utils/shellescape.js')
 const BaseEndpoint = require('../endpoint/base.js')
 
 /**
@@ -36,5 +37,21 @@ module.exports = class Images extends BaseEndpoint {
    */
   get aliases () {
     return new (require('./images/aliases.js'))(this.lxc)
+  }
+
+  /**
+   *
+   */
+  list (remote, filter) {
+    //
+    remote = remote || 'local'
+    filter = filter || ''
+
+    //
+    return this.lxc.server.exec(
+      this.lxc.cmd + ' image list ' + shellescape([remote]) + ': ' + filter + ' --format=json',
+      response => JSON.parse(response),
+      false
+    )
   }
 }

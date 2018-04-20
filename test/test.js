@@ -16,7 +16,7 @@ describe('LXC', function () {
 })
 
 /*
-lxc.containers.files.pull('local', 'my-container', '/var/log/cloud-init.log').then(response => {
-    console.log(JSON.stringify(response, null, 4));
+lxc.images.list('images', 'architecture="' + ['x86_64', 'i686', 'amd64'].join('|') + '"').then(response => {
+  console.log(JSON.stringify(response, null, 4))
 })
 */

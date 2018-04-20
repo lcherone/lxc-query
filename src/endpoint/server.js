@@ -36,10 +36,13 @@ module.exports = class Server {
   /**
    *
    */
-  exec (cmd) {
+  exec (cmd, mutator, parse) {
     //
     cmd = cmd || ''
-    return exec(cmd, {}, false)
+    mutator = mutator || {}
+    parse = parse || undefined
+    //
+    return exec(cmd, mutator, false)
   }
 
   /**
@@ -54,7 +57,7 @@ module.exports = class Server {
         (typeof data === 'string' || data instanceof String) && data ? data : false
       )
     )
-    return exec(
+    return this.exec(
       this.lxc.cmd + ' query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
       mutator
     )
@@ -64,7 +67,7 @@ module.exports = class Server {
    *
    */
   remotes () {
-    return exec(
+    return this.exec(
       this.lxc.cmd + ' remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
       response => {
         return response.trim().split(/\r?\n/)

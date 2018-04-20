@@ -1,4 +1,4 @@
-Helper methods for logs.
+Helper methods for container logs.
 
 ## List
 

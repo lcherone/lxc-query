@@ -1,4 +1,4 @@
-Helper methods for image operations.
+Helper methods for image.
 
 ## List
 
@@ -9,18 +9,62 @@ List images on remote.
 | Parameter    | Type          | Description   | Default       |
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
-| mutator      | function      | Mutation function |           |
+| filter       | string        | Image property based filtering | |
 
 ```
-lxc.images.list('local').then(response => {
-    console.log(response)
+lxc.images.list('images').then(response => {
+  console.log(response)
+})
+
+// filtering by architecture
+lxc.images.list('images', 'architecture="' + ['x86_64', 'i686', 'amd64'].join('|') + '"').then(response => {
+  console.log(response)
 })
 ```
 
 **Response**
 ```
 [
-    "/1.0/images/be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a"
+    {
+        "auto_update": false,
+        "properties": {
+            "architecture": "amd64",
+            "description": "Alpine 3.4 amd64 (20180419_17:50)",
+            "os": "Alpine",
+            "release": "3.4",
+            "serial": "20180419_17:50"
+        },
+        "public": true,
+        "aliases": [
+            {
+                "name": "alpine/3.4/default",
+                "description": ""
+            },
+            {
+                "name": "alpine/3.4/default/amd64",
+                "description": ""
+            },
+            {
+                "name": "alpine/3.4",
+                "description": ""
+            },
+            {
+                "name": "alpine/3.4/amd64",
+                "description": ""
+            }
+        ],
+        "architecture": "x86_64",
+        "cached": false,
+        "filename": "lxd.tar.xz",
+        "fingerprint": "ca571b2780652ccd1a5c7fa62da452db0d5e94557647e760c57d10ccd4369721",
+        "size": 2134616,
+        "created_at": "2018-04-19T00:00:00Z",
+        "expires_at": "1970-01-01T00:00:00Z",
+        "last_used_at": "0001-01-01T00:00:00Z",
+        "uploaded_at": "2018-04-19T00:00:00Z"
+    },
+    
+    ... snip
 ]
 ```
 
