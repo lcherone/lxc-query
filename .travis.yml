@@ -9,5 +9,7 @@ before_install:
   - npm i -g mocha
 install:
   - travis_retry npm install
+  - apt -t trusty-backports install lxd
+  - apt -y install lxd
 script:
   - npm run test
