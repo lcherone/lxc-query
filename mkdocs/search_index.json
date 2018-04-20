@@ -389,6 +389,26 @@
             "location": "/files/#pull",
             "text": "Download a file from the container.  Note:  We use  lxc file pull  as there is a bug which prevents accessing the file with \nfiles endpoint though  lxc query . Its fixed in LXD > 3.0.0, so will be converted \nto use that in future.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     path  string  Container file path      lxc.containers.files.pull('local', 'my-container', '/path/to/file').then(response => {\n    console.log(response);\n})  \n    Because with  file pull  you cant output to stdout, we need to pull the file then  cat  it,\n    so a folder structure is created based upon the path.  Example above would create:  ./.files/local/my-container/path/to/file  Response  The file contents",
             "title": "Pull"
+        },
+        {
+            "location": "/logs/",
+            "text": "Helper methods for logs.\n\n\nList\n\n\nReturns a list of the log files available for this container. \n\n\nNote:\n This works on containers that have been deleted (or were never created) \nto enable you to get logs for failed creations.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nContainer name\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.containers.logs.list('local', 'my-container').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\n[\n    \"/1.0/containers/my-container/logs/forkstart.log\",\n    \"/1.0/containers/my-container/logs/lxc.conf\",\n    \"/1.0/containers/my-container/logs/lxc.log\"\n]\n\n\n\n\nGet\n\n\nReturns the contents of a particular log file. \n\n\nNote:\n This method ONLY works with LXD > 3.0.0\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nContainer name\n\n\n\n\n\n\n\n\nlogfile\n\n\nstring\n\n\nContainer logfile\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.containers.logs.get('local', 'my-container', 'lxc.conf').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\nThe log file contents\n\n\n\n\nDelete\n\n\nDelete a particular log file.\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote\n\n\nlocal\n\n\n\n\n\n\ncontainer\n\n\nstring\n\n\nContainer name\n\n\n\n\n\n\n\n\nlogfile\n\n\nstring\n\n\nContainer logfile\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nMutation function\n\n\n\n\n\n\n\n\n\n\nlxc.containers.logs.delete('local', 'my-container', 'lxc.conf').then(response => {\n    console.log(response);\n})\n\n\n\n\nResponse\n\n\n\"\"",
+            "title": "Logs"
+        },
+        {
+            "location": "/logs/#list",
+            "text": "Returns a list of the log files available for this container.   Note:  This works on containers that have been deleted (or were never created) \nto enable you to get logs for failed creations.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     mutator  function  Mutation function      lxc.containers.logs.list('local', 'my-container').then(response => {\n    console.log(response);\n})  Response  [\n    \"/1.0/containers/my-container/logs/forkstart.log\",\n    \"/1.0/containers/my-container/logs/lxc.conf\",\n    \"/1.0/containers/my-container/logs/lxc.log\"\n]",
+            "title": "List"
+        },
+        {
+            "location": "/logs/#get",
+            "text": "Returns the contents of a particular log file.   Note:  This method ONLY works with LXD > 3.0.0  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     logfile  string  Container logfile     mutator  function  Mutation function      lxc.containers.logs.get('local', 'my-container', 'lxc.conf').then(response => {\n    console.log(response);\n})  Response  The log file contents",
+            "title": "Get"
+        },
+        {
+            "location": "/logs/#delete",
+            "text": "Delete a particular log file.  Parameters & Call     Parameter  Type  Description  Default      remote  string  LXD remote  local    container  string  Container name     logfile  string  Container logfile     mutator  function  Mutation function      lxc.containers.logs.delete('local', 'my-container', 'lxc.conf').then(response => {\n    console.log(response);\n})  Response  \"\"",
+            "title": "Delete"
         }
     ]
 }

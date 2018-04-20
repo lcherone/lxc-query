@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Files - LXC Query</title>
+  <title>Logs - LXC Query</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Files";
-    var mkdocs_page_input_path = "files.md";
-    var mkdocs_page_url = "/files/";
+    var mkdocs_page_name = "Logs";
+    var mkdocs_page_input_path = "logs.md";
+    var mkdocs_page_url = "/logs/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -92,26 +92,26 @@
     <a class="" href="../networks/">Networks</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../files/">Files</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Files</a>
+    <a class="current" href="./">Logs</a>
     <ul class="subnav">
             
     <li class="toctree-l2"><a href="#list">List</a></li>
     
 
-    <li class="toctree-l2"><a href="#push">Push</a></li>
+    <li class="toctree-l2"><a href="#get">Get</a></li>
     
 
-    <li class="toctree-l2"><a href="#pull">Pull</a></li>
+    <li class="toctree-l2"><a href="#delete">Delete</a></li>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../logs/">Logs</a>
 	    </li>
           
         </ul>
@@ -136,7 +136,7 @@
     
       
     
-    <li>Files</li>
+    <li>Logs</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -146,12 +146,11 @@
           <div role="main">
             <div class="section">
               
-                <p>Helper methods for files.</p>
+                <p>Helper methods for logs.</p>
 <h2 id="list">List</h2>
-<p>List files and directories in a container.</p>
-<p><strong>Note:</strong> Does not work for listing <em>file contents</em> unless your using LXD &gt; 3.0.0, 
-so should be used only to list directories, see pull method below on how to 
-fetch them.</p>
+<p>Returns a list of the log files available for this container. </p>
+<p><strong>Note:</strong> This works on containers that have been deleted (or were never created) 
+to enable you to get logs for failed creations.</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -173,12 +172,6 @@ fetch them.</p>
 <td>container</td>
 <td>string</td>
 <td>Container name</td>
-<td></td>
-</tr>
-<tr>
-<td>path</td>
-<td>string</td>
-<td>Container directory path</td>
 <td></td>
 </tr>
 <tr>
@@ -189,38 +182,22 @@ fetch them.</p>
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.containers.files.list('local', 'my-container', '/').then(response =&gt; {
+<pre><code>lxc.containers.logs.list('local', 'my-container').then(response =&gt; {
     console.log(response);
 })
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>[
-    &quot;proc&quot;,
-    &quot;usr&quot;,
-    &quot;run&quot;,
-    &quot;etc&quot;,
-    &quot;home&quot;,
-    &quot;sbin&quot;,
-    &quot;snap&quot;,
-    &quot;opt&quot;,
-    &quot;lib64&quot;,
-    &quot;boot&quot;,
-    &quot;root&quot;,
-    &quot;media&quot;,
-    &quot;lib&quot;,
-    &quot;sys&quot;,
-    &quot;bin&quot;,
-    &quot;mnt&quot;,
-    &quot;var&quot;,
-    &quot;tmp&quot;,
-    &quot;srv&quot;,
-    &quot;dev&quot;
+    &quot;/1.0/containers/my-container/logs/forkstart.log&quot;,
+    &quot;/1.0/containers/my-container/logs/lxc.conf&quot;,
+    &quot;/1.0/containers/my-container/logs/lxc.log&quot;
 ]
 </code></pre>
 
-<h2 id="push">Push</h2>
-<p>Upload files or folders into the container.</p>
+<h2 id="get">Get</h2>
+<p>Returns the contents of a particular log file. </p>
+<p><strong>Note:</strong> This method ONLY works with LXD &gt; 3.0.0</p>
 <p><strong>Parameters &amp; Call</strong></p>
 <table>
 <thead>
@@ -245,87 +222,74 @@ fetch them.</p>
 <td></td>
 </tr>
 <tr>
-<td>source</td>
+<td>logfile</td>
 <td>string</td>
-<td>Local file/folder path</td>
+<td>Container logfile</td>
 <td></td>
 </tr>
 <tr>
-<td>path</td>
-<td>string</td>
-<td>Container file path</td>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<p><em>
-    Note: If both the <em>source</em> and the <em>path</em> parameters are folders, the method will
-    recursively upload, otherwise it will set mode <code>755</code> if folder or <code>644</code> if file.
-    All files are uploaded as uid/gid root user.
-</em></p>
-<pre><code>// single file
-lxc.containers.files.push('local', 'my-container', '/local/path/to/file.ext', '/path/to/file.ext').then(response =&gt; {
+<pre><code>lxc.containers.logs.get('local', 'my-container', 'lxc.conf').then(response =&gt; {
     console.log(response);
 })
+</code></pre>
 
-// entire directory
-lxc.containers.files.push('local', 'my-container', '/local/path/to/folder', '/path/to/folder').then(response =&gt; {
+<p><strong>Response</strong></p>
+<pre><code>The log file contents
+</code></pre>
+
+<h2 id="delete">Delete</h2>
+<p>Delete a particular log file.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>logfile</td>
+<td>string</td>
+<td>Container logfile</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.logs.delete('local', 'my-container', 'lxc.conf').then(response =&gt; {
     console.log(response);
 })
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>&quot;&quot;
-</code></pre>
-
-<h2 id="pull">Pull</h2>
-<p>Download a file from the container.</p>
-<p><strong>Note:</strong> We use <code>lxc file pull</code> as there is a bug which prevents accessing the file with 
-files endpoint though <code>lxc query</code>. Its fixed in LXD &gt; 3.0.0, so will be converted 
-to use that in future.</p>
-<p><strong>Parameters &amp; Call</strong></p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>remote</td>
-<td>string</td>
-<td>LXD remote</td>
-<td>local</td>
-</tr>
-<tr>
-<td>container</td>
-<td>string</td>
-<td>Container name</td>
-<td></td>
-</tr>
-<tr>
-<td>path</td>
-<td>string</td>
-<td>Container file path</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<pre><code>lxc.containers.files.pull('local', 'my-container', '/path/to/file').then(response =&gt; {
-    console.log(response);
-})
-</code></pre>
-
-<p><em>
-    Because with <code>file pull</code> you cant output to stdout, we need to pull the file then <code>cat</code> it,
-    so a folder structure is created based upon the path.
-</em></p>
-<p><em>Example above would create: <code>./.files/local/my-container/path/to/file</code></em></p>
-<p><strong>Response</strong></p>
-<pre><code>The file contents
 </code></pre>
               
             </div>
@@ -334,10 +298,8 @@ to use that in future.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../logs/" class="btn btn-neutral float-right" title="Logs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../networks/" class="btn btn-neutral" title="Networks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../files/" class="btn btn-neutral" title="Files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -363,10 +325,8 @@ to use that in future.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../networks/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../logs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
