@@ -10,3 +10,9 @@ describe('LXC', function() {
     })
   })
 })
+
+/*
+lxc.containers.files.pull('local', 'my-container', '/var/log/cloud-init.log').then(response => {
+    console.log(JSON.stringify(response, null, 4));
+})
+*/
