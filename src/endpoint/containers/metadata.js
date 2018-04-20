@@ -22,12 +22,12 @@ const sprintf = require('../../utils/sprintf.js')
 /**
  *
  */
-module.exports = class Logs {
+module.exports = class Metadata {
   /**
    *
    */
   constructor (lxc) {
-    this.baseEndpoint = '/1.0/containers/{0}/logs'
+    this.baseEndpoint = '/1.0/containers/{0}/metadata'
     this.lxc = lxc
   }
 
@@ -45,7 +45,7 @@ module.exports = class Logs {
   /**
    *
    */
-  list (remote, container, mutator) {
+  get (remote, container, mutator) {
     //
     remote = remote || 'local'
     container = container || ''
@@ -56,24 +56,12 @@ module.exports = class Logs {
   /**
    *
    */
-  get (remote, container, logfile, mutator) {
+  replace (remote, container, metadata, mutator) {
     //
     remote = remote || 'local'
     container = container || ''
-    logfile = logfile || ''
+    metadata = metadata || {}
     //
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, logfile), 'GET', {}, mutator)
-  }
-
-  /**
-   *
-   */
-  delete (remote, container, logfile, mutator) {
-    //
-    remote = remote || 'local'
-    container = container || ''
-    logfile = logfile || ''
-
-    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint + '/{1}', container, logfile), 'DELETE', {}, mutator)
+    return this.lxc.server.query(sprintf(remote + ':' + this.baseEndpoint, container), 'PUT', metadata, mutator)
   }
 }

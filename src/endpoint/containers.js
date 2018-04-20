@@ -53,6 +53,13 @@ module.exports = class Containers extends BaseEndpoint {
   }
 
   /**
+   * Metadata endpoint getter
+   */
+  get metadata () {
+    return new (require('./containers/metadata.js'))(this.lxc)
+  }
+
+  /**
    *
    */
   setState (remote, name, options, mutator) {

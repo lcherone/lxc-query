@@ -12,4 +12,5 @@ pages:
     - Networks: networks.md
     - Files: files.md
     - Logs: logs.md
+    - Metadata: metadata.md
     
