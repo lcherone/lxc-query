@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Metadata - LXC Query</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Metadata";
+    var mkdocs_page_input_path = "metadata.md";
+    var mkdocs_page_url = "/metadata/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> LXC Query</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../server/">Server</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../certificates/">Certificates</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../containers/">Containers</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../snapshots/">Snapshots</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../images/">Images</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../aliases/">Aliases</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../profiles/">Profiles</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../networks/">Networks</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../files/">Files</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../logs/">Logs</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Metadata</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#get">Get</a></li>
+    
+
+    <li class="toctree-l2"><a href="#replace">Replace</a></li>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">LXC Query</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Metadata</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Helper methods for container metadata.</p>
+<h2 id="get">Get</h2>
+<p>Returns the containers metadata.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.metadata.get('local', 'my-container').then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;creation_date&quot;: 1522920368,
+    &quot;expiry_date&quot;: 0,
+    &quot;properties&quot;: {
+        &quot;architecture&quot;: &quot;x86_64&quot;,
+        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20180405)&quot;,
+        &quot;os&quot;: &quot;ubuntu&quot;,
+        &quot;release&quot;: &quot;xenial&quot;
+    },
+    &quot;templates&quot;: {
+        &quot;/etc/hostname&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;hostname.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/meta-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;cloud-init-meta.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/network-config&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;cloud-init-network.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/user-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: {
+                &quot;default&quot;: &quot;#cloud-config\n{}\n&quot;
+            },
+            &quot;template&quot;: &quot;cloud-init-user.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/vendor-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: {
+                &quot;default&quot;: &quot;#cloud-config\n{}\n&quot;
+            },
+            &quot;template&quot;: &quot;cloud-init-vendor.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        }
+    }
+}
+</code></pre>
+
+<h2 id="replace">Replace</h2>
+<p>Replace the containers metadata.</p>
+<p><strong>Parameters &amp; Call</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remote</td>
+<td>string</td>
+<td>LXD remote</td>
+<td>local</td>
+</tr>
+<tr>
+<td>container</td>
+<td>string</td>
+<td>Container name</td>
+<td></td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>string</td>
+<td>Container metadata</td>
+<td></td>
+</tr>
+<tr>
+<td>mutator</td>
+<td>function</td>
+<td>Mutation function</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>lxc.containers.metadata.replace('local', 'my-container', {
+    &quot;architecture&quot;: &quot;x86_64&quot;,
+    &quot;creation_date&quot;: 1522920368,
+    &quot;expiry_date&quot;: 0,
+    &quot;properties&quot;: {
+        &quot;architecture&quot;: &quot;x86_64&quot;,
+        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20180405)&quot;,
+        &quot;os&quot;: &quot;ubuntu&quot;,
+        &quot;release&quot;: &quot;xenial&quot;
+    },
+    &quot;templates&quot;: {
+        &quot;/etc/hostname&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;hostname.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/meta-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;cloud-init-meta.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/network-config&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: null,
+            &quot;template&quot;: &quot;cloud-init-network.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/user-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: {
+                &quot;default&quot;: &quot;#cloud-config\n{}\n&quot;
+            },
+            &quot;template&quot;: &quot;cloud-init-user.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        },
+        &quot;/var/lib/cloud/seed/nocloud-net/vendor-data&quot;: {
+            &quot;create_only&quot;: false,
+            &quot;properties&quot;: {
+                &quot;default&quot;: &quot;#cloud-config\n{}\n&quot;
+            },
+            &quot;template&quot;: &quot;cloud-init-vendor.tpl&quot;,
+            &quot;when&quot;: [
+                &quot;create&quot;,
+                &quot;copy&quot;
+            ]
+        }
+    }
+}).then(response =&gt; {
+    console.log(response);
+})
+</code></pre>
+
+<p><strong>Response</strong></p>
+<pre><code>{
+
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../logs/" class="btn btn-neutral" title="Logs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../logs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>
