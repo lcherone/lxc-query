@@ -64,8 +64,8 @@ Upload files or folders into the container.
 | path         | string        | Container file path |         |
 
 <em>
-    Note: If both the source and the path parameters are folders, the method will
-    recursively upload, othe wise it will set 755 if folder or 644 for file.
+    Note: If both the *source* and the *path* parameters are folders, the method will
+    recursively upload, otherwise it will set mode `755` if folder or `644` if file.
     All files are uploaded as uid/gid root user.
 </em>
 

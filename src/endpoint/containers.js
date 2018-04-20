@@ -46,6 +46,13 @@ module.exports = class Containers extends BaseEndpoint {
   }
 
   /**
+   * Logs endpoint getter
+   */
+  get logs () {
+    return new (require('./containers/logs.js'))(this.lxc)
+  }
+
+  /**
    *
    */
   setState (remote, name, options, mutator) {

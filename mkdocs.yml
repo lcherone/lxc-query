@@ -11,4 +11,5 @@ pages:
     - Profiles: profiles.md
     - Networks: networks.md
     - Files: files.md
+    - Logs: logs.md
     
