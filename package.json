@@ -6,6 +6,9 @@
   "scripts": {
     "test": "standard --fix && standard && ./node_modules/mocha/bin/mocha"
   },
+  "standard": {
+    "env": [ "mocha" ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lcherone/lxc-query.git"
