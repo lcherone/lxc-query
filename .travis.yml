@@ -1,7 +1,8 @@
-os:
-  - linux
-dist: trusty
-sudo: required
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
 language: node_js
 node_js:
   - "node"
