@@ -30,6 +30,7 @@ module.exports = class Server {
    */
   constructor (lxc) {
     this.baseEndpoint = '/1.0'
+    this.lxc = lxc
   }
 
   /**
@@ -54,7 +55,7 @@ module.exports = class Server {
       )
     )
     return exec(
-      'lxc query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
+      this.lxc.cmd + ' query -X ' + shellescape([action]) + (data !== false ? ' -d ' + shellescape([data]) : '') + ' ' + shellescape([remote]),
       mutator
     )
   }
@@ -64,7 +65,7 @@ module.exports = class Server {
    */
   remotes () {
     return exec(
-      'lxc remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
+      this.lxc.cmd + ' remote list | tail -n +4 | awk \'{print $2}\' | egrep -v \'^(\\||^$)\'',
       response => {
         return response.trim().split(/\r?\n/)
       },

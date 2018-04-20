@@ -92,7 +92,7 @@ module.exports = class Files {
     let tmp = storagePath(remote, container, path)
 
     return this.lxc.server.exec(
-      'lxc file pull ' + shellescape([remote + ':' + container + path]) + ' ' + shellescape([tmp]) + ' && cat ' + shellescape([tmp])
+      this.lxc.cmd + ' file pull ' + shellescape([remote + ':' + container + path]) + ' ' + shellescape([tmp]) + ' && cat ' + shellescape([tmp])
     )
   }
 
@@ -106,7 +106,7 @@ module.exports = class Files {
     let flags = (mode === 755 && (fspath.parse(path).ext === '' && fspath.parse(source).ext === '')) ? '-p -r' : '-p --mode=' + mode + ' --uid=0 --gid=0'
 
     return this.lxc.server.exec(
-      'lxc file push ' + flags + ' ' + shellescape([source]) + ' ' + shellescape([remote + ':' + container + path])
+      this.lxc.cmd + ' file push ' + flags + ' ' + shellescape([source]) + ' ' + shellescape([remote + ':' + container + path])
     )
   }
 }

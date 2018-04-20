@@ -1,5 +1,9 @@
 const lxc = require('../src/index.js')
-// const assert = require('assert')
+
+// set cmd which is run for travis, default its set to just lxc
+if (process.env.isTravis) {
+  lxc.setCmd('lxd.lxc')
+}
 
 describe('LXC', function () {
   describe('#query()', function () {

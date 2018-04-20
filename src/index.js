@@ -23,6 +23,17 @@
  */
 class LXC {
   /**
+   *
+   */
+  constructor () {
+    this.cmd = 'lxc'
+  }
+
+  setCmd (cmd) {
+    this.cmd = cmd
+  }
+
+  /**
    * Server endpoint getter
    */
   get server () {
