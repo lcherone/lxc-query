@@ -157,7 +157,7 @@
           <div role="main">
             <div class="section">
               
-                <p>Helper methods for image operations.</p>
+                <p>Helper methods for image.</p>
 <h2 id="list">List</h2>
 <p>List images on remote.</p>
 <p><strong>Parameters &amp; Call</strong></p>
@@ -178,21 +178,65 @@
 <td>local</td>
 </tr>
 <tr>
-<td>mutator</td>
-<td>function</td>
-<td>Mutation function</td>
+<td>filter</td>
+<td>string</td>
+<td>Image property based filtering</td>
 <td></td>
 </tr>
 </tbody>
 </table>
-<pre><code>lxc.images.list('local').then(response =&gt; {
-    console.log(response)
+<pre><code>lxc.images.list('images').then(response =&gt; {
+  console.log(response)
+})
+
+// filtering by architecture
+lxc.images.list('images', 'architecture=&quot;' + ['x86_64', 'i686', 'amd64'].join('|') + '&quot;').then(response =&gt; {
+  console.log(response)
 })
 </code></pre>
 
 <p><strong>Response</strong></p>
 <pre><code>[
-    &quot;/1.0/images/be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;
+    {
+        &quot;auto_update&quot;: false,
+        &quot;properties&quot;: {
+            &quot;architecture&quot;: &quot;amd64&quot;,
+            &quot;description&quot;: &quot;Alpine 3.4 amd64 (20180419_17:50)&quot;,
+            &quot;os&quot;: &quot;Alpine&quot;,
+            &quot;release&quot;: &quot;3.4&quot;,
+            &quot;serial&quot;: &quot;20180419_17:50&quot;
+        },
+        &quot;public&quot;: true,
+        &quot;aliases&quot;: [
+            {
+                &quot;name&quot;: &quot;alpine/3.4/default&quot;,
+                &quot;description&quot;: &quot;&quot;
+            },
+            {
+                &quot;name&quot;: &quot;alpine/3.4/default/amd64&quot;,
+                &quot;description&quot;: &quot;&quot;
+            },
+            {
+                &quot;name&quot;: &quot;alpine/3.4&quot;,
+                &quot;description&quot;: &quot;&quot;
+            },
+            {
+                &quot;name&quot;: &quot;alpine/3.4/amd64&quot;,
+                &quot;description&quot;: &quot;&quot;
+            }
+        ],
+        &quot;architecture&quot;: &quot;x86_64&quot;,
+        &quot;cached&quot;: false,
+        &quot;filename&quot;: &quot;lxd.tar.xz&quot;,
+        &quot;fingerprint&quot;: &quot;ca571b2780652ccd1a5c7fa62da452db0d5e94557647e760c57d10ccd4369721&quot;,
+        &quot;size&quot;: 2134616,
+        &quot;created_at&quot;: &quot;2018-04-19T00:00:00Z&quot;,
+        &quot;expires_at&quot;: &quot;1970-01-01T00:00:00Z&quot;,
+        &quot;last_used_at&quot;: &quot;0001-01-01T00:00:00Z&quot;,
+        &quot;uploaded_at&quot;: &quot;2018-04-19T00:00:00Z&quot;
+    },
+
+    ... snip
 ]
 </code></pre>
 
