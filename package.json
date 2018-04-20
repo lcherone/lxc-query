@@ -1,10 +1,10 @@
 {
   "name": "lxc-query",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A Node.js LXD client which uses your local instance of LXD and \"lxc query\" to manage your local or remote LXD servers.",
   "main": "src/index.js",
   "scripts": {
-    "test": "standard --fix && standard && node test.js"
+    "test": "standard --fix && standard && ./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/lcherone/lxc-query#readme",
   "devDependencies": {
+    "mocha": "^5.1.1",
     "standard": "^11.0.1"
   }
 }
