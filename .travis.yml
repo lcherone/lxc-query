@@ -6,9 +6,6 @@ matrix:
 language: node_js
 node_js:
   - "node"
-  - "9"
-  - "8"
-  - "7"
 cache:
   directories:
     - "node_modules"
