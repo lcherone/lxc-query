@@ -1,4 +1,5 @@
-sudo: required
+dist: trusty
+sudo: yes
 language: node_js
 node_js:
   - "node"
@@ -10,7 +11,31 @@ before_install:
   - npm i -g mocha
 install:
   - travis_retry npm install
-  - apt -t trusty-backports install lxd
-  - apt -y install lxd
 script:
+  # exit on fail
+  - set -eo pipefail
+  # setup LXD group
+  - sudo groupadd --system lxd
+  - sudo usermod -a -G lxd $USER
+  # install lxd
+  - sudo apt-get --yes install snapd
+  - sudo snap install lxd
+  # create profile
+  - sudo lxd waitready
+  - printf 'y\ndefault\ndir\ny\nall\n8443\n\n\ny\nlxdbr0\nauto\nauto\n' | sudo lxd init
+  - sudo lxd.lxc profile copy default travis
+  - sudo lxd.lxc profile set travis security.privileged true
+  # launch image
+  - sudo lxd.lxc launch images:alpine/3.5 alpine --profile travis
+  # mount current dir into container
+  - sudo lxd.lxc config device add alpine travis disk source="$PWD" path=/travis
+  - sudo lxd.lxc exec alpine -- ls -al /travis
+  # try network inside container
+  - sleep 5
+  - sudo lxd.lxc exec alpine -- ping github.com -c 2
+  # try LXD REST api
+  - openssl genrsa 2048 > client.key
+  - openssl req -new -x509 -nodes -sha1 -days 365 -key client.key -out client.crt -subj "/C=CZ/ST=Czech Republic/L=Prague/O=TEST/OU=IT Department/CN=ssl.raymii.org"
+  - sudo lxd.lxc config trust add client.crt
+  - curl -k -L --cert client.crt --key client.key "https://127.0.0.1:8443/1.0/images"
   - npm run test
