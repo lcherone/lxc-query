@@ -2,7 +2,7 @@ const lxc = require('../src/index.js')
 
 // set cmd which is run for travis, default its set to just lxc
 if (process.env.isTravis) {
-  lxc.setCmd('lxd.lxc')
+  lxc.setCmd('/usr/bin/lxd.lxc')
 }
 
 describe('LXC', function () {
