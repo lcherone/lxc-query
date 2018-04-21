@@ -125,6 +125,28 @@ lxc.containers.info('local', 'my-container').then(response => {
 }
 ```
 
+**Express**
+
+In express you might do something like the following, to get all containers and then enumerate their information.
+
+```
+app.get("/containers", function(req, res) {
+  //
+  lxc.containers.list('local').then(response => {
+    let containers = lxc.containers.stripEndpoint(response)
+    let promises = []
+    //
+    containers.forEach(container => {
+      promises.push(lxc.containers.info('local', container))
+    })
+    //
+    Promise.all(promises).then(results => {
+      res.json(results)
+    })
+  })
+})
+```
+
 ## Get State
 
 Get the state of a container.
