@@ -42,8 +42,8 @@ Please see [CONTRIBUTING](https://github.com/lcherone/lxc-query/blob/master/CONT
 
 ## Developer Support / Sponsor
 
-If you use this libary and somehow make money from it, or you just want to show your appreciation, 
-please feel free to make a donation [https://www.paypal.me/lcherone](https://www.paypal.me/lcherone)
+If you use this library and some how make money from it, or you just want to show your appreciation, 
+please feel free to make a donation [https://www.paypal.me/lcherone](https://www.paypal.me/lcherone) thanks.
 
 ## Credits
 
