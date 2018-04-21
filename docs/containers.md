@@ -444,7 +444,7 @@ lxc.containers.create('local', {
 }
 ```
 
-*additionally you could simply call `lxc.local()` to run what you would normally run on cmd line for example:
+*you could also simply call `lxc.local()` to run what you would normally run on cmd line:
 
 ```
 // same as above

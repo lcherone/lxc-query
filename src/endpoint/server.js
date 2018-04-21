@@ -40,9 +40,8 @@ module.exports = class Server {
     //
     cmd = cmd || ''
     mutator = mutator || {}
-    parse = parse || undefined
     //
-    return exec(cmd, mutator, false)
+    return exec(cmd, mutator, parse)
   }
 
   /**
