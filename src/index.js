@@ -76,6 +76,13 @@ class LXC {
   }
 
   /**
+   * Operations endpoint getter
+   */
+  get operations () {
+    return new (require('./endpoint/operations.js'))(this)
+  }
+
+  /**
    *
    */
   local () {

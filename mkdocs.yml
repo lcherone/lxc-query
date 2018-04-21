@@ -13,4 +13,4 @@ pages:
     - Files: files.md
     - Logs: logs.md
     - Metadata: metadata.md
-    
+    - Operations: operations.md
