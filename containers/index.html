@@ -350,8 +350,7 @@ lxc.containers.list('local', response =&gt; {
 <p>In express you might do something like the following, to get all containers and then enumerate their information.</p>
 <pre><code>app.get(&quot;/containers&quot;, function(req, res) {
   //
-  lxc.containers.list('local').then(response =&gt; {
-    let containers = lxc.containers.stripEndpoint(response)
+  lxc.containers.list('local', response =&gt; lxc.containers.stripEndpoint(response)).then(containers =&gt; {
     let promises = []
     //
     containers.forEach(container =&gt; {
