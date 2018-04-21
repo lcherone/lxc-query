@@ -1,6 +1,6 @@
 {
   "name": "lxc-query",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A Node.js LXD client which uses your local instance of LXD and \"lxc query\" to manage your local or remote LXD servers.",
   "main": "src/index.js",
   "scripts": {
