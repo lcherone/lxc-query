@@ -97,8 +97,8 @@ lxc.operations.delete('local', '092a8755-fd90-4ce4-bf91-9f87d03fd5bc').then(resp
 Websocket upgrading to `/1.0/operations/<uuid>/websocket` can be done by calling 
 [`lxc.containers.exec`](https://lcherone.github.io/lxc-query/containers/#exec) 
 with `"wait-for-websocket": true` then using the operation id to directly initialise 
-the websocket connection using the provided secret. 
+the websocket connection to the LXD server using the provided secret. 
 
 You could still use `lxc.query()` if you really require it but you would need to 
-proxy it through with something like express, for that it has not been added, 
-as I do not want to add addtional dependencies.
+proxy it through with something like express, for that reason, it has not been added 
+as I do not want to add additional dependencies for a single endpoint.

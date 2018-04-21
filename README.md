@@ -42,6 +42,10 @@ Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.
 
 Please see [CONTRIBUTING](https://github.com/lcherone/lxc-query/blob/master/CONTRIBUTING.md) for details.
 
+## Developer Support / Sponsor
+
+If you use this libary and somehow make money from it, or you just want to show your appreciation, 
+please feel free to make a donation [https://www.paypal.me/lcherone](https://www.paypal.me/lcherone)
 
 ## Credits
 
