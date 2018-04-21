@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "A Node.js LXD client which uses your local instance of LXD and \nlxc query\n to manage your local or remote LXD servers.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nEssentially you can do any LXD operation with the single \nlxc.query\n method, or you can use the helper methods which cover all the LXD endpoints (see side menu).\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote and endpoint\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\nconst lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})\n\n\n\n\nCheck out the LXD \nRESTapi\n, for more information. \n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nLinks\n\n\nCheck out \nLXD-UI\n - A simple easy to use GUI for your local LXD server.",
+            "text": "A Node.js LXD client which uses your local instance of LXD and \nlxc query\n to manage your local or remote LXD servers.\n\n\nYou must be using >= LXD 2.17\n\n\nInstall\n\n\nRequire this package with npm using the following command:\n\n\n$ npm i lxc-query\n\n\n\n\nUsage\n\n\nEssentially you can do any LXD operation with the single \nlxc.query\n method, or you can use the helper methods which cover all the LXD endpoints (see side menu).\n\n\nParameters & Call\n\n\n\n\n\n\n\n\nParameter\n\n\nType\n\n\nDescription\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nremote\n\n\nstring\n\n\nLXD remote and endpoint\n\n\nlocal\n\n\n\n\n\n\nrest method\n\n\nstring\n\n\ne.g GET, POST, DELETE, PUT, PATCH\n\n\nGET\n\n\n\n\n\n\npayload\n\n\nobject | json string\n\n\nRest json payload\n\n\n\n\n\n\n\n\nmutator\n\n\nfunction\n\n\nPre-resolve mutation function\n\n\n\n\n\n\n\n\n\n\nconst lxc = require('lxc-query')\n\nlxc.query('remote:/1.0', 'GET', {}).then(response => {\n    console.log(response)\n})\n\n\n\n\nCheck out the LXD \nRESTapi\n, for more information. \n\n\nContributing\n\n\nPlease see \nCONTRIBUTING\n for details.\n\n\nDeveloper Support / Sponsor\n\n\nIf you use this library and some how make money from it, or you just want to show your appreciation, \nplease feel free to make a donation \nhttps://www.paypal.me/lcherone\n thanks.\n\n\nCredits\n\n\n\n\nLawrence Cherone\n\n\nAll Contributors\n\n\n\n\nLicense\n\n\nThe MIT License (MIT). Please see \nLicense File\n for more information.\n\n\nLinks\n\n\nCheck out \nLXD-UI\n - A simple easy to use GUI for your local LXD server.",
             "title": "Home"
         },
         {
@@ -19,6 +19,11 @@
             "location": "/#contributing",
             "text": "Please see  CONTRIBUTING  for details.",
             "title": "Contributing"
+        },
+        {
+            "location": "/#developer-support-sponsor",
+            "text": "If you use this library and some how make money from it, or you just want to show your appreciation, \nplease feel free to make a donation  https://www.paypal.me/lcherone  thanks.",
+            "title": "Developer Support / Sponsor"
         },
         {
             "location": "/#credits",
