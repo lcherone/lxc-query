@@ -1,4 +1,4 @@
-Helper methods for container operations.
+Helper methods for containers.
 
 ## List
 
@@ -132,8 +132,7 @@ In express you might do something like the following, to get all containers and 
 ```
 app.get("/containers", function(req, res) {
   //
-  lxc.containers.list('local').then(response => {
-    let containers = lxc.containers.stripEndpoint(response)
+  lxc.containers.list('local', response => lxc.containers.stripEndpoint(response)).then(containers => {
     let promises = []
     //
     containers.forEach(container => {

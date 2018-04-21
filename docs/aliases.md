@@ -1,4 +1,4 @@
-Helper methods for alias operations.
+Helper methods for image aliases.
 
 ## List
 

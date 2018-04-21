@@ -1,4 +1,4 @@
-Helper methods for certificate operations.
+Helper methods for certificates.
 
 ## List
 

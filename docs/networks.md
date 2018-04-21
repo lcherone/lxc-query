@@ -1,4 +1,4 @@
-Helper methods for network operations.
+Helper methods for networks.
 
 ## List
 

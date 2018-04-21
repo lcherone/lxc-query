@@ -1,4 +1,4 @@
-Helper methods for profile operations.
+Helper methods for profiles.
 
 ## List
 
