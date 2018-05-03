@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -594,17 +594,17 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.list(&#39;local&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    &quot;/1.0/networks/lxdbr0&quot;,
-    &quot;/1.0/networks/lo&quot;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;/1.0/networks/lxdbr0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/1.0/networks/lo&quot;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -641,28 +641,28 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.info(&#39;local&#39;, &#39;lxdbr0&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;lxdbr0&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;config&quot;: {
-        &quot;ipv4.address&quot;: &quot;10.158.250.1/24&quot;,
-        &quot;ipv4.nat&quot;: &quot;true&quot;,
-        &quot;ipv6.address&quot;: &quot;fd42:a224:5bde:20c0::1/64&quot;,
-        &quot;ipv6.nat&quot;: &quot;true&quot;
-    },
-    &quot;description&quot;: &quot;&quot;,
-    &quot;managed&quot;: true,
-    &quot;name&quot;: &quot;lxdbr0&quot;,
-    &quot;type&quot;: &quot;bridge&quot;,
-    &quot;used_by&quot;: [
-        &quot;/1.0/containers/my-container&quot;
-    ]
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;ipv4.address&quot;</span><span class="p">:</span> <span class="s2">&quot;10.158.250.1/24&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ipv4.nat&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ipv6.address&quot;</span><span class="p">:</span> <span class="s2">&quot;fd42:a224:5bde:20c0::1/64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;ipv6.nat&quot;</span><span class="p">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lxdbr0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;bridge&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;used_by&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;/1.0/containers/my-container&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -699,24 +699,24 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.create(&#39;local&#39;, {
-    &quot;name&quot;: &quot;my-network&quot;,
-    &quot;description&quot;: &quot;My network&quot;,
-    &quot;config&quot;: {
-        &quot;ipv4.address&quot;: &quot;none&quot;,
-        &quot;ipv6.address&quot;: &quot;2001:470:b368:4242::1/64&quot;,
-        &quot;ipv6.nat&quot;: &quot;true&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;my-network&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;My network&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;ipv4.address&quot;</span><span class="o">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv6.address&quot;</span><span class="o">:</span> <span class="s2">&quot;2001:470:b368:4242::1/64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv6.nat&quot;</span><span class="o">:</span> <span class="s2">&quot;true&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -759,22 +759,22 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.replace(&#39;local&#39;, &#39;my-new-network&#39;, {
-    &quot;config&quot;: {
-        &quot;bridge.driver&quot;: &quot;openvswitch&quot;,
-        &quot;ipv4.address&quot;: &quot;10.0.3.1/24&quot;,
-        &quot;ipv6.address&quot;: &quot;fd1:6997:4939:495d::1/64&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-new-network&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;bridge.driver&quot;</span><span class="o">:</span> <span class="s2">&quot;openvswitch&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv4.address&quot;</span><span class="o">:</span> <span class="s2">&quot;10.0.3.1/24&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ipv6.address&quot;</span><span class="o">:</span> <span class="s2">&quot;fd1:6997:4939:495d::1/64&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -817,20 +817,20 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.replace(&#39;local&#39;, &#39;my-new-network&#39;, {
-    &quot;config&quot;: {
-        &quot;dns.mode&quot;: &quot;dynamic&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-new-network&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;dns.mode&quot;</span><span class="o">:</span> <span class="s2">&quot;dynamic&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -873,16 +873,16 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.rename(&#39;local&#39;, &#39;old-name&#39;, &#39;new-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;old-name&#39;</span><span class="p">,</span> <span class="s1">&#39;new-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -919,16 +919,16 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.networks.delete(&#39;local&#39;, &#39;network-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">networks</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;network-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
                 
                   
@@ -948,7 +948,7 @@
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -1018,7 +1018,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

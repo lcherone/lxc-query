@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -552,17 +552,17 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.operations.list(&#39;local&#39;).then(response =&gt; {
-  console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">operations</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    &quot;/1.0/operations/c0fc0d0d-a997-462b-842b-f8bd0df82507&quot;,
-    &quot;/1.0/operations/092a8755-fd90-4ce4-bf91-9f87d03fd5bc&quot;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;/1.0/operations/c0fc0d0d-a997-462b-842b-f8bd0df82507&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/1.0/operations/092a8755-fd90-4ce4-bf91-9f87d03fd5bc&quot;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -599,31 +599,31 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.operations.info(&#39;local&#39;, &#39;092a8755-fd90-4ce4-bf91-9f87d03fd5bc&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">operations</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;092a8755-fd90-4ce4-bf91-9f87d03fd5bc&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;id&quot;: &quot;b8d84888-1dc2-44fd-b386-7f679e171ba5&quot;,
-    &quot;class&quot;: &quot;token&quot;,
-    &quot;created_at&quot;: &quot;2016-02-17T16:59:27.237628195-05:00&quot;,
-    &quot;updated_at&quot;: &quot;2016-02-17T16:59:27.237628195-05:00&quot;,
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103,
-    &quot;resources&quot;: {
-        &quot;images&quot;: [
-            &quot;/1.0/images/54c8caac1f61901ed86c68f24af5f5d3672bdc62c71d04f06df3a59e95684473&quot;
-        ]
-    },
-    &quot;metadata&quot;: {                                                                          
-        &quot;secret&quot;: &quot;c9209bee6df99315be1660dd215acde4aec89b8e5336039712fc11008d918b0d&quot;
-    },
-    &quot;may_cancel&quot;: true,
-    &quot;err&quot;: &quot;&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;b8d84888-1dc2-44fd-b386-7f679e171ba5&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-17T16:59:27.237628195-05:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-02-17T16:59:27.237628195-05:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;/1.0/images/54c8caac1f61901ed86c68f24af5f5d3672bdc62c71d04f06df3a59e95684473&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>                                                                          
+        <span class="nt">&quot;secret&quot;</span><span class="p">:</span> <span class="s2">&quot;c9209bee6df99315be1660dd215acde4aec89b8e5336039712fc11008d918b0d&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;may_cancel&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;err&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -660,16 +660,16 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.operations.delete(&#39;local&#39;, &#39;092a8755-fd90-4ce4-bf91-9f87d03fd5bc&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">operations</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;092a8755-fd90-4ce4-bf91-9f87d03fd5bc&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -699,7 +699,7 @@ as I do not want to add additional dependencies for a single endpoint.</p>
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -755,7 +755,7 @@ as I do not want to add additional dependencies for a single endpoint.</p>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

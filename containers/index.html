@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -706,36 +706,36 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>// apply no mutation to the response
-lxc.containers.list(&#39;local&#39;).then(response =&gt; {
-    // [ &#39;/1.0/containers/my-container&#39; ]
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="c1">// apply no mutation to the response</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// [ &#39;/1.0/containers/my-container&#39; ]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 
-// apply stripEndpoint on response
-lxc.containers.list(&#39;local&#39;, response =&gt; lxc.containers.stripEndpoint(response)).then(response =&gt; {
-    // [ &#39;my-container&#39; ]
-    console.log(response)
-})
+<span class="c1">// apply stripEndpoint on response</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">stripEndpoint</span><span class="p">(</span><span class="nx">response</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// [ &#39;my-container&#39; ]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 
-// or you could write your own
-lxc.containers.list(&#39;local&#39;, response =&gt; {
-    let ret = []
-    response.forEach(value =&gt; {
-      ret.push(value.replace(lxc.containers.baseEndpoint + &#39;/&#39;, &#39;&#39;))
-    })
-    return ret
-}).then(response =&gt; {
-    // [ &#39;my-container&#39; ]
-    console.log(response)
-})
+<span class="c1">// or you could write your own</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">ret</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nx">response</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">value</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">ret</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">baseEndpoint</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="nx">ret</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// [ &#39;my-container&#39; ]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[ 
-    &#39;/1.0/containers/my-container&#39;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span> 
+    <span class="err">&#39;/</span><span class="mf">1.0</span><span class="err">/containers/my-container&#39;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -772,91 +772,91 @@ lxc.containers.list(&#39;local&#39;, response =&gt; {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.info(&#39;local&#39;, &#39;my-container&#39;).then(response =&gt; {
-    console.log(response);
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;config&quot;: {
-        &quot;image.architecture&quot;: &quot;amd64&quot;,
-        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
-        &quot;image.label&quot;: &quot;release&quot;,
-        &quot;image.os&quot;: &quot;ubuntu&quot;,
-        &quot;image.release&quot;: &quot;xenial&quot;,
-        &quot;image.serial&quot;: &quot;20180405&quot;,
-        &quot;image.version&quot;: &quot;16.04&quot;,
-        &quot;volatile.base_image&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
-        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
-        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
-        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.power&quot;: &quot;RUNNING&quot;
-    },
-    &quot;created_at&quot;: &quot;2018-04-08T15:41:08Z&quot;,
-    &quot;description&quot;: &quot;&quot;,
-    &quot;devices&quot;: {},
-    &quot;ephemeral&quot;: false,
-    &quot;expanded_config&quot;: {
-        &quot;image.architecture&quot;: &quot;amd64&quot;,
-        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
-        &quot;image.label&quot;: &quot;release&quot;,
-        &quot;image.os&quot;: &quot;ubuntu&quot;,
-        &quot;image.release&quot;: &quot;xenial&quot;,
-        &quot;image.serial&quot;: &quot;20180405&quot;,
-        &quot;image.version&quot;: &quot;16.04&quot;,
-        &quot;volatile.base_image&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
-        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
-        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
-        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.power&quot;: &quot;RUNNING&quot;
-    },
-    &quot;expanded_devices&quot;: {
-        &quot;eth0&quot;: {
-            &quot;name&quot;: &quot;eth0&quot;,
-            &quot;nictype&quot;: &quot;bridged&quot;,
-            &quot;parent&quot;: &quot;lxdbr0&quot;,
-            &quot;type&quot;: &quot;nic&quot;
-        },
-        &quot;root&quot;: {
-            &quot;path&quot;: &quot;/&quot;,
-            &quot;pool&quot;: &quot;default&quot;,
-            &quot;type&quot;: &quot;disk&quot;
-        }
-    },
-    &quot;last_used_at&quot;: &quot;2018-04-08T20:09:53Z&quot;,
-    &quot;location&quot;: &quot;&quot;,
-    &quot;name&quot;: &quot;my-container&quot;,
-    &quot;profiles&quot;: [
-        &quot;default&quot;
-    ],
-    &quot;stateful&quot;: false,
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;image.architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.description&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.label&quot;</span><span class="p">:</span> <span class="s2">&quot;release&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.os&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.release&quot;</span><span class="p">:</span> <span class="s2">&quot;xenial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180405&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.version&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.base_image&quot;</span><span class="p">:</span> <span class="s2">&quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;00:16:3e:fb:89:0a&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.base&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.next&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.idmap&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.power&quot;</span><span class="p">:</span> <span class="s2">&quot;RUNNING&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T15:41:08Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;ephemeral&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;expanded_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;image.architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.description&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.label&quot;</span><span class="p">:</span> <span class="s2">&quot;release&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.os&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.release&quot;</span><span class="p">:</span> <span class="s2">&quot;xenial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180405&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.version&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.base_image&quot;</span><span class="p">:</span> <span class="s2">&quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;00:16:3e:fb:89:0a&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.base&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.next&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.idmap&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:100000,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.power&quot;</span><span class="p">:</span> <span class="s2">&quot;RUNNING&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;expanded_devices&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;eth0&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;nictype&quot;</span><span class="p">:</span> <span class="s2">&quot;bridged&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;parent&quot;</span><span class="p">:</span> <span class="s2">&quot;lxdbr0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;nic&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pool&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;disk&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;last_used_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T20:09:53Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-container&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;default&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;stateful&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <p><strong>Express</strong></p>
 <p>In express you might do something like the following, to get all containers and then enumerate their information.</p>
-<div class="codehilite"><pre><span></span>app.get(&quot;/containers&quot;, function(req, res) {
-  //
-  lxc.containers.list(&#39;local&#39;, response =&gt; lxc.containers.stripEndpoint(response)).then(containers =&gt; {
-    let promises = []
-    //
-    containers.forEach(container =&gt; {
-      promises.push(lxc.containers.info(&#39;local&#39;, container))
-    })
-    //
-    Promise.all(promises).then(results =&gt; {
-      res.json(results)
-    })
-  })
-})
+<div class="codehilite"><pre><span></span><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/containers&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//</span>
+  <span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">stripEndpoint</span><span class="p">(</span><span class="nx">response</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="nx">containers</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">promises</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1">//</span>
+    <span class="nx">containers</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">container</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">promises</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="nx">container</span><span class="p">))</span>
+    <span class="p">})</span>
+    <span class="c1">//</span>
+    <span class="nb">Promise</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">promises</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">results</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">results</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
 </pre></div>
 
 
@@ -887,85 +887,85 @@ lxc.containers.list(&#39;local&#39;, response =&gt; {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.getState(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response);
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">getState</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;cpu&quot;: {
-        &quot;usage&quot;: 15159435138
-    },
-    &quot;disk&quot;: {},
-    &quot;memory&quot;: {
-        &quot;swap_usage&quot;: 0,
-        &quot;swap_usage_peak&quot;: 0,
-        &quot;usage&quot;: 239001600,
-        &quot;usage_peak&quot;: 314175488
-    },
-    &quot;network&quot;: {
-        &quot;eth0&quot;: {
-            &quot;addresses&quot;: [
-                {
-                    &quot;address&quot;: &quot;10.189.110.190&quot;,
-                    &quot;family&quot;: &quot;inet&quot;,
-                    &quot;netmask&quot;: &quot;24&quot;,
-                    &quot;scope&quot;: &quot;global&quot;
-                },
-                {
-                    &quot;address&quot;: &quot;fe80::216:3eff:fefb:890a&quot;,
-                    &quot;family&quot;: &quot;inet6&quot;,
-                    &quot;netmask&quot;: &quot;64&quot;,
-                    &quot;scope&quot;: &quot;link&quot;
-                }
-            ],
-            &quot;counters&quot;: {
-                &quot;bytes_received&quot;: 26351929,
-                &quot;bytes_sent&quot;: 706569,
-                &quot;packets_received&quot;: 18810,
-                &quot;packets_sent&quot;: 10095
-            },
-            &quot;host_name&quot;: &quot;vethQGS6S6&quot;,
-            &quot;hwaddr&quot;: &quot;00:16:3e:fb:89:0a&quot;,
-            &quot;mtu&quot;: 1500,
-            &quot;state&quot;: &quot;up&quot;,
-            &quot;type&quot;: &quot;broadcast&quot;
-        },
-        &quot;lo&quot;: {
-            &quot;addresses&quot;: [
-                {
-                    &quot;address&quot;: &quot;127.0.0.1&quot;,
-                    &quot;family&quot;: &quot;inet&quot;,
-                    &quot;netmask&quot;: &quot;8&quot;,
-                    &quot;scope&quot;: &quot;local&quot;
-                },
-                {
-                    &quot;address&quot;: &quot;::1&quot;,
-                    &quot;family&quot;: &quot;inet6&quot;,
-                    &quot;netmask&quot;: &quot;128&quot;,
-                    &quot;scope&quot;: &quot;local&quot;
-                }
-            ],
-            &quot;counters&quot;: {
-                &quot;bytes_received&quot;: 0,
-                &quot;bytes_sent&quot;: 0,
-                &quot;packets_received&quot;: 0,
-                &quot;packets_sent&quot;: 0
-            },
-            &quot;host_name&quot;: &quot;&quot;,
-            &quot;hwaddr&quot;: &quot;&quot;,
-            &quot;mtu&quot;: 65536,
-            &quot;state&quot;: &quot;up&quot;,
-            &quot;type&quot;: &quot;loopback&quot;
-        }
-    },
-    &quot;pid&quot;: 7156,
-    &quot;processes&quot;: 30,
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cpu&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;usage&quot;</span><span class="p">:</span> <span class="mi">15159435138</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;disk&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;memory&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;swap_usage&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;swap_usage_peak&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="nt">&quot;usage&quot;</span><span class="p">:</span> <span class="mi">239001600</span><span class="p">,</span>
+        <span class="nt">&quot;usage_peak&quot;</span><span class="p">:</span> <span class="mi">314175488</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;network&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;eth0&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;10.189.110.190&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;family&quot;</span><span class="p">:</span> <span class="s2">&quot;inet&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span> <span class="s2">&quot;24&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;global&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;fe80::216:3eff:fefb:890a&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;family&quot;</span><span class="p">:</span> <span class="s2">&quot;inet6&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span> <span class="s2">&quot;64&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;link&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;bytes_received&quot;</span><span class="p">:</span> <span class="mi">26351929</span><span class="p">,</span>
+                <span class="nt">&quot;bytes_sent&quot;</span><span class="p">:</span> <span class="mi">706569</span><span class="p">,</span>
+                <span class="nt">&quot;packets_received&quot;</span><span class="p">:</span> <span class="mi">18810</span><span class="p">,</span>
+                <span class="nt">&quot;packets_sent&quot;</span><span class="p">:</span> <span class="mi">10095</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;vethQGS6S6&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;00:16:3e:fb:89:0a&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;mtu&quot;</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;broadcast&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;lo&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;addresses&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;family&quot;</span><span class="p">:</span> <span class="s2">&quot;inet&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span> <span class="s2">&quot;8&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;::1&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;family&quot;</span><span class="p">:</span> <span class="s2">&quot;inet6&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;netmask&quot;</span><span class="p">:</span> <span class="s2">&quot;128&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;local&quot;</span>
+                <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;counters&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;bytes_received&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;bytes_sent&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;packets_received&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nt">&quot;packets_sent&quot;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;mtu&quot;</span><span class="p">:</span> <span class="mi">65536</span><span class="p">,</span>
+            <span class="nt">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;loopback&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;pid&quot;</span><span class="p">:</span> <span class="mi">7156</span><span class="p">,</span>
+    <span class="nt">&quot;processes&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1003,35 +1003,35 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.setState(&#39;local&#39;, &#39;container-name&#39;,  {
-    &quot;action&quot;: &quot;stop&quot;,  # State change action (stop, start, restart, freeze or unfreeze)
-    &quot;timeout&quot;: 30,     # A timeout after which the state change is considered as failed
-    &quot;force&quot;: true,     # Force the state change (currently only valid for stop and restart where it means killing the container)
-    &quot;stateful&quot;: true   # Whether to store or restore runtime state before stopping or startiong (only valid for stop and start, defaults to false)
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">,</span>  <span class="p">{</span>
+    <span class="s2">&quot;action&quot;</span><span class="o">:</span> <span class="s2">&quot;stop&quot;</span><span class="p">,</span>  <span class="err">#</span> <span class="nx">State</span> <span class="nx">change</span> <span class="nx">action</span> <span class="p">(</span><span class="nx">stop</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">restart</span><span class="p">,</span> <span class="nx">freeze</span> <span class="nx">or</span> <span class="nx">unfreeze</span><span class="p">)</span>
+    <span class="s2">&quot;timeout&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>     <span class="err">#</span> <span class="nx">A</span> <span class="nx">timeout</span> <span class="nx">after</span> <span class="nx">which</span> <span class="nx">the</span> <span class="nx">state</span> <span class="nx">change</span> <span class="nx">is</span> <span class="nx">considered</span> <span class="nx">as</span> <span class="nx">failed</span>
+    <span class="s2">&quot;force&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>     <span class="err">#</span> <span class="nx">Force</span> <span class="nx">the</span> <span class="nx">state</span> <span class="nx">change</span> <span class="p">(</span><span class="nx">currently</span> <span class="nx">only</span> <span class="nx">valid</span> <span class="k">for</span> <span class="nx">stop</span> <span class="nx">and</span> <span class="nx">restart</span> <span class="nx">where</span> <span class="nx">it</span> <span class="nx">means</span> <span class="nx">killing</span> <span class="nx">the</span> <span class="nx">container</span><span class="p">)</span>
+    <span class="s2">&quot;stateful&quot;</span><span class="o">:</span> <span class="kc">true</span>   <span class="err">#</span> <span class="nx">Whether</span> <span class="nx">to</span> <span class="nx">store</span> <span class="nx">or</span> <span class="nx">restore</span> <span class="nx">runtime</span> <span class="nx">state</span> <span class="nx">before</span> <span class="nx">stopping</span> <span class="nx">or</span> <span class="nx">startiong</span> <span class="p">(</span><span class="nx">only</span> <span class="nx">valid</span> <span class="k">for</span> <span class="nx">stop</span> <span class="nx">and</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">defaults</span> <span class="nx">to</span> <span class="kc">false</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;[Stopping, Starting, Restarting, Freezing, Unfreezing] container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;[Stopping,</span> <span class="err">Starting,</span> <span class="err">Restarting,</span> <span class="err">Freezing,</span> <span class="err">Unfreezing]</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1074,33 +1074,33 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.replace(&#39;local&#39;, &#39;my-container&#39;, {
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;config&quot;: {
-        &quot;limits.cpu&quot;: &quot;4&quot;,
-        &quot;volatile.base_image&quot;: &quot;97d97a3d1d053840ca19c86cdd0596cf1be060c5157d31407f2a4f9f350c78cc&quot;,
-        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:1c:94:38&quot;
-    },
-    &quot;devices&quot;: {
-        &quot;rootfs&quot;: {
-            &quot;path&quot;: &quot;/&quot;,
-            &quot;type&quot;: &quot;disk&quot;
-        }
-    },
-    &quot;ephemeral&quot;: true,
-    &quot;profiles&quot;: [
-        &quot;default&quot;
-    ]
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;architecture&quot;</span><span class="o">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;limits.cpu&quot;</span><span class="o">:</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;volatile.base_image&quot;</span><span class="o">:</span> <span class="s2">&quot;97d97a3d1d053840ca19c86cdd0596cf1be060c5157d31407f2a4f9f350c78cc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;volatile.eth0.hwaddr&quot;</span><span class="o">:</span> <span class="s2">&quot;00:16:3e:1c:94:38&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;devices&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rootfs&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;path&quot;</span><span class="o">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;disk&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;ephemeral&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;profiles&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="s2">&quot;default&quot;</span>
+    <span class="p">]</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1143,26 +1143,26 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.replace(&#39;local&#39;, &#39;my-container&#39;, {
-    &quot;config&quot;: {
-        &quot;limits.cpu&quot;: &quot;4&quot;
-    },
-    &quot;devices&quot;: {
-        &quot;rootfs&quot;: {
-            &quot;size&quot;: &quot;5GB&quot;
-        }
-    },
-    &quot;ephemeral&quot;: true
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;limits.cpu&quot;</span><span class="o">:</span> <span class="s2">&quot;4&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;devices&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rootfs&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;size&quot;</span><span class="o">:</span> <span class="s2">&quot;5GB&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;ephemeral&quot;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1205,16 +1205,16 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.rename(&#39;local&#39;, &#39;old-name&#39;, &#39;new-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;old-name&#39;</span><span class="p">,</span> <span class="s1">&#39;new-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1246,77 +1246,77 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 </tbody>
 </table>
 <p>Full container options can be found here: <a href="https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1">https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1</a></p>
-<div class="codehilite"><pre><span></span>// example from local
-lxc.containers.create(&#39;local&#39;, {
-    &quot;name&quot;: &quot;my-new-container&quot;,
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;profiles&quot;: [&quot;default&quot;],
-    &quot;ephemeral&quot;: true,
-    &quot;config&quot;: { &quot;limits.cpu&quot;: &quot;2&quot; },
-    &quot;devices&quot;: {},
-    &quot;source&quot;: {
-        &quot;type&quot;: &quot;image&quot;,
-        &quot;fingerprint&quot;: &quot;be7cec7c9489&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="c1">// example from local</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;my-new-container&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;architecture&quot;</span><span class="o">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;profiles&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;ephemeral&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;limits.cpu&quot;</span><span class="o">:</span> <span class="s2">&quot;2&quot;</span> <span class="p">},</span>
+    <span class="s2">&quot;devices&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;source&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;fingerprint&quot;</span><span class="o">:</span> <span class="s2">&quot;be7cec7c9489&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 
-// example from https://images.linuxcontainers.org
-lxc.containers.create(&#39;local&#39;, {
-  &#39;name&#39;: &#39;my-new-container&#39;,
-  &#39;architecture&#39;: &#39;x86_64&#39;,
-  &#39;profiles&#39;: [&#39;default&#39;],
-  &#39;ephemeral&#39;: true,
-  &#39;config&#39;: { &#39;limits.cpu&#39;: &#39;2&#39; },
-  &#39;devices&#39;: {},
-  &#39;source&#39;: {
-    &#39;type&#39;: &#39;image&#39;,
-    &#39;mode&#39;: &#39;pull&#39;,
-    &#39;server&#39;: &#39;https://images.linuxcontainers.org:8443&#39;,
-    &#39;protocol&#39;: &#39;simplestreams&#39;,
-    &#39;alias&#39;: &#39;ubuntu/16.04&#39;
+<span class="c1">// example from https://images.linuxcontainers.org</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;my-new-container&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;architecture&#39;</span><span class="o">:</span> <span class="s1">&#39;x86_64&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;profiles&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;default&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;ephemeral&#39;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s1">&#39;config&#39;</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;limits.cpu&#39;</span><span class="o">:</span> <span class="s1">&#39;2&#39;</span> <span class="p">},</span>
+  <span class="s1">&#39;devices&#39;</span><span class="o">:</span> <span class="p">{},</span>
+  <span class="s1">&#39;source&#39;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s1">&#39;type&#39;</span><span class="o">:</span> <span class="s1">&#39;image&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;mode&#39;</span><span class="o">:</span> <span class="s1">&#39;pull&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;server&#39;</span><span class="o">:</span> <span class="s1">&#39;https://images.linuxcontainers.org:8443&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;protocol&#39;</span><span class="o">:</span> <span class="s1">&#39;simplestreams&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;alias&#39;</span><span class="o">:</span> <span class="s1">&#39;ubuntu/16.04&#39;</span>
 
-  }
-}).then(response =&gt; {
-  console.log(response)
-})
+  <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;class&quot;: &quot;task&quot;,
-    &quot;created_at&quot;: &quot;2018-04-08T22:49:33.892947111Z&quot;,
-    &quot;description&quot;: &quot;Creating container&quot;,
-    &quot;err&quot;: &quot;&quot;,
-    &quot;id&quot;: &quot;cfd9cd81-a651-4b9b-bd89-4667cc51ad4b&quot;,
-    &quot;may_cancel&quot;: false,
-    &quot;metadata&quot;: null,
-    &quot;resources&quot;: {
-        &quot;containers&quot;: [
-            &quot;/1.0/containers/my-new-container&quot;
-        ]
-    },
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103,
-    &quot;updated_at&quot;: &quot;2018-04-08T22:49:33.892947111Z&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T22:49:33.892947111Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Creating container&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;err&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;cfd9cd81-a651-4b9b-bd89-4667cc51ad4b&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;may_cancel&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;/1.0/containers/my-new-container&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T22:49:33.892947111Z&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <p>*you could also simply call <code class="codehilite"><span class="nx">lxc.local</span><span class="p">()</span></code> to run what you would normally run on cmd line:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// same as above</span>
-<span class="nx">lxc.local</span><span class="p">(</span><span class="s1">&#39;lxc launch ubuntu:16.04 my-new-container&#39;</span><span class="p">)</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">local</span><span class="p">(</span><span class="s1">&#39;lxc launch ubuntu:16.04 my-new-container&#39;</span><span class="p">)</span>
 
 <span class="c1">// launch on a remote</span>
-<span class="nx">lxc.local</span><span class="p">(</span><span class="s1">&#39;lxc launch ubuntu:16.04 production:my-container&#39;</span><span class="p">)</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">local</span><span class="p">(</span><span class="s1">&#39;lxc launch ubuntu:16.04 production:my-container&#39;</span><span class="p">)</span>
 
 <span class="c1">// launch local image on a remote</span>
-<span class="nx">lxc.local</span><span class="p">(</span><span class="s1">&#39;lxc launch local:&lt;fingerprint&gt; production:my-container&#39;</span><span class="p">)</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">local</span><span class="p">(</span><span class="s1">&#39;lxc launch local:&lt;fingerprint&gt; production:my-container&#39;</span><span class="p">)</span>
 
 <span class="c1">// launch remote image on a remote</span>
-<span class="nx">lxc.local</span><span class="p">(</span><span class="s1">&#39;lxc launch staging:&lt;fingerprint&gt; production:my-container&#39;</span><span class="p">)</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">local</span><span class="p">(</span><span class="s1">&#39;lxc launch staging:&lt;fingerprint&gt; production:my-container&#39;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1347,30 +1347,30 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.start(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">start</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;Starting container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;Starting</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1401,30 +1401,30 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.stop(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">stop</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;Stopping container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;Stopping</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1455,30 +1455,30 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.restart(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">restart</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;Restarting container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;Restarting</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1509,30 +1509,30 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.freeze(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">freeze</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;Freezing container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;Freezing</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1563,30 +1563,30 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.unfreeze(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">unfreeze</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-08T16:37:36.511708398Z&#39;,
-    description: &#39;Thawing container&#39;,
-    err: &#39;&#39;,
-    id: &#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [
-            &#39;/1.0/containers/my-container&#39;
-        ]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-08T16:37:36.511708398Z&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-08T16:37:36.511708398Z&#39;,</span>
+    <span class="err">description:</span> <span class="err">&#39;Thawing</span> <span class="err">container&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;4850b25b-3a9a-4666-acf6-9f2b4c25a236&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[</span>
+            <span class="err">&#39;/1.0/containers/my-container&#39;</span>
+        <span class="err">]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-08</span><span class="err">T</span><span class="mi">16</span><span class="err">:</span><span class="mi">37</span><span class="err">:</span><span class="mf">36.511708398</span><span class="err">Z&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -1623,16 +1623,16 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.delete(&#39;local&#39;, &#39;container-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;container-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -1675,38 +1675,38 @@ lxc.containers.create(&#39;local&#39;, {
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.exec(&#39;local&#39;, &#39;my-container&#39;, {
-    &quot;command&quot;: [&quot;/bin/bash&quot;],
-    &quot;environment&quot;: {},
-    &quot;wait-for-websocket&quot;: false,
-    &quot;record-output&quot;: false,
-    &quot;interactive&quot;: false,
-    &quot;width&quot;: 80,
-    &quot;height&quot;: 25
-}).then(response =&gt; {
-    console.log(response);
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;command&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;environment&quot;</span><span class="o">:</span> <span class="p">{},</span>
+    <span class="s2">&quot;wait-for-websocket&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;record-output&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;interactive&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">80</span><span class="p">,</span>
+    <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">25</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;class&quot;: &quot;task&quot;,
-    &quot;created_at&quot;: &quot;2018-04-16T01:58:34.642661556Z&quot;,
-    &quot;description&quot;: &quot;Executing command&quot;,
-    &quot;err&quot;: &quot;&quot;,
-    &quot;id&quot;: &quot;bff27d5c-f54c-4fb4-8956-60bcea56d074&quot;,
-    &quot;may_cancel&quot;: false,
-    &quot;metadata&quot;: null,
-    &quot;resources&quot;: {
-        &quot;containers&quot;: [
-            &quot;/1.0/containers/my-container&quot;
-        ]
-    },
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103,
-    &quot;updated_at&quot;: &quot;2018-04-16T01:58:34.642661556Z&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-16T01:58:34.642661556Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Executing command&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;err&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;bff27d5c-f54c-4fb4-8956-60bcea56d074&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;may_cancel&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;/1.0/containers/my-container&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-16T01:58:34.642661556Z&quot;</span>
+<span class="p">}</span>
 </pre></div>
                 
                   
@@ -1726,7 +1726,7 @@ lxc.containers.create(&#39;local&#39;, {
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -1796,7 +1796,7 @@ lxc.containers.create(&#39;local&#39;, {
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

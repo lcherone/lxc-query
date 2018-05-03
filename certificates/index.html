@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -580,16 +580,16 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.list(&#39;local&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    &quot;/1.0/certificates/33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&quot;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;/1.0/certificates/33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&quot;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -626,21 +626,21 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.add(&#39;local&#39;, {
-    &quot;type&quot;: &quot;client&quot;,
-    &quot;certificate&quot;: &quot;PEM certificate&quot;,
-    &quot;name&quot;: &quot;foo&quot;,
-    &quot;password&quot;: &quot;server-trust-password&quot;
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;client&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;certificate&quot;</span><span class="o">:</span> <span class="s2">&quot;PEM certificate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;password&quot;</span><span class="o">:</span> <span class="s2">&quot;server-trust-password&quot;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -677,19 +677,19 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.info(&#39;local&#39;, &#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;certificate&quot;: &quot;-----BEGIN CERTIFICATE-----\n snip \n-----END CERTIFICATE-----\n&quot;,
-    &quot;fingerprint&quot;: &quot;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&quot;,
-    &quot;name&quot;: &quot;&quot;,
-    &quot;type&quot;: &quot;client&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;-----BEGIN CERTIFICATE-----\n snip \n-----END CERTIFICATE-----\n&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fingerprint&quot;</span><span class="p">:</span> <span class="s2">&quot;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;client&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -732,19 +732,19 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.replace(&#39;local&#39;, &#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;, {
-    &quot;type&quot;: &quot;client&quot;,
-    &quot;name&quot;: &quot;bar&quot;
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;client&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;bar&quot;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -787,18 +787,18 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.replace(&#39;local&#39;, &#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;, {
-    &quot;name&quot;: &quot;baz&quot;
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;baz&quot;</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -835,16 +835,16 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.certificates.delete(&#39;local&#39;, &#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">certificates</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
                 
                   
@@ -864,7 +864,7 @@
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -934,7 +934,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

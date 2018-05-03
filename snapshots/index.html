@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -586,22 +586,22 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 
-// or apply stripEndpoint on response
-lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response =&gt; lxc.containers.snapshots.stripEndpoint(response)).then(response =&gt; {
-    // [ &#39;my-snapshot&#39; ]
-    console.log(response)
-})
+<span class="c1">// or apply stripEndpoint on response</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="nx">response</span> <span class="p">=&gt;</span> <span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">stripEndpoint</span><span class="p">(</span><span class="nx">response</span><span class="p">)).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// [ &#39;my-snapshot&#39; ]</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    &quot;/1.0/containers/my-container/snapshots/my-snapshot&quot;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="s2">&quot;/1.0/containers/my-container/snapshots/my-snapshot&quot;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -644,82 +644,82 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.info(&#39;local&#39;, &#39;my-container&#39;, &#39;my-container (April 10, 2018 6:53 PM)&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container (April 10, 2018 6:53 PM)&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;config&quot;: {
-        &quot;image.architecture&quot;: &quot;amd64&quot;,
-        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;,
-        &quot;image.label&quot;: &quot;release&quot;,
-        &quot;image.os&quot;: &quot;ubuntu&quot;,
-        &quot;image.release&quot;: &quot;xenial&quot;,
-        &quot;image.serial&quot;: &quot;20180306&quot;,
-        &quot;image.version&quot;: &quot;16.04&quot;,
-        &quot;volatile.base_image&quot;: &quot;c5bbef7f4e1c19f0104fd4ub862b2e54x095d894765c75c6d72775f1d98135ec&quot;,
-        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:24:39:ee&quot;,
-        &quot;volatile.eth0.name&quot;: &quot;eth0&quot;,
-        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
-        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.power&quot;: &quot;STOPPED&quot;
-    },
-    &quot;created_at&quot;: &quot;2018-04-10T17:53:44Z&quot;,
-    &quot;devices&quot;: {},
-    &quot;ephemeral&quot;: false,
-    &quot;expanded_config&quot;: {
-        &quot;boot.autostart&quot;: &quot;0&quot;,
-        &quot;image.architecture&quot;: &quot;amd64&quot;,
-        &quot;image.description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;,
-        &quot;image.label&quot;: &quot;release&quot;,
-        &quot;image.os&quot;: &quot;ubuntu&quot;,
-        &quot;image.release&quot;: &quot;xenial&quot;,
-        &quot;image.serial&quot;: &quot;20180306&quot;,
-        &quot;image.version&quot;: &quot;16.04&quot;,
-        &quot;limits.cpu&quot;: &quot;1&quot;,
-        &quot;limits.cpu.allowance&quot;: &quot;90%&quot;,
-        &quot;limits.cpu.priority&quot;: &quot;9&quot;,
-        &quot;limits.disk.priority&quot;: &quot;9&quot;,
-        &quot;limits.memory&quot;: &quot;1056MB&quot;,
-        &quot;limits.memory.enforce&quot;: &quot;hard&quot;,
-        &quot;limits.memory.swap&quot;: &quot;1&quot;,
-        &quot;limits.memory.swap.priority&quot;: &quot;5&quot;,
-        &quot;limits.network.priority&quot;: &quot;9&quot;,
-        &quot;limits.processes&quot;: &quot;14100&quot;,
-        &quot;security.nesting&quot;: &quot;0&quot;,
-        &quot;security.privileged&quot;: &quot;0&quot;,
-        &quot;volatile.base_image&quot;: &quot;c5bbef7f4e1c19f0104fd49b862b2e549095d894765c75c6d72775f1d98185ec&quot;,
-        &quot;volatile.eth0.hwaddr&quot;: &quot;00:16:3e:24:39:ee&quot;,
-        &quot;volatile.eth0.name&quot;: &quot;eth0&quot;,
-        &quot;volatile.idmap.base&quot;: &quot;0&quot;,
-        &quot;volatile.idmap.next&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.idmap&quot;: &quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;,
-        &quot;volatile.last_state.power&quot;: &quot;STOPPED&quot;
-    },
-    &quot;expanded_devices&quot;: {
-        &quot;eth0&quot;: {
-            &quot;nictype&quot;: &quot;bridged&quot;,
-            &quot;parent&quot;: &quot;lxdbr0&quot;,
-            &quot;type&quot;: &quot;nic&quot;
-        },
-        &quot;root&quot;: {
-            &quot;path&quot;: &quot;/&quot;,
-            &quot;pool&quot;: &quot;default&quot;,
-            &quot;type&quot;: &quot;disk&quot;
-        }
-    },
-    &quot;last_used_at&quot;: &quot;1970-01-01T00:00:00Z&quot;,
-    &quot;name&quot;: &quot;my-container/my-container (April 10, 2018 6:53 PM)&quot;,
-    &quot;profiles&quot;: [
-        &quot;default&quot;
-    ],
-    &quot;stateful&quot;: false
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;image.architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.description&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.label&quot;</span><span class="p">:</span> <span class="s2">&quot;release&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.os&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.release&quot;</span><span class="p">:</span> <span class="s2">&quot;xenial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180306&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.version&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.base_image&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbef7f4e1c19f0104fd4ub862b2e54x095d894765c75c6d72775f1d98135ec&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;00:16:3e:24:39:ee&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.name&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.base&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.next&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.idmap&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.power&quot;</span><span class="p">:</span> <span class="s2">&quot;STOPPED&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-10T17:53:44Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;devices&quot;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="nt">&quot;ephemeral&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;expanded_config&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;boot.autostart&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.description&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu 16.04 LTS amd64 (release) (20180306)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.label&quot;</span><span class="p">:</span> <span class="s2">&quot;release&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.os&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.release&quot;</span><span class="p">:</span> <span class="s2">&quot;xenial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180306&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;image.version&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.cpu&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.cpu.allowance&quot;</span><span class="p">:</span> <span class="s2">&quot;90%&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.cpu.priority&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.disk.priority&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.memory&quot;</span><span class="p">:</span> <span class="s2">&quot;1056MB&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.memory.enforce&quot;</span><span class="p">:</span> <span class="s2">&quot;hard&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.memory.swap&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.memory.swap.priority&quot;</span><span class="p">:</span> <span class="s2">&quot;5&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.network.priority&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limits.processes&quot;</span><span class="p">:</span> <span class="s2">&quot;14100&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;security.nesting&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;security.privileged&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.base_image&quot;</span><span class="p">:</span> <span class="s2">&quot;c5bbef7f4e1c19f0104fd49b862b2e549095d894765c75c6d72775f1d98185ec&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.hwaddr&quot;</span><span class="p">:</span> <span class="s2">&quot;00:16:3e:24:39:ee&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.eth0.name&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.base&quot;</span><span class="p">:</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.idmap.next&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.idmap&quot;</span><span class="p">:</span> <span class="s2">&quot;[{\&quot;Isuid\&quot;:true,\&quot;Isgid\&quot;:false,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536},{\&quot;Isuid\&quot;:false,\&quot;Isgid\&quot;:true,\&quot;Hostid\&quot;:165536,\&quot;Nsid\&quot;:0,\&quot;Maprange\&quot;:65536}]&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;volatile.last_state.power&quot;</span><span class="p">:</span> <span class="s2">&quot;STOPPED&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;expanded_devices&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;eth0&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;nictype&quot;</span><span class="p">:</span> <span class="s2">&quot;bridged&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;parent&quot;</span><span class="p">:</span> <span class="s2">&quot;lxdbr0&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;nic&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;pool&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;disk&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;last_used_at&quot;</span><span class="p">:</span> <span class="s2">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-container/my-container (April 10, 2018 6:53 PM)&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;profiles&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;default&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;stateful&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -762,33 +762,33 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.create(&#39;local&#39;, &#39;my-container&#39;, {
-    &quot;name&quot;: &quot;my-snapshot&quot;,
-    &quot;stateful&quot;: true
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;my-snapshot&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;stateful&quot;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;class&quot;: &quot;task&quot;,
-    &quot;created_at&quot;: &quot;2018-04-09T17:57:48.19705024Z&quot;,
-    &quot;description&quot;: &quot;Snapshotting container&quot;,
-    &quot;err&quot;: &quot;&quot;,
-    &quot;id&quot;: &quot;5db401c7-8d31-4110-aa15-0c6398a36cdb&quot;,
-    &quot;may_cancel&quot;: false,
-    &quot;metadata&quot;: null,
-    &quot;resources&quot;: {
-        &quot;containers&quot;: [
-            &quot;/1.0/containers/my-container&quot;
-        ]
-    },
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103,
-    &quot;updated_at&quot;: &quot;2018-04-09T17:57:48.19705024Z&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-09T17:57:48.19705024Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Snapshotting container&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;err&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;5db401c7-8d31-4110-aa15-0c6398a36cdb&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;may_cancel&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;/1.0/containers/my-container&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-09T17:57:48.19705024Z&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -837,29 +837,29 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.rename(&#39;local&#39;, &#39;my-container&#39;, &#39;my-snapshot-name&#39;, &#39;new-snapshot-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="s1">&#39;my-snapshot-name&#39;</span><span class="p">,</span> <span class="s1">&#39;new-snapshot-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;class&quot;: &quot;task&quot;,
-    &quot;created_at&quot;: &quot;2018-04-10T19:17:15.517952676+01:00&quot;,
-    &quot;err&quot;: &quot;&quot;,
-    &quot;id&quot;: &quot;1863b8ce-b3d5-4a35-87bc-959eafbb106d&quot;,
-    &quot;may_cancel&quot;: false,
-    &quot;metadata&quot;: null,
-    &quot;resources&quot;: {
-        &quot;containers&quot;: [
-            &quot;/1.0/containers/my-container&quot;
-        ]
-    },
-    &quot;status&quot;: &quot;Running&quot;,
-    &quot;status_code&quot;: 103,
-    &quot;updated_at&quot;: &quot;2018-04-10T19:17:15.517952676+01:00&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;task&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-10T19:17:15.517952676+01:00&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;err&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1863b8ce-b3d5-4a35-87bc-959eafbb106d&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;may_cancel&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;resources&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;/1.0/containers/my-container&quot;</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Running&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status_code&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+    <span class="nt">&quot;updated_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-10T19:17:15.517952676+01:00&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -902,27 +902,27 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.delete(&#39;local&#39;, &#39;my-container&#39;, &#39;my-snapshot-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="s1">&#39;my-snapshot-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    class: &#39;task&#39;,
-    created_at: &#39;2018-04-10T20:23:56.80835635+01:00&#39;,
-    err: &#39;&#39;,
-    id: &#39;d1a9df55-5748-40ff-a0e3-09e0096f278b&#39;,
-    may_cancel: false,
-    metadata: null,
-    resources: {
-        containers: [&#39;/1.0/containers/my-container/my-snapshot&#39;]
-    },
-    status: &#39;Running&#39;,
-    status_code: 103,
-    updated_at: &#39;2018-04-10T20:23:56.80835635+01:00&#39;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">class:</span> <span class="err">&#39;task&#39;,</span>
+    <span class="err">created_at:</span> <span class="err">&#39;2018-04-10T20:23:56.80835635+01:00&#39;,</span>
+    <span class="err">err:</span> <span class="err">&#39;&#39;,</span>
+    <span class="err">id:</span> <span class="err">&#39;d1a9df55-5748-40ff-a0e3-09e0096f278b&#39;,</span>
+    <span class="err">may_cancel:</span> <span class="err">false,</span>
+    <span class="err">metadata:</span> <span class="err">null,</span>
+    <span class="err">resources:</span> <span class="err">{</span>
+        <span class="err">containers:</span> <span class="err">[&#39;/1.0/containers/my-container/my-snapshot&#39;]</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">status:</span> <span class="err">&#39;Running&#39;,</span>
+    <span class="err">status_code:</span> <span class="mi">103</span><span class="err">,</span>
+    <span class="err">updated_at:</span> <span class="err">&#39;</span><span class="mi">2018-04-10</span><span class="err">T</span><span class="mi">20</span><span class="err">:</span><span class="mi">23</span><span class="err">:</span><span class="mf">56.80835635</span><span class="err">+</span><span class="mi">01</span><span class="err">:</span><span class="mi">00</span><span class="err">&#39;</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -965,16 +965,16 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.containers.snapshots.restore(&#39;local&#39;, &#39;my-container&#39;, &#39;my-snapshot-name&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">containers</span><span class="p">.</span><span class="nx">snapshots</span><span class="p">.</span><span class="nx">restore</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;my-container&#39;</span><span class="p">,</span> <span class="s1">&#39;my-snapshot-name&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
                 
                   
@@ -994,7 +994,7 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -1064,7 +1064,7 @@ lxc.containers.snapshots.list(&#39;local&#39;, &#39;my-container&#39;, response 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

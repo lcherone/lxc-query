@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -574,127 +574,127 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.info(&#39;local&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    api_extensions: [
-        &#39;storage_zfs_remove_snapshots&#39;,
-        &#39;container_host_shutdown_timeout&#39;,
-        &#39;container_stop_priority&#39;,
-        &#39;container_syscall_filtering&#39;,
-        &#39;auth_pki&#39;,
-        &#39;container_last_used_at&#39;,
-        &#39;etag&#39;,
-        &#39;patch&#39;,
-        &#39;usb_devices&#39;,
-        &#39;https_allowed_credentials&#39;,
-        &#39;image_compression_algorithm&#39;,
-        &#39;directory_manipulation&#39;,
-        &#39;container_cpu_time&#39;,
-        &#39;storage_zfs_use_refquota&#39;,
-        &#39;storage_lvm_mount_options&#39;,
-        &#39;network&#39;,
-        &#39;profile_usedby&#39;,
-        &#39;container_push&#39;,
-        &#39;container_exec_recording&#39;,
-        &#39;certificate_update&#39;,
-        &#39;container_exec_signal_handling&#39;,
-        &#39;gpu_devices&#39;,
-        &#39;container_image_properties&#39;,
-        &#39;migration_progress&#39;,
-        &#39;id_map&#39;,
-        &#39;network_firewall_filtering&#39;,
-        &#39;network_routes&#39;,
-        &#39;storage&#39;,
-        &#39;file_delete&#39;,
-        &#39;file_append&#39;,
-        &#39;network_dhcp_expiry&#39;,
-        &#39;storage_lvm_vg_rename&#39;,
-        &#39;storage_lvm_thinpool_rename&#39;,
-        &#39;network_vlan&#39;,
-        &#39;image_create_aliases&#39;,
-        &#39;container_stateless_copy&#39;,
-        &#39;container_only_migration&#39;,
-        &#39;storage_zfs_clone_copy&#39;,
-        &#39;unix_device_rename&#39;,
-        &#39;storage_lvm_use_thinpool&#39;,
-        &#39;storage_rsync_bwlimit&#39;,
-        &#39;network_vxlan_interface&#39;,
-        &#39;storage_btrfs_mount_options&#39;,
-        &#39;entity_description&#39;,
-        &#39;image_force_refresh&#39;,
-        &#39;storage_lvm_lv_resizing&#39;,
-        &#39;id_map_base&#39;,
-        &#39;file_symlinks&#39;,
-        &#39;container_push_target&#39;,
-        &#39;network_vlan_physical&#39;,
-        &#39;storage_images_delete&#39;,
-        &#39;container_edit_metadata&#39;,
-        &#39;container_snapshot_stateful_migration&#39;,
-        &#39;storage_driver_ceph&#39;,
-        &#39;storage_ceph_user_name&#39;,
-        &#39;resource_limits&#39;,
-        &#39;storage_volatile_initial_source&#39;,
-        &#39;storage_ceph_force_osd_reuse&#39;,
-        &#39;storage_block_filesystem_btrfs&#39;,
-        &#39;resources&#39;,
-        &#39;kernel_limits&#39;,
-        &#39;storage_api_volume_rename&#39;,
-        &#39;macaroon_authentication&#39;,
-        &#39;network_sriov&#39;,
-        &#39;console&#39;,
-        &#39;restrict_devlxd&#39;,
-        &#39;migration_pre_copy&#39;,
-        &#39;infiniband&#39;,
-        &#39;maas_network&#39;,
-        &#39;devlxd_events&#39;,
-        &#39;proxy&#39;,
-        &#39;network_dhcp_gateway&#39;,
-        &#39;file_get_symlink&#39;,
-        &#39;network_leases&#39;,
-        &#39;unix_device_hotplug&#39;,
-        &#39;storage_api_local_volume_handling&#39;,
-        &#39;operation_description&#39;,
-        &#39;clustering&#39;,
-        &#39;event_lifecycle&#39;,
-        &#39;storage_api_remote_volume_handling&#39;,
-        &#39;nvidia_runtime&#39;
-    ],
-    api_status: &#39;stable&#39;,
-    api_version: &#39;1.0&#39;,
-    auth: &#39;trusted&#39;,
-    auth_methods: [
-        &#39;tls&#39;
-    ],
-    config: {},
-    environment: {
-        addresses: [],
-        architectures: [
-            &#39;x86_64&#39;,
-            &#39;i686&#39;
-        ],
-        certificate: &#39;-----BEGIN CERTIFICATE-----Snip-----END CERTIFICATE-----\n&#39;,
-        certificate_fingerprint: &#39;dc32c2ec49a7a234762fc4be670e7e72f8d156a1w0cf1a1d216e9abcc594f61d&#39;,
-        driver: &#39;lxc&#39;,
-        driver_version: &#39;3.0.0&#39;,
-        kernel: &#39;Linux&#39;,
-        kernel_architecture: &#39;x86_64&#39;,
-        kernel_version: &#39;4.13.0-38-generic&#39;,
-        server: &#39;lxd&#39;,
-        server_clustered: false,
-        server_name: &#39;my-lxd-server&#39;,
-        server_pid: 906,
-        server_version: &#39;3.0.0&#39;,
-        storage: &#39;zfs&#39;,
-        storage_version: &#39;1&#39;
-    },
-    public: false
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="err">api_extensions:</span> <span class="err">[</span>
+        <span class="err">&#39;storage_zfs_remove_snapshots&#39;,</span>
+        <span class="err">&#39;container_host_shutdown_timeout&#39;,</span>
+        <span class="err">&#39;container_stop_priority&#39;,</span>
+        <span class="err">&#39;container_syscall_filtering&#39;,</span>
+        <span class="err">&#39;auth_pki&#39;,</span>
+        <span class="err">&#39;container_last_used_at&#39;,</span>
+        <span class="err">&#39;etag&#39;,</span>
+        <span class="err">&#39;patch&#39;,</span>
+        <span class="err">&#39;usb_devices&#39;,</span>
+        <span class="err">&#39;https_allowed_credentials&#39;,</span>
+        <span class="err">&#39;image_compression_algorithm&#39;,</span>
+        <span class="err">&#39;directory_manipulation&#39;,</span>
+        <span class="err">&#39;container_cpu_time&#39;,</span>
+        <span class="err">&#39;storage_zfs_use_refquota&#39;,</span>
+        <span class="err">&#39;storage_lvm_mount_options&#39;,</span>
+        <span class="err">&#39;network&#39;,</span>
+        <span class="err">&#39;profile_usedby&#39;,</span>
+        <span class="err">&#39;container_push&#39;,</span>
+        <span class="err">&#39;container_exec_recording&#39;,</span>
+        <span class="err">&#39;certificate_update&#39;,</span>
+        <span class="err">&#39;container_exec_signal_handling&#39;,</span>
+        <span class="err">&#39;gpu_devices&#39;,</span>
+        <span class="err">&#39;container_image_properties&#39;,</span>
+        <span class="err">&#39;migration_progress&#39;,</span>
+        <span class="err">&#39;id_map&#39;,</span>
+        <span class="err">&#39;network_firewall_filtering&#39;,</span>
+        <span class="err">&#39;network_routes&#39;,</span>
+        <span class="err">&#39;storage&#39;,</span>
+        <span class="err">&#39;file_delete&#39;,</span>
+        <span class="err">&#39;file_append&#39;,</span>
+        <span class="err">&#39;network_dhcp_expiry&#39;,</span>
+        <span class="err">&#39;storage_lvm_vg_rename&#39;,</span>
+        <span class="err">&#39;storage_lvm_thinpool_rename&#39;,</span>
+        <span class="err">&#39;network_vlan&#39;,</span>
+        <span class="err">&#39;image_create_aliases&#39;,</span>
+        <span class="err">&#39;container_stateless_copy&#39;,</span>
+        <span class="err">&#39;container_only_migration&#39;,</span>
+        <span class="err">&#39;storage_zfs_clone_copy&#39;,</span>
+        <span class="err">&#39;unix_device_rename&#39;,</span>
+        <span class="err">&#39;storage_lvm_use_thinpool&#39;,</span>
+        <span class="err">&#39;storage_rsync_bwlimit&#39;,</span>
+        <span class="err">&#39;network_vxlan_interface&#39;,</span>
+        <span class="err">&#39;storage_btrfs_mount_options&#39;,</span>
+        <span class="err">&#39;entity_description&#39;,</span>
+        <span class="err">&#39;image_force_refresh&#39;,</span>
+        <span class="err">&#39;storage_lvm_lv_resizing&#39;,</span>
+        <span class="err">&#39;id_map_base&#39;,</span>
+        <span class="err">&#39;file_symlinks&#39;,</span>
+        <span class="err">&#39;container_push_target&#39;,</span>
+        <span class="err">&#39;network_vlan_physical&#39;,</span>
+        <span class="err">&#39;storage_images_delete&#39;,</span>
+        <span class="err">&#39;container_edit_metadata&#39;,</span>
+        <span class="err">&#39;container_snapshot_stateful_migration&#39;,</span>
+        <span class="err">&#39;storage_driver_ceph&#39;,</span>
+        <span class="err">&#39;storage_ceph_user_name&#39;,</span>
+        <span class="err">&#39;resource_limits&#39;,</span>
+        <span class="err">&#39;storage_volatile_initial_source&#39;,</span>
+        <span class="err">&#39;storage_ceph_force_osd_reuse&#39;,</span>
+        <span class="err">&#39;storage_block_filesystem_btrfs&#39;,</span>
+        <span class="err">&#39;resources&#39;,</span>
+        <span class="err">&#39;kernel_limits&#39;,</span>
+        <span class="err">&#39;storage_api_volume_rename&#39;,</span>
+        <span class="err">&#39;macaroon_authentication&#39;,</span>
+        <span class="err">&#39;network_sriov&#39;,</span>
+        <span class="err">&#39;console&#39;,</span>
+        <span class="err">&#39;restrict_devlxd&#39;,</span>
+        <span class="err">&#39;migration_pre_copy&#39;,</span>
+        <span class="err">&#39;infiniband&#39;,</span>
+        <span class="err">&#39;maas_network&#39;,</span>
+        <span class="err">&#39;devlxd_events&#39;,</span>
+        <span class="err">&#39;proxy&#39;,</span>
+        <span class="err">&#39;network_dhcp_gateway&#39;,</span>
+        <span class="err">&#39;file_get_symlink&#39;,</span>
+        <span class="err">&#39;network_leases&#39;,</span>
+        <span class="err">&#39;unix_device_hotplug&#39;,</span>
+        <span class="err">&#39;storage_api_local_volume_handling&#39;,</span>
+        <span class="err">&#39;operation_description&#39;,</span>
+        <span class="err">&#39;clustering&#39;,</span>
+        <span class="err">&#39;event_lifecycle&#39;,</span>
+        <span class="err">&#39;storage_api_remote_volume_handling&#39;,</span>
+        <span class="err">&#39;nvidia_runtime&#39;</span>
+    <span class="err">],</span>
+    <span class="err">api_status:</span> <span class="err">&#39;stable&#39;,</span>
+    <span class="err">api_version:</span> <span class="err">&#39;1.0&#39;,</span>
+    <span class="err">auth:</span> <span class="err">&#39;trusted&#39;,</span>
+    <span class="err">auth_methods:</span> <span class="err">[</span>
+        <span class="err">&#39;tls&#39;</span>
+    <span class="err">],</span>
+    <span class="err">config:</span> <span class="err">{</span><span class="p">}</span><span class="err">,</span>
+    <span class="err">environment:</span> <span class="p">{</span>
+        <span class="err">addresses:</span> <span class="err">[],</span>
+        <span class="err">architectures:</span> <span class="err">[</span>
+            <span class="err">&#39;x86_64&#39;,</span>
+            <span class="err">&#39;i686&#39;</span>
+        <span class="err">],</span>
+        <span class="err">certificate:</span> <span class="err">&#39;-----BEGIN</span> <span class="err">CERTIFICATE-----Snip-----END</span> <span class="err">CERTIFICATE-----\n&#39;,</span>
+        <span class="err">certificate_fingerprint:</span> <span class="err">&#39;dc32c2ec49a7a234762fc4be670e7e72f8d156a1w0cf1a1d216e9abcc594f61d&#39;,</span>
+        <span class="err">driver:</span> <span class="err">&#39;lxc&#39;,</span>
+        <span class="err">driver_version:</span> <span class="err">&#39;3.0.0&#39;,</span>
+        <span class="err">kernel:</span> <span class="err">&#39;Linux&#39;,</span>
+        <span class="err">kernel_architecture:</span> <span class="err">&#39;x86_64&#39;,</span>
+        <span class="err">kernel_version:</span> <span class="err">&#39;4.13.0-38-generic&#39;,</span>
+        <span class="err">server:</span> <span class="err">&#39;lxd&#39;,</span>
+        <span class="err">server_clustered:</span> <span class="err">false,</span>
+        <span class="err">server_name:</span> <span class="err">&#39;my-lxd-server&#39;,</span>
+        <span class="err">server_pid:</span> <span class="err">906,</span>
+        <span class="err">server_version:</span> <span class="err">&#39;3.0.0&#39;,</span>
+        <span class="err">storage:</span> <span class="err">&#39;zfs&#39;,</span>
+        <span class="err">storage_version:</span> <span class="err">&#39;1&#39;</span>
+    <span class="p">}</span><span class="err">,</span>
+    <span class="err">public:</span> <span class="kc">false</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -726,21 +726,21 @@
 </tbody>
 </table>
 <p><em>Replaces any existing config with the provided one.</em></p>
-<div class="codehilite"><pre><span></span>lxc.replace(&#39;local&#39;, {
-    &quot;config&quot;: {
-        &quot;core.trust_password&quot;: &quot;my-new-password&quot;,
-        &quot;core.https_address&quot;: &quot;[::]:8443&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;core.trust_password&quot;</span><span class="o">:</span> <span class="s2">&quot;my-new-password&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;core.https_address&quot;</span><span class="o">:</span> <span class="s2">&quot;[::]:8443&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -772,21 +772,21 @@
 </tbody>
 </table>
 <p><em>Updates only the listed keys, rest remain intact.</em></p>
-<div class="codehilite"><pre><span></span>lxc.update(&#39;local&#39;, {
-    &quot;config&quot;: {
-        &quot;core.trust_password&quot;: &quot;my-new-password&quot;,
-        &quot;core.https_address&quot;: &quot;[::]:8443&quot;
-    }
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;config&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;core.trust_password&quot;</span><span class="o">:</span> <span class="s2">&quot;my-new-password&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;core.https_address&quot;</span><span class="o">:</span> <span class="s2">&quot;[::]:8443&quot;</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -811,41 +811,41 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.server.resources(&#39;local&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">resources</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;cpu&quot;: {
-        &quot;sockets&quot;: [
-            {
-                &quot;cores&quot;: 6,
-                &quot;frequency&quot;: 3700,
-                &quot;frequency_turbo&quot;: 4700,
-                &quot;name&quot;: &quot;Intel&quot;,
-                &quot;threads&quot;: 12,
-                &quot;vendor&quot;: &quot;Intel Core i7-8700K&quot;
-            }
-        ],
-        &quot;total&quot;: 6
-    },
-    &quot;memory&quot;: {
-        &quot;total&quot;: 126590324224,
-        &quot;used&quot;: 1426169856
-    },
-    &quot;pool&quot;: {
-        &quot;inodes&quot;: {
-            &quot;total&quot;: 0,
-            &quot;used&quot;: 0
-        },
-        &quot;space&quot;: {
-            &quot;total&quot;: 0
-        }
-    }
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cpu&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;sockets&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;cores&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+                <span class="nt">&quot;frequency&quot;</span><span class="p">:</span> <span class="mi">3700</span><span class="p">,</span>
+                <span class="nt">&quot;frequency_turbo&quot;</span><span class="p">:</span> <span class="mi">4700</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Intel&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;threads&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+                <span class="nt">&quot;vendor&quot;</span><span class="p">:</span> <span class="s2">&quot;Intel Core i7-8700K&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">6</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;memory&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">126590324224</span><span class="p">,</span>
+        <span class="nt">&quot;used&quot;</span><span class="p">:</span> <span class="mi">1426169856</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;pool&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;inodes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="nt">&quot;used&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;space&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;total&quot;</span><span class="p">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -870,19 +870,19 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.server.remotes().then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">remotes</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    &#39;images&#39;,
-    &#39;local&#39;,
-    &#39;ubuntu&#39;,
-    &#39;ubuntu-daily&#39;
-]
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="err">&#39;images&#39;</span><span class="p">,</span>
+    <span class="err">&#39;local&#39;</span><span class="p">,</span>
+    <span class="err">&#39;ubuntu&#39;</span><span class="p">,</span>
+    <span class="err">&#39;ubuntu-daily&#39;</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -907,8 +907,8 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><span class="nx">lxc.local</span><span class="p">(</span><span class="s1">&#39;lxc list&#39;</span><span class="p">)</span><span class="bp">.</span><span class="nx nx-Member">then</span><span class="p">(</span><span class="n">response</span><span class="o"> =&gt;</span> <span class="p">{</span>
-    <span class="nx">console.log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">local</span><span class="p">(</span><span class="s1">&#39;lxc list&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -938,7 +938,7 @@
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -1008,7 +1008,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 

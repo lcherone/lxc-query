@@ -57,8 +57,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -170,7 +170,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -179,7 +179,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -219,7 +219,7 @@
   
 
 
-  <a href="https://github.com/plinker-rpc" title="Go to repository" class="md-source" data-md-source="github">
+  <a href="https://github.com/lcherone/lxc-query" title="Go to repository" class="md-source" data-md-source="github">
     
       <div class="md-source__icon">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -228,7 +228,7 @@
       </div>
     
     <div class="md-source__repository">
-      plinker-rpc
+      lcherone/lxc-query
     </div>
   </a>
 
@@ -566,60 +566,60 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.images.list(&#39;images&#39;).then(response =&gt; {
-  console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 
-// filtering by architecture
-lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#39;, &#39;i686&#39;, &#39;amd64&#39;].join(&#39;|&#39;) + &#39;&quot;&#39;).then(response =&gt; {
-  console.log(response)
-})
+<span class="c1">// filtering by architecture</span>
+<span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">,</span> <span class="s1">&#39;architecture=&quot;&#39;</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;x86_64&#39;</span><span class="p">,</span> <span class="s1">&#39;i686&#39;</span><span class="p">,</span> <span class="s1">&#39;amd64&#39;</span><span class="p">].</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>[
-    {
-        &quot;auto_update&quot;: false,
-        &quot;properties&quot;: {
-            &quot;architecture&quot;: &quot;amd64&quot;,
-            &quot;description&quot;: &quot;Alpine 3.4 amd64 (20180419_17:50)&quot;,
-            &quot;os&quot;: &quot;Alpine&quot;,
-            &quot;release&quot;: &quot;3.4&quot;,
-            &quot;serial&quot;: &quot;20180419_17:50&quot;
-        },
-        &quot;public&quot;: true,
-        &quot;aliases&quot;: [
-            {
-                &quot;name&quot;: &quot;alpine/3.4/default&quot;,
-                &quot;description&quot;: &quot;&quot;
-            },
-            {
-                &quot;name&quot;: &quot;alpine/3.4/default/amd64&quot;,
-                &quot;description&quot;: &quot;&quot;
-            },
-            {
-                &quot;name&quot;: &quot;alpine/3.4&quot;,
-                &quot;description&quot;: &quot;&quot;
-            },
-            {
-                &quot;name&quot;: &quot;alpine/3.4/amd64&quot;,
-                &quot;description&quot;: &quot;&quot;
-            }
-        ],
-        &quot;architecture&quot;: &quot;x86_64&quot;,
-        &quot;cached&quot;: false,
-        &quot;filename&quot;: &quot;lxd.tar.xz&quot;,
-        &quot;fingerprint&quot;: &quot;ca571b2780652ccd1a5c7fa62da452db0d5e94557647e760c57d10ccd4369721&quot;,
-        &quot;size&quot;: 2134616,
-        &quot;created_at&quot;: &quot;2018-04-19T00:00:00Z&quot;,
-        &quot;expires_at&quot;: &quot;1970-01-01T00:00:00Z&quot;,
-        &quot;last_used_at&quot;: &quot;0001-01-01T00:00:00Z&quot;,
-        &quot;uploaded_at&quot;: &quot;2018-04-19T00:00:00Z&quot;
-    },
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;auto_update&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Alpine 3.4 amd64 (20180419_17:50)&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;Alpine&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;3.4&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180419_17:50&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;public&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nt">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;alpine/3.4/default&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;alpine/3.4/default/amd64&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;alpine/3.4&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;alpine/3.4/amd64&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cached&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;lxd.tar.xz&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;fingerprint&quot;</span><span class="p">:</span> <span class="s2">&quot;ca571b2780652ccd1a5c7fa62da452db0d5e94557647e760c57d10ccd4369721&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="mi">2134616</span><span class="p">,</span>
+        <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-19T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;1970-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;last_used_at&quot;</span><span class="p">:</span> <span class="s2">&quot;0001-01-01T00:00:00Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;uploaded_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-19T00:00:00Z&quot;</span>
+    <span class="p">},</span>
 
-    ... snip
-]
+    <span class="err">...</span> <span class="err">snip</span>
+<span class="p">]</span>
 </pre></div>
 
 
@@ -656,42 +656,42 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.images.info(&#39;local&#39;, &#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">info</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
-    &quot;aliases&quot;: [],
-    &quot;architecture&quot;: &quot;x86_64&quot;,
-    &quot;auto_update&quot;: true,
-    &quot;cached&quot;: true,
-    &quot;created_at&quot;: &quot;2018-04-05T00:00:00Z&quot;,
-    &quot;expires_at&quot;: &quot;2021-04-21T00:00:00Z&quot;,
-    &quot;filename&quot;: &quot;ubuntu-16.04-server-cloudimg-amd64-lxd.tar.xz&quot;,
-    &quot;fingerprint&quot;: &quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;,
-    &quot;last_used_at&quot;: &quot;2018-04-08T22:49:34Z&quot;,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;amd64&quot;,
-        &quot;description&quot;: &quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;,
-        &quot;label&quot;: &quot;release&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;xenial&quot;,
-        &quot;serial&quot;: &quot;20180405&quot;,
-        &quot;version&quot;: &quot;16.04&quot;
-    },
-    &quot;public&quot;: false,
-    &quot;size&quot;: 163857160,
-    &quot;update_source&quot;: {
-        &quot;alias&quot;: &quot;16.04&quot;,
-        &quot;certificate&quot;: &quot;&quot;,
-        &quot;protocol&quot;: &quot;simplestreams&quot;,
-        &quot;server&quot;: &quot;https://cloud-images.ubuntu.com/releases&quot;
-    },
-    &quot;uploaded_at&quot;: &quot;2018-04-08T15:41:08Z&quot;
-}
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;auto_update&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;cached&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nt">&quot;created_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-05T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expires_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-21T00:00:00Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu-16.04-server-cloudimg-amd64-lxd.tar.xz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fingerprint&quot;</span><span class="p">:</span> <span class="s2">&quot;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;last_used_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T22:49:34Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;architecture&quot;</span><span class="p">:</span> <span class="s2">&quot;amd64&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu 16.04 LTS amd64 (release) (20180405)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;release&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;os&quot;</span><span class="p">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;xenial&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;serial&quot;</span><span class="p">:</span> <span class="s2">&quot;20180405&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;public&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;size&quot;</span><span class="p">:</span> <span class="mi">163857160</span><span class="p">,</span>
+    <span class="nt">&quot;update_source&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;alias&quot;</span><span class="p">:</span> <span class="s2">&quot;16.04&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;certificate&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;protocol&quot;</span><span class="p">:</span> <span class="s2">&quot;simplestreams&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;server&quot;</span><span class="p">:</span> <span class="s2">&quot;https://cloud-images.ubuntu.com/releases&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;uploaded_at&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-04-08T15:41:08Z&quot;</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -734,25 +734,25 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.images.replace(&#39;local&#39;, &#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;, {
-    &quot;auto_update&quot;: true,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;x86_64&quot;,
-        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;trusty&quot;
-    },
-    &quot;public&quot;: true,
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;auto_update&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;architecture&quot;</span><span class="o">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Ubuntu 16.04 LTS server (20160201)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;os&quot;</span><span class="o">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;release&quot;</span><span class="o">:</span> <span class="s2">&quot;trusty&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -795,25 +795,25 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.images.update(&#39;local&#39;, &#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;, {
-    &quot;auto_update&quot;: true,
-    &quot;properties&quot;: {
-        &quot;architecture&quot;: &quot;x86_64&quot;,
-        &quot;description&quot;: &quot;Ubuntu 16.04 LTS server (20160201)&quot;,
-        &quot;os&quot;: &quot;ubuntu&quot;,
-        &quot;release&quot;: &quot;trusty&quot;
-    },
-    &quot;public&quot;: true,
-}).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="s2">&quot;auto_update&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;architecture&quot;</span><span class="o">:</span> <span class="s2">&quot;x86_64&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Ubuntu 16.04 LTS server (20160201)&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;os&quot;</span><span class="o">:</span> <span class="s2">&quot;ubuntu&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;release&quot;</span><span class="o">:</span> <span class="s2">&quot;trusty&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;public&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 
 
@@ -850,16 +850,16 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span>lxc.images.delete(&#39;local&#39;, &#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;).then(response =&gt; {
-    console.log(response)
-})
+<div class="codehilite"><pre><span></span><span class="nx">lxc</span><span class="p">.</span><span class="nx">images</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span>
+<span class="p">})</span>
 </pre></div>
 
 
 <p><strong>Response</strong></p>
-<div class="codehilite"><pre><span></span>{
+<div class="codehilite"><pre><span></span><span class="p">{</span>
 
-}
+<span class="p">}</span>
 </pre></div>
                 
                   
@@ -879,7 +879,7 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
     };
     (function() {
       var d = document, s = d.createElement("script");
-      s.src = "//plinker-rpc.disqus.com/embed.js";
+      s.src = "//lxc-query.disqus.com/embed.js";
       s.setAttribute("data-timestamp", +new Date());
       (d.head || d.body).appendChild(s);
     })();
@@ -949,7 +949,7 @@ lxc.images.list(&#39;images&#39;, &#39;architecture=&quot;&#39; + [&#39;x86_64&#
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-      <a href="https://github.com/plinker-rpc" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/lcherone/lxc-query" class="md-footer-social__link fa fa-github"></a>
     
   </div>
 
