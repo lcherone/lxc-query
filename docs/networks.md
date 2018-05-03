@@ -10,15 +10,15 @@ List networks.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
-
-```
+ 
+``` javascript
 lxc.networks.list('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/networks/lxdbr0",
     "/1.0/networks/lo"
@@ -37,7 +37,7 @@ Get network information.
 | name         | string        | Network name  |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.info('local', 'lxdbr0').then(response => {
     console.log(response)
 })
@@ -45,7 +45,7 @@ lxc.networks.info('local', 'lxdbr0').then(response => {
 
 **Response**
 
-```
+``` json
 {
     "config": {
         "ipv4.address": "10.158.250.1/24",
@@ -75,7 +75,7 @@ Create network.
 | options      | object        | Network options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.create('local', {
     "name": "my-network",
     "description": "My network",
@@ -91,7 +91,7 @@ lxc.networks.create('local', {
 
 **Response**
 
-```
+``` json
 {
     
 }
@@ -110,7 +110,7 @@ Replace the network information.
 | options      | object        | Network options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.replace('local', 'my-new-network', {
     "config": {
         "bridge.driver": "openvswitch",
@@ -124,7 +124,7 @@ lxc.networks.replace('local', 'my-new-network', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -143,7 +143,7 @@ Update the network information.
 | options      | object        | Network options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.replace('local', 'my-new-network', {
     "config": {
         "dns.mode": "dynamic"
@@ -155,7 +155,7 @@ lxc.networks.replace('local', 'my-new-network', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -174,7 +174,7 @@ Rename a network.
 | newName      | string        | New network name  |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.rename('local', 'old-name', 'new-name').then(response => {
     console.log(response)
 })
@@ -182,7 +182,7 @@ lxc.networks.rename('local', 'old-name', 'new-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -200,7 +200,7 @@ Delete a network.
 | name         | string        | Network name  |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.networks.delete('local', 'network-name').then(response => {
     console.log(response)
 })
@@ -208,7 +208,7 @@ lxc.networks.delete('local', 'network-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }

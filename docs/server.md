@@ -10,14 +10,14 @@ Get server information.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 
-```
+``` javascript
 lxc.info('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	api_extensions: [
 		'storage_zfs_remove_snapshots',
@@ -147,7 +147,7 @@ Replaces the server configuration or other properties.
 
 <em>Replaces any existing config with the provided one.</em>
 
-```
+``` javascript
 lxc.replace('local', {
     "config": {
         "core.trust_password": "my-new-password",
@@ -159,7 +159,7 @@ lxc.replace('local', {
 ```
 
 **Response**
-```
+``` json
 {
 	
 }
@@ -178,7 +178,7 @@ Updates the server configuration or other properties.
 
 <em>Updates only the listed keys, rest remain intact.</em>
 
-```
+``` javascript
 lxc.update('local', {
     "config": {
         "core.trust_password": "my-new-password",
@@ -190,7 +190,7 @@ lxc.update('local', {
 ```
 
 **Response**
-```
+``` json
 {
 	
 }
@@ -206,14 +206,14 @@ Get information about the resources available to the LXD server.
 | ----------   | ------------- | ------------- | ------------- | 
 | remote       | string        | LXD remote    | local         |
 
-```
+``` javascript
 lxc.server.resources('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
     "cpu": {
         "sockets": [
@@ -254,14 +254,14 @@ Get currently defined remotes. (only works with local)
 | ----------   | ------------- | ------------- | ------------- | 
 | None         |               |               |               | 
 
-```
+``` javascript
 lxc.server.remotes().then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
 	'images',
 	'local',
@@ -280,14 +280,14 @@ Allows you to execute local exec commands.
 | ----------   | ------------- | -------------  | ------------- | 
 | command      | string        | Shell command to run |         |
 
-```
+``` javascript
 lxc.local('lxc list').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` text
 +------------------+---------+-----------------------+------+------------+-----------+
 |       NAME       |  STATE  |         IPV4          | IPV6 |    TYPE    | SNAPSHOTS |
 +------------------+---------+-----------------------+------+------------+-----------+

@@ -11,14 +11,14 @@ List operations on remote.
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.operations.list('local').then(response => {
   console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/operations/c0fc0d0d-a997-462b-842b-f8bd0df82507",
     "/1.0/operations/092a8755-fd90-4ce4-bf91-9f87d03fd5bc"
@@ -37,7 +37,7 @@ Get operation information.
 | uuid         | string        | Operation uuid    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.operations.info('local', '092a8755-fd90-4ce4-bf91-9f87d03fd5bc').then(response => {
     console.log(response)
 })
@@ -45,7 +45,7 @@ lxc.operations.info('local', '092a8755-fd90-4ce4-bf91-9f87d03fd5bc').then(respon
 
 **Response**
 
-```
+``` json
 {
     "id": "b8d84888-1dc2-44fd-b386-7f679e171ba5",
     "class": "token",
@@ -78,7 +78,7 @@ Delete an operation.
 | uuid         | string        | Operation uuid    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.operations.delete('local', '092a8755-fd90-4ce4-bf91-9f87d03fd5bc').then(response => {
     console.log(response)
 })
@@ -86,7 +86,7 @@ lxc.operations.delete('local', '092a8755-fd90-4ce4-bf91-9f87d03fd5bc').then(resp
 
 **Response**
 
-```
+``` json
 {
 	
 }

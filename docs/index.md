@@ -26,7 +26,7 @@ Essentially you can do any LXD operation with the single `lxc.query` method, or 
 | payload      | object \| json string | Rest json payload          |        |
 | mutator      | function      | Pre-resolve mutation function      |        |
 
-```
+``` javascript
 const lxc = require('lxc-query')
 
 lxc.query('remote:/1.0', 'GET', {}).then(response => {

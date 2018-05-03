@@ -15,14 +15,14 @@ to enable you to get logs for failed creations.
 | container    | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.logs.list('local', 'my-container').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/containers/my-container/logs/forkstart.log",
     "/1.0/containers/my-container/logs/lxc.conf",
@@ -45,14 +45,14 @@ Returns the contents of a particular log file.
 | logfile      | string        | Container logfile |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.logs.get('local', 'my-container', 'lxc.conf').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` text
 The log file contents
 ```
 
@@ -69,13 +69,13 @@ Delete a particular log file.
 | logfile      | string        | Container logfile |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.logs.delete('local', 'my-container', 'lxc.conf').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 ""
 ```

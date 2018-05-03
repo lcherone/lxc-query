@@ -11,14 +11,14 @@ List image aliases
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.list('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/images/aliases/alias-name"
 ]
@@ -36,7 +36,7 @@ Get image alias information.
 | name         | string        | Alias name    |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.info('local', 'alias-name').then(response => {
     console.log(response)
 })
@@ -44,7 +44,7 @@ lxc.images.aliases.info('local', 'alias-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
     "description": "The alias description",
     "name": "alias-name",
@@ -64,7 +64,7 @@ Get image alias information.
 | options      | object        | Alias options     |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.create('local', {
     "description": "The alias description",
     "target": "<image fingerprint>",
@@ -76,7 +76,7 @@ lxc.images.aliases.create('local', {
 
 **Response**
 
-```
+``` json
 {
 
 }
@@ -95,7 +95,7 @@ Replace alias target or description.
 | options      | object        | Alias options     |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.replace('local', 'alias-name', {
     "description": "New description",
     "target": "<image fingerprint>"
@@ -106,7 +106,7 @@ lxc.images.aliases.replace('local', 'alias-name', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -125,7 +125,7 @@ Update alias target or description.
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.update('local', 'alias-name', {
     "description": "New description",
     "target": "<image fingerprint>"
@@ -136,7 +136,7 @@ lxc.images.aliases.update('local', 'alias-name', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -155,7 +155,7 @@ Rename an image alias.
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.rename('local', 'alias-name', {
     "name": "new-name"
 }).then(response => {
@@ -165,7 +165,7 @@ lxc.images.aliases.rename('local', 'alias-name', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -183,7 +183,7 @@ Delete an image alias.
 | name         | name          | Alias name    |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.aliases.delete('local', 'alias-name').then(response => {
     console.log(response)
 })
@@ -191,7 +191,7 @@ lxc.images.aliases.delete('local', 'alias-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }

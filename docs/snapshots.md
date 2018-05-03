@@ -12,7 +12,7 @@ List container snapshots.
 | container    | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.snapshots.list('local', 'my-container').then(response => {
     console.log(response)
 })
@@ -25,7 +25,7 @@ lxc.containers.snapshots.list('local', 'my-container', response => lxc.container
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/containers/my-container/snapshots/my-snapshot"
 ]
@@ -44,14 +44,14 @@ Get container snapshot information.
 | snapshot     | string        | Snapshot name     |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.snapshots.info('local', 'my-container', 'my-container (April 10, 2018 6:53 PM)').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
     "architecture": "x86_64",
     "config": {
@@ -135,8 +135,8 @@ Create container snapshot.
 | container    | string        | Container name    |           |
 | options      | object        | Snapshot options  |           |
 | mutator      | function      | Mutation function |           |
-
-```
+ 
+``` javascript
 lxc.containers.snapshots.create('local', 'my-container', {
     "name": "my-snapshot",
     "stateful": true
@@ -146,7 +146,7 @@ lxc.containers.snapshots.create('local', 'my-container', {
 ```
 
 **Response**
-```
+``` json
 {
     "class": "task",
     "created_at": "2018-04-09T17:57:48.19705024Z",
@@ -180,14 +180,14 @@ Rename container snapshot.
 | newname      | string        | New snapshot name |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.snapshots.rename('local', 'my-container', 'my-snapshot-name', 'new-snapshot-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
     "class": "task",
     "created_at": "2018-04-10T19:17:15.517952676+01:00",
@@ -219,14 +219,14 @@ Delete container snapshot.
 | snapshot     | string        | Snapshot name     |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.snapshots.delete('local', 'my-container', 'my-snapshot-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-10T20:23:56.80835635+01:00',
@@ -256,14 +256,14 @@ Restore container snapshot.
 | snapshot     | string        | Snapshot name     |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.snapshots.restore('local', 'my-container', 'my-snapshot-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 
 }

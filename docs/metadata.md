@@ -12,14 +12,14 @@ Returns the containers metadata.
 | container    | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.metadata.get('local', 'my-container').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 {
     "architecture": "x86_64",
     "creation_date": 1522920368,
@@ -97,7 +97,7 @@ Replace the containers metadata.
 | metadata     | string        | Container metadata |          |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.metadata.replace('local', 'my-container', {
     "architecture": "x86_64",
     "creation_date": 1522920368,
@@ -165,7 +165,7 @@ lxc.containers.metadata.replace('local', 'my-container', {
 ```
 
 **Response**
-```
+``` json
 {
     
 }

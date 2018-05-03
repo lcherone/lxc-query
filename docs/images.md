@@ -11,7 +11,7 @@ List images on remote.
 | remote       | string        | LXD remote    | local         |
 | filter       | string        | Image property based filtering | |
 
-```
+``` javascript
 lxc.images.list('images').then(response => {
   console.log(response)
 })
@@ -23,7 +23,7 @@ lxc.images.list('images', 'architecture="' + ['x86_64', 'i686', 'amd64'].join('|
 ```
 
 **Response**
-```
+``` json
 [
     {
         "auto_update": false,
@@ -80,7 +80,7 @@ Get image information.
 | fingerprint  | string        | Image fingerprint |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.info('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
@@ -88,7 +88,7 @@ lxc.images.info('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6b
 
 **Response**
 
-```
+``` json
 {
     "aliases": [],
     "architecture": "x86_64",
@@ -133,7 +133,7 @@ Replace image properties, update information and visibility.
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.replace('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
@@ -150,7 +150,7 @@ lxc.images.replace('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -169,7 +169,7 @@ Update image properties, update information and visibility.
 | options      | object        | Images options    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a', {
     "auto_update": true,
     "properties": {
@@ -186,7 +186,7 @@ lxc.images.update('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -204,7 +204,7 @@ Delete an image.
 | fingerprint  | string        | Image fingerprint |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.images.delete('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b6bc06bf06f5a').then(response => {
     console.log(response)
 })
@@ -212,7 +212,7 @@ lxc.images.delete('local', 'be7cec7c948958adfbb9bc7dbd292762d2388cc883466815fc2b
 
 **Response**
 
-```
+``` json
 {
 	
 }

@@ -18,14 +18,14 @@ fetch them.
 | path         | string        | Container directory path | |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.files.list('local', 'my-container', '/').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 [
     "proc",
     "usr",
@@ -69,7 +69,7 @@ Upload files or folders into the container.
     All files are uploaded as uid/gid root user.
 </em>
 
-```
+``` javascript
 // single file
 lxc.containers.files.push('local', 'my-container', '/local/path/to/file.ext', '/path/to/file.ext').then(response => {
     console.log(response);
@@ -82,7 +82,7 @@ lxc.containers.files.push('local', 'my-container', '/local/path/to/folder', '/pa
 ```
 
 **Response**
-```
+``` json
 ""
 ```
 
@@ -102,7 +102,7 @@ to use that in future.
 | container    | string        | Container name    |           |
 | path         | string        | Container file path |
 
-```
+``` javascript
 lxc.containers.files.pull('local', 'my-container', '/path/to/file').then(response => {
     console.log(response);
 })
@@ -116,6 +116,6 @@ lxc.containers.files.pull('local', 'my-container', '/path/to/file').then(respons
 <em>Example above would create: `./.files/local/my-container/path/to/file`</em>
 
 **Response**
-```
+``` txt
 The file contents
 ```

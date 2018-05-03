@@ -11,14 +11,14 @@ List profiles.
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.list('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/profiles/default"
 ]
@@ -36,15 +36,15 @@ Get profile information.
 | name         | string        | Profile name  |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.info('local', 'default').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-
-```
+ 
+``` json
 {
     "config": {},
     "description": "Default LXD profile",
@@ -80,7 +80,7 @@ Create profile.
 | options      | object        | Profile options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.create('local', {
     "name": "my-new-profile",
     "description": "Some informative description string",
@@ -100,7 +100,7 @@ lxc.profiles.create('local', {
 
 **Response**
 
-```
+``` json
 {
     
 }
@@ -119,7 +119,7 @@ Replace profile properties, update description, devices and limits.
 | options      | object        | Profile options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.replace('local', 'my-new-profile', {
     "config": {
         "limits.memory": "4GB"
@@ -133,7 +133,7 @@ lxc.profiles.replace('local', 'my-new-profile', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -152,7 +152,7 @@ Update profile properties, update description, devices and limits.
 | options      | object        | Profile options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.replace('local', 'my-new-profile', {
     "config": {
         "limits.memory": "4GB"
@@ -166,7 +166,7 @@ lxc.profiles.replace('local', 'my-new-profile', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -185,7 +185,7 @@ Rename a profile.
 | newName      | string        | New profile name  |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.rename('local', 'old-name', 'new-name').then(response => {
     console.log(response)
 })
@@ -193,7 +193,7 @@ lxc.profiles.rename('local', 'old-name', 'new-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -211,7 +211,7 @@ Delete a profile.
 | name         | string        | Profile name  |               |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.profiles.delete('local', 'profile-name').then(response => {
     console.log(response)
 })
@@ -219,7 +219,7 @@ lxc.profiles.delete('local', 'profile-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }

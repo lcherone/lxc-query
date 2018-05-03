@@ -11,14 +11,14 @@ List client certificates.
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.certificates.list('local').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 [
     "/1.0/certificates/33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx"
 ]
@@ -36,7 +36,7 @@ Add client certificate.
 | options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.certificates.add('local', {
     "type": "client",
     "certificate": "PEM certificate",
@@ -49,7 +49,7 @@ lxc.certificates.add('local', {
 
 **Response**
 
-```
+``` json
 {
     
 }
@@ -67,7 +67,7 @@ Get certificate information.
 | fingerprint  | string        | Certificate fingerprint |     |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.certificates.info('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx').then(response => {
     console.log(response)
 })
@@ -75,7 +75,7 @@ lxc.certificates.info('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706066
 
 **Response**
 
-```
+``` json
 {
     "certificate": "-----BEGIN CERTIFICATE-----\n snip \n-----END CERTIFICATE-----\n",
     "fingerprint": "33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx",
@@ -96,8 +96,8 @@ Replace certificate properties.
 | fingerprint  | string        | Certificate fingerprint |     |
 | options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
-
-```
+ 
+``` javascript
 lxc.certificates.replace('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx', {
     "type": "client",
     "name": "bar"
@@ -108,7 +108,7 @@ lxc.certificates.replace('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -127,7 +127,7 @@ Update certificate properties.
 | options      | object        | Certificate options   |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.certificates.replace('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx', {
     "name": "baz"
 }).then(response => {
@@ -137,7 +137,7 @@ lxc.certificates.replace('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -155,7 +155,7 @@ Delete a client certificate.
 | fingerprint  | string        | Certificate fingerprint |     |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.certificates.delete('local', '33c50480212ea93c0afbb8125c280b1a66445cac64706066ade30851f54cc8bx').then(response => {
     console.log(response)
 })
@@ -163,7 +163,7 @@ lxc.certificates.delete('local', '33c50480212ea93c0afbb8125c280b1a66445cac647060
 
 **Response**
 
-```
+``` json
 {
 	
 }

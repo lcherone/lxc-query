@@ -16,21 +16,21 @@ theme:
   palette:
     primary: 'blue'
     accent: 'blue'
-  #font:
-  #  text: 'Ubuntu'
-  #  code: 'Ubuntu Mono'
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
     
 # Configuration
-repo_name: 'plinker-rpc'
-repo_url: 'https://github.com/plinker-rpc'
+repo_name: 'lcherone/lxc-query'
+repo_url: 'https://github.com/lcherone/lxc-query'
 edit_uri: ''
 
 # Customization
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/plinker-rpc'
-  disqus: 'plinker-rpc'
+      link: 'https://github.com/lcherone/lxc-query'
+  disqus: 'lxc-query'
   
 # Extensions
 markdown_extensions:

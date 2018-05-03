@@ -11,7 +11,7 @@ List containers on remote.
 | remote       | string        | LXD remote    | local         |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 // apply no mutation to the response
 lxc.containers.list('local').then(response => {
     // [ '/1.0/containers/my-container' ]
@@ -38,7 +38,7 @@ lxc.containers.list('local', response => {
 ```
 
 **Response**
-```
+``` json
 [ 
     '/1.0/containers/my-container'
 ]
@@ -56,14 +56,14 @@ Get container information.
 | name         | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.info('local', 'my-container').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 {
     "architecture": "x86_64",
     "config": {
@@ -129,7 +129,7 @@ lxc.containers.info('local', 'my-container').then(response => {
 
 In express you might do something like the following, to get all containers and then enumerate their information.
 
-```
+``` javascript
 app.get("/containers", function(req, res) {
   //
   lxc.containers.list('local', response => lxc.containers.stripEndpoint(response)).then(containers => {
@@ -157,14 +157,14 @@ Get the state of a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.getState('local', 'container-name').then(response => {
     console.log(response);
 })
 ```
 
 **Response**
-```
+``` json
 {
 	"cpu": {
 		"usage": 15159435138
@@ -252,7 +252,7 @@ calling the (start, stop, restart, freeze, unfreeze) methods below as you can se
 | container    | string        | The container name |          |
 | options      | object \| json   | Container state options |  |
 
-```
+``` javascript
 lxc.containers.setState('local', 'container-name',  {
     "action": "stop",  # State change action (stop, start, restart, freeze or unfreeze)
     "timeout": 30,     # A timeout after which the state change is considered as failed
@@ -264,7 +264,7 @@ lxc.containers.setState('local', 'container-name',  {
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -297,7 +297,7 @@ Replaces container configuration or restore snapshot.
 | options      | object        | Container options |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.replace('local', 'my-container', {
     "architecture": "x86_64",
     "config": {
@@ -322,7 +322,7 @@ lxc.containers.replace('local', 'my-container', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -341,7 +341,7 @@ Update container configuration.
 | options      | object        | Container options |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.replace('local', 'my-container', {
     "config": {
         "limits.cpu": "4"
@@ -359,7 +359,7 @@ lxc.containers.replace('local', 'my-container', {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -378,7 +378,7 @@ Rename a container.
 | newName      | string        | New container name|           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.rename('local', 'old-name', 'new-name').then(response => {
     console.log(response)
 })
@@ -386,7 +386,7 @@ lxc.containers.rename('local', 'old-name', 'new-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -405,7 +405,7 @@ Create a container.
 
 Full container options can be found here: [https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1](https://github.com/lxc/lxd/blob/master/doc/rest-api.md#post-1)
 
-```
+``` javascript
 // example from local
 lxc.containers.create('local', {
     "name": "my-new-container",
@@ -445,7 +445,7 @@ lxc.containers.create('local', {
 ```
 
 **Response**
-```
+``` json
 {
     "class": "task",
     "created_at": "2018-04-08T22:49:33.892947111Z",
@@ -467,7 +467,7 @@ lxc.containers.create('local', {
 
 *you could also simply call `lxc.local()` to run what you would normally run on cmd line:
 
-```
+``` javascript
 // same as above
 lxc.local('lxc launch ubuntu:16.04 my-new-container')
 
@@ -492,14 +492,14 @@ Start a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.start('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -530,14 +530,14 @@ Stop a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.stop('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -568,14 +568,14 @@ Restart a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.restart('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -606,14 +606,14 @@ Freeze a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.freeze('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -644,14 +644,14 @@ Unfreeze a container.
 | remote       | string        | LXD remote    | local         |
 | container    | string        | The container name |          |
 
-```
+``` javascript
 lxc.containers.unfreeze('local', 'container-name').then(response => {
     console.log(response)
 })
 ```
 
 **Response**
-```
+``` json
 {
 	class: 'task',
 	created_at: '2018-04-08T16:37:36.511708398Z',
@@ -683,7 +683,7 @@ Delete a container.
 | name         | string        | Container name    |           |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.delete('local', 'container-name').then(response => {
     console.log(response)
 })
@@ -691,7 +691,7 @@ lxc.containers.delete('local', 'container-name').then(response => {
 
 **Response**
 
-```
+``` json
 {
 	
 }
@@ -710,7 +710,7 @@ Run a command in container.
 | options      | object        | The container options |       |
 | mutator      | function      | Mutation function |           |
 
-```
+``` javascript
 lxc.containers.exec('local', 'my-container', {
     "command": ["/bin/bash"],
     "environment": {},
@@ -726,7 +726,7 @@ lxc.containers.exec('local', 'my-container', {
 
 **Response**
 
-```
+``` json
 {
     "class": "task",
     "created_at": "2018-04-16T01:58:34.642661556Z",
