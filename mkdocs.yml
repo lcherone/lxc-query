@@ -1,5 +1,52 @@
 site_name: LXC Query
-theme: readthedocs
+site_description: 'A Node.js LXD client which uses your local instance of LXD and `lxc query` to manage your local or remote LXD servers.'
+site_author: 'Lawrence Cherone'
+site_url: 'https://github.com/lcherone/lxc-query'
+
+# Copyright
+copyright: 'Copyright &copy; 2018 Lawrence Cherone'
+
+# Theme
+theme:
+  #feature:
+  #  tabs: true
+  logo: 
+    icon: 'language'
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  #font:
+  #  text: 'Ubuntu'
+  #  code: 'Ubuntu Mono'
+    
+# Configuration
+repo_name: 'plinker-rpc'
+repo_url: 'https://github.com/plinker-rpc'
+edit_uri: ''
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/plinker-rpc'
+  disqus: 'plinker-rpc'
+  
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: true
+  - toc:
+      permalink: true
+  - meta
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+ 
+# Pages
 pages:
     - Home: index.md
     - Server: server.md
