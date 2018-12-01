@@ -56,7 +56,7 @@ app.all('/*', (req, res, next) => {
 app.listen(port)
 ```
 
-So using the above if you visited `http://127.0.0.1:3000/local:/1.0/containers` it would proxy it though to local server list containers, you can do this for any rest method or any LXD endpoint, with the addtion that `local:` can be any defined remote!
+So using the above if you visited `http://127.0.0.1:3000/local:/1.0/containers` it would proxy it though to local LXD server, list containers.. You could do this for any rest method or LXD endpoint, with the addtion that `local:` can be any of your defined remotes!
 
 Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more information. 
 
