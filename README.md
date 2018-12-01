@@ -36,6 +36,28 @@ lxc.query('remote:/1.0', 'GET', {}).then(response => {
 })
 ```
 
+## Express example
+
+Using express you can map the rest calls to the lib as shown below:
+
+``` javascript
+const lxc = require('lxc-query')
+
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.all('/*', (req, res, next) => {
+    lxc.query(req.url.substr(1), req.method, req.body).then(response => {
+        res.json(response)
+    })
+})
+
+app.listen(port)
+```
+
+So using the above if you visited `http://127.0.0.1:3000/local:/1.0/containers` it would proxy it though to local server list containers, you can do this for any rest method or any LXD endpoint, with the addtion that `local:` can be any defined remote!
+
 Check out the LXD [RESTapi](https://github.com/lxc/lxd/blob/master/doc/rest-api.md), for more information. 
 
 ## Contributing
