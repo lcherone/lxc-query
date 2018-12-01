@@ -28,7 +28,7 @@ Essentially you can do any LXD operation with the single `lxc.query` method, or 
 | payload      | object \| json string | Rest json payload          |        |
 | mutator      | function      | Pre-resolve mutation function      |        |
 
-```
+``` javascript
 const lxc = require('lxc-query')
 
 lxc.query('remote:/1.0', 'GET', {}).then(response => {
@@ -42,18 +42,14 @@ Using express you can map the rest calls to the lib as shown below:
 
 ``` javascript
 const lxc = require('lxc-query')
-
 const express = require('express')
 const app = express()
-const port = 3000
 
-app.all('/*', (req, res, next) => {
-    lxc.query(req.url.substr(1), req.method, req.body).then(response => {
-        res.json(response)
-    })
+app.all('/*', (req, res) => {
+    lxc.query(req.url.substr(1), req.method, req.body).then(response => res.json(response))
 })
 
-app.listen(port)
+app.listen(3000)
 ```
 
 So using the above if you visited `http://127.0.0.1:3000/local:/1.0/containers` it would proxy it though to local LXD server, list containers.. You could do this for any rest method or LXD endpoint, with the addition that `local:` can be any of your defined remotes!
