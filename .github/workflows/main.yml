@@ -11,8 +11,10 @@ jobs:
       
     - name: Install and configure LXD
       env:
+        runTests: true
         LXD_SECRET: testing
       run: |
+        echo >&2 "$(printenv)"
         export PATH=./node_modules/.bin:/usr/bin:/bin:/snap/bin:$PATH
         set -eo pipefail
         sudo apt-get -y remove lxd lxd-client
