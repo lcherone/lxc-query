@@ -26,5 +26,5 @@ jobs:
         openssl genrsa 2048 > client.key
         openssl req -new -x509 -nodes -sha1 -days 365 -key client.key -out client.crt -subj "/C=GB/ST=London/L=London/O=TEST/OU=IT Department/CN=lxd.localhost"
         sudo lxd.lxc config trust add client.crt
-        curl -k -L --cert client.crt --key client.key "https://127.0.0.1:8443/1.0"
+        curl -s -k -L --cert client.crt --key client.key "https://127.0.0.1:8443/1.0"
         npm run test
