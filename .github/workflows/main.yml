@@ -13,7 +13,7 @@ jobs:
       run: |
         export PATH=./node_modules/.bin:/usr/bin:/bin:/snap/bin:$PATH
         set -eo pipefail
-        sudo groupadd --system lxd
+        #sudo groupadd --system lxd
         sudo usermod -a -G lxd $USER
         sudo apt-get --yes install snapd
         sudo snap install lxd
