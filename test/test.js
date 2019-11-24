@@ -72,7 +72,7 @@ if (runTests) {
     // start container - give it 10 seconds to create
     describe('#start()', function () {
       it('should complete promise, start container, return object (operation dect) and not error', function (done) {
-        this.timeout(11000)
+        this.timeout(15000)
         setTimeout(function () {
           lxc.containers.start('local', 'test-container').then(response => {
             assert.equal(response.constructor, Object)
@@ -85,26 +85,26 @@ if (runTests) {
     // stop container
     describe('#stop()', function () {
       it('should complete promise, stop container, return object (operation dect) and not error', function (done) {
-        this.timeout(6000)
+        this.timeout(15000)
         setTimeout(function () {
           lxc.containers.stop('local', 'test-container').then(response => {
             assert.equal(response.constructor, Object)
             done()
           }, err => done(err)).catch(err => done(err))
-        }, 5000)
+        }, 10000)
       })
     })
   
     // delete container
     describe('#delete()', function () {
       it('should complete promise, delete container, return object (operation dect) and not error', function (done) {
-        this.timeout(6000)
+        this.timeout(15000)
         setTimeout(function () {
           lxc.containers.delete('local', 'test-container').then(response => {
             assert.equal(response.constructor, Object)
             done()
           }, err => done(err)).catch(err => done(err))
-        }, 5000)
+        }, 10000)
       })
     })
   })
