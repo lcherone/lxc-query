@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out sourcecode
     - uses: actions/checkout@v1
       
     - name: Install and configure LXD
