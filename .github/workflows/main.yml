@@ -1,0 +1,28 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out sourcecode
+    - uses: actions/checkout@v1
+      
+    - name: Install and configure LXD
+      run: |
+        export PATH=./node_modules/.bin:/usr/bin:/bin:/snap/bin:$PATH
+        set -eo pipefail
+        sudo groupadd --system lxd
+        sudo usermod -a -G lxd $USER
+        sudo apt-get --yes install snapd
+        sudo snap install lxd
+        sudo lxd waitready
+        sudo lxd init --auto --network-address="127.0.0.1" --storage-backend=dir --trust-password=$lxdSecret
+        # setup LXD REST api
+        openssl genrsa 2048 > client.key
+        openssl req -new -x509 -nodes -sha1 -days 365 -key client.key -out client.crt -subj "/C=GB/ST=London/L=London/O=TEST/OU=IT Department/CN=ssl.cherone.co.uk"
+        sudo lxd.lxc config trust add client.crt
+        curl -k -L --cert client.crt --key client.key "https://127.0.0.1:8443/1.0"
+        npm run test
