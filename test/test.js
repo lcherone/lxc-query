@@ -6,7 +6,7 @@
  * 
  * If your comfortable writing tests, then please feel free to contribute.
  */
-var runTests = false
+var runTests = process.env.runTests || false
 
 // include lib
 const lxc = require('../src/index.js')
@@ -15,7 +15,7 @@ const lxc = require('../src/index.js')
 const assert = require('assert')
 
 // set cmd which is run for travis, default its set to just lxc
-if (process.env.isTravis) {
+if (process.env.isTravis || ) {
   lxc.setCmd('sudo lxd.lxc')
   // always run tests when travis
   runTests = true
