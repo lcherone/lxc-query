@@ -27,4 +27,18 @@ jobs:
         openssl req -new -x509 -nodes -sha1 -days 365 -key client.key -out client.crt -subj "/C=GB/ST=London/L=London/O=TEST/OU=IT Department/CN=lxd.localhost"
         sudo lxd.lxc config trust add client.crt
         curl -s -k -L --cert client.crt --key client.key "https://127.0.0.1:8443/1.0"
-        npm run test
+        
+    - name: Set Node.js 10.x
+      uses: actions/setup-node@master
+      with:
+        node-version: 10.x
+
+    - name: Install dependencies
+      working-directory: ./
+      run: |
+        npm install
+
+    - name: Run lint
+      working-directory: ./
+      run: |
+        npm run lint
