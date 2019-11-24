@@ -15,9 +15,8 @@ const lxc = require('../src/index.js')
 const assert = require('assert')
 
 // set cmd which is run for travis, default its set to just lxc
-if (process.env.isTravis || ) {
+if (process.env.isTravis || process.env.GITHUB_ACTIONS) {
   lxc.setCmd('sudo lxd.lxc')
-  // always run tests when travis
   runTests = true
 }
 
