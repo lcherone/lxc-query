@@ -57,9 +57,7 @@ class Module {
               }
               try {
                 stdout = JSON.parse(stdout)
-              } catch (e) {
-                reject(stdout)
-              }
+              } catch (e) {}
               if (typeof mutator === 'function') {
                 stdout = mutator(stdout)
               }

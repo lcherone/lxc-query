@@ -4,3 +4,4 @@ node_modules/
 site/
 .files/
 server/
+package-lock.json

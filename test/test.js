@@ -1,12 +1,14 @@
 /**
  * Tests - written for travis
- * 
- * The idea is not to pedantically cover everything but just the basics so as 
+ *
+ * The idea is not to pedantically cover everything but just the basics so as
  * not to deploy a broken lib, like does it return an array/object.
- * 
+ *
  * If your comfortable writing tests, then please feel free to contribute.
  */
 var runTests = process.env.runTests || false
+
+runTests = true
 
 // include lib
 const lxc = require('../src/index.js')
@@ -32,8 +34,19 @@ if (runTests) {
         }, err => done(err)).catch(err => done(err))
       })
     })
+
+    // local arbitrary cmd
+    describe('#local()', function () {
+      it('should complete promise, return string and not error', function (done) {
+        lxc.local('echo "lxd rocks"', {}).then(response => {
+          assert.equal(response.constructor, String)
+          assert(response.trim() === 'lxd rocks')
+          done()
+        }, err => done(err)).catch(err => done(err))
+      })
+    })
   })
-  
+
   describe('LXC - Containers', function () {
     // list containers
     describe('#list()', function () {
@@ -44,7 +57,7 @@ if (runTests) {
         }, err => done(err)).catch(err => done(err))
       })
     })
-  
+
     // create container
     describe('#create()', function () {
       it('should complete promise, create container, return object (operation dect) and not error', function (done) {
@@ -68,7 +81,7 @@ if (runTests) {
         }, err => done(err)).catch(err => done(err))
       })
     })
-  
+
     // start container - give it 10 seconds to create
     describe('#start()', function () {
       it('should complete promise, start container, return object (operation dect) and not error', function (done) {
@@ -81,7 +94,7 @@ if (runTests) {
         }, 10000)
       })
     })
-  
+
     // stop container
     describe('#stop()', function () {
       it('should complete promise, stop container, return object (operation dect) and not error', function (done) {
@@ -94,7 +107,7 @@ if (runTests) {
         }, 10000)
       })
     })
-  
+
     // delete container
     describe('#delete()', function () {
       it('should complete promise, delete container, return object (operation dect) and not error', function (done) {
@@ -111,4 +124,3 @@ if (runTests) {
 }
 
 /* Developers testing - anything beyond this point, its best to just ignore ;p */
-
